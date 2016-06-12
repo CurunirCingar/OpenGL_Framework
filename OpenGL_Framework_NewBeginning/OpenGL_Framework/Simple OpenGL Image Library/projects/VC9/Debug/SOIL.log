@@ -1,0 +1,154 @@
+﻿Build started 25.03.2016 22:33:10.
+     1>Project "C:\Users\Curunir\Desktop\OpenGL_Framework_NewBeginning\OpenGL_Framework\Simple OpenGL Image Library\projects\VC9\SOIL.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\src\image_DXT.c ..\..\src\image_helper.c ..\..\src\SOIL.c ..\..\src\stb_image_aug.c
+         stb_image_aug.c
+     1>c:\users\curunir\desktop\opengl_framework_newbeginning\opengl_framework\simple opengl image library\src\stb_image_aug.c(177): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+     1>c:\users\curunir\desktop\opengl_framework_newbeginning\opengl_framework\simple opengl image library\src\stb_image_aug.c(251): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+     1>c:\users\curunir\desktop\opengl_framework_newbeginning\opengl_framework\simple opengl image library\src\stb_image_aug.c(303): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+     1>c:\users\curunir\desktop\opengl_framework_newbeginning\opengl_framework\simple opengl image library\src\stb_image_aug.c(1557): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+     1>c:\users\curunir\desktop\opengl_framework_newbeginning\opengl_framework\simple opengl image library\src\stb_image_aug.c(2394): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+     1>c:\users\curunir\desktop\opengl_framework_newbeginning\opengl_framework\simple opengl image library\src\stb_image_aug.c(2709): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+     1>c:\users\curunir\desktop\opengl_framework_newbeginning\opengl_framework\simple opengl image library\src\stb_image_aug.c(2995): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+     1>c:\users\curunir\desktop\opengl_framework_newbeginning\opengl_framework\simple opengl image library\src\stb_image_aug.c(3209): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+     1>c:\users\curunir\desktop\opengl_framework_newbeginning\opengl_framework\simple opengl image library\src\stb_image_aug.c(3548): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+     1>c:\users\curunir\desktop\opengl_framework_newbeginning\opengl_framework\simple opengl image library\src\stb_image_aug.c(3644): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+     1>c:\users\curunir\desktop\opengl_framework_newbeginning\opengl_framework\simple opengl image library\src\stbi_dds_aug_c.h(362): warning C4018: '>' : signed/unsigned mismatch
+     1>c:\users\curunir\desktop\opengl_framework_newbeginning\opengl_framework\simple opengl image library\src\stbi_dds_aug_c.h(366): warning C4018: '>' : signed/unsigned mismatch
+     1>c:\users\curunir\desktop\opengl_framework_newbeginning\opengl_framework\simple opengl image library\src\stbi_dds_aug_c.h(390): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\curunir\desktop\opengl_framework_newbeginning\opengl_framework\simple opengl image library\src\stbi_dds_aug_c.h(427): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\curunir\desktop\opengl_framework_newbeginning\opengl_framework\simple opengl image library\src\stbi_dds_aug_c.h(498): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+         SOIL.c
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winnt.h(3513): warning C4103: 'c:\program files\microsoft visual studio 12.0\vc\include\winnt.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winnt.h(3805): warning C4103: 'c:\program files\microsoft visual studio 12.0\vc\include\winnt.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winnt.h(3903): warning C4068: unknown pragma
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winnt.h(3909): warning C4068: unknown pragma
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winnt.h(3916): warning C4068: unknown pragma
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1316): error C2054: expected '(' to follow 'DECLSPEC_NORETURN'
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1316): error C2085: 'ExitProcess' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1317): error C2061: syntax error : identifier 'DECLSPEC_NORETURN'
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1377): error C2054: expected '(' to follow 'DECLSPEC_NORETURN'
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1377): error C2085: 'FreeLibraryAndExitThread' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1381): error C2085: 'FreeResource' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1383): error C2085: 'FreeSid' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1384): error C2085: 'GetAce' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1385): error C2085: 'GetAclInformation' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1386): error C2085: 'GetAtomNameA' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1387): error C2085: 'GetAtomNameW' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1388): error C2085: 'GetBinaryTypeA' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1389): error C2085: 'GetBinaryTypeW' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1390): error C2085: 'GetCommandLineA' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1391): error C2085: 'GetCommandLineW' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1392): error C2085: 'GetCommConfig' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1393): error C2085: 'GetCommMask' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1394): error C2085: 'GetCommModemStatus' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1395): error C2085: 'GetCommProperties' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1396): error C2085: 'GetCommState' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1397): error C2085: 'GetCommTimeouts' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1398): error C2085: 'GetCompressedFileSizeA' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1399): error C2085: 'GetCompressedFileSizeW' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1400): error C2085: 'GetComputerNameA' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1401): error C2085: 'GetComputerNameW' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1409): error C2085: 'GetCurrentDirectoryA' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1410): error C2085: 'GetCurrentDirectoryW' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1411): error C2085: 'GetCurrentHwProfileA' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1412): error C2085: 'GetCurrentHwProfileW' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1413): error C2085: 'GetCurrentProcess' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1414): error C2085: 'GetCurrentProcessId' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1415): error C2085: 'GetCurrentThread' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1419): error C2085: 'GetCurrentThreadId' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1422): error C2085: 'GetDefaultCommConfigA' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1423): error C2085: 'GetDefaultCommConfigW' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1424): error C2085: 'GetDevicePowerState' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1425): error C2085: 'GetDiskFreeSpaceA' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1426): error C2085: 'GetDiskFreeSpaceW' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1427): error C2085: 'GetDiskFreeSpaceExA' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1428): error C2085: 'GetDiskFreeSpaceExW' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1433): error C2085: 'GetDriveTypeA' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1434): error C2085: 'GetDriveTypeW' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1435): error C2085: 'GetEnvironmentStrings' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1436): error C2085: 'GetEnvironmentStringsA' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1437): error C2085: 'GetEnvironmentStringsW' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1438): error C2085: 'GetEnvironmentVariableA' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1439): error C2085: 'GetEnvironmentVariableW' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1440): error C2085: 'GetExitCodeProcess' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1441): error C2085: 'GetExitCodeThread' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1442): error C2085: 'GetFileAttributesA' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1443): error C2085: 'GetFileAttributesW' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1444): error C2085: 'GetFileAttributesExA' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1445): error C2085: 'GetFileAttributesExW' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1446): error C2085: 'GetFileInformationByHandle' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1447): error C2085: 'GetFileSecurityA' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1448): error C2085: 'GetFileSecurityW' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1449): error C2085: 'GetFileSize' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1453): error C2085: 'GetFileTime' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1454): error C2085: 'GetFileType' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1456): error C2085: 'GetFullPathNameA' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1457): error C2085: 'GetFullPathNameW' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1458): error C2085: 'GetHandleInformation' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1459): error C2085: 'GetKernelObjectSecurity' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1460): error C2085: 'GetLastError' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1461): error C2085: 'GetLengthSid' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1462): error C2085: 'GetLocalTime' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1463): error C2085: 'GetLogicalDrives' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1464): error C2085: 'GetLogicalDriveStringsA' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1465): error C2085: 'GetLogicalDriveStringsW' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1470): error C2085: 'GetMailslotInfo' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1471): error C2085: 'GetModuleFileNameA' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1472): error C2085: 'GetModuleFileNameW' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1473): error C2085: 'GetModuleHandleA' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1474): error C2085: 'GetModuleHandleW' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1479): error C2085: 'GetNamedPipeHandleStateA' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1480): error C2085: 'GetNamedPipeHandleStateW' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1481): error C2085: 'GetNamedPipeInfo' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1485): error C2085: 'GetNumberOfEventLogRecords' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1486): error C2085: 'GetOldestEventLogRecord' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1487): error C2085: 'GetOverlappedResult' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1488): error C2085: 'GetPriorityClass' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1489): error C2085: 'GetPrivateObjectSecurity' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1490): error C2085: 'GetPrivateProfileIntA' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1491): error C2085: 'GetPrivateProfileIntW' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1492): error C2085: 'GetPrivateProfileSectionA' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1493): error C2085: 'GetPrivateProfileSectionW' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1494): error C2085: 'GetPrivateProfileSectionNamesA' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1495): error C2085: 'GetPrivateProfileSectionNamesW' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1496): error C2085: 'GetPrivateProfileStringA' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1497): error C2085: 'GetPrivateProfileStringW' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1498): error C2085: 'GetPrivateProfileStructA' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1499): error C2085: 'GetPrivateProfileStructW' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1500): error C2085: 'GetProcAddress' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1501): error C2085: 'GetProcessAffinityMask' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1505): error C2085: 'GetProcessHeap' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1506): error C2085: 'GetProcessHeaps' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1513): error C2085: 'GetProcessPriorityBoost' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1514): error C2085: 'GetProcessShutdownParameters' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1515): error C2085: 'GetProcessTimes' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1516): error C2085: 'GetProcessVersion' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1517): error C2085: 'GetProcessWindowStation' : not in formal parameter list
+     1>c:\program files\microsoft visual studio 12.0\vc\include\winbase.h(1517): fatal error C1003: error count exceeds 100; stopping compilation
+         image_helper.c
+     1>c:\users\curunir\desktop\opengl_framework_newbeginning\opengl_framework\simple opengl image library\src\image_helper.c(325): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\curunir\desktop\opengl_framework_newbeginning\opengl_framework\simple opengl image library\src\image_helper.c(366): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\curunir\desktop\opengl_framework_newbeginning\opengl_framework\simple opengl image library\src\image_helper.c(373): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\curunir\desktop\opengl_framework_newbeginning\opengl_framework\simple opengl image library\src\image_helper.c(415): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\curunir\desktop\opengl_framework_newbeginning\opengl_framework\simple opengl image library\src\image_helper.c(422): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+         image_DXT.c
+     1>c:\users\curunir\desktop\opengl_framework_newbeginning\opengl_framework\simple opengl image library\src\image_dxt.c(92): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+         Generating Code...
+     1>Done Building Project "C:\Users\Curunir\Desktop\OpenGL_Framework_NewBeginning\OpenGL_Framework\Simple OpenGL Image Library\projects\VC9\SOIL.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:01.46
