@@ -27,22 +27,14 @@ void Transform::Update()
 	view = *cameraViewMatrix;
 
 	glm::mat4 model;
-	/*model = glm::rotate(model, transform.rot.x, xRot);
+	model = glm::rotate(model, transform.rot.x, xRot);
 	model = glm::rotate(model, transform.rot.y, yRot);
-	model = glm::rotate(model, transform.rot.z, zRot);*/
+	model = glm::rotate(model, transform.rot.z, zRot);
 	model = glm::translate(model, transform.pos);
 	model = glm::scale(model, m_scale);
 
-	
-
-	
-
-	
-
-	
-
 	glm::mat4 projection;
-	projection = glm::perspective(45.0f, 1000.0f / 600.0f, 0.5f, 100.0f);
+	projection = glm::perspective(45.0f, 1000.0f / 600.0f, 0.5f, 500.0f);
 
 	GLint viewLoc = glGetUniformLocation(m_program, "view");
 	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
