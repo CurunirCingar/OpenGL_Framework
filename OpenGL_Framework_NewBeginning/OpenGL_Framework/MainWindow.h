@@ -6,7 +6,7 @@ using namespace std;
 
 #include "Camera.h"
 #include "GameObject.h"
-
+#include "SkyBox.h"
 
 class MainWindow
 {
@@ -31,6 +31,8 @@ private:
 	std::list<GameObject*> GameObjects;
 
 	GameObject* characterController;
+
+	SkyBox* skyBox;
 
 	GLboolean isClosed;
 	GLboolean isPaused;

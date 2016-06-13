@@ -20,7 +20,7 @@ GameObject::GameObject(string& objectName, string& shaderFilename, string& model
 	transform->SetProgramID(shader->GetProgramID());
 }
 
-void GameObject::CreateShader(const std::string& shaderFilename, Structs::Transform* transform)
+void GameObject::CreateShader(std::string& shaderFilename, Structs::Transform* transform)
 {
 	if (!shaderFilename.compare("StandardShader"))
 		shader = new StandardShader(shaderFilename);

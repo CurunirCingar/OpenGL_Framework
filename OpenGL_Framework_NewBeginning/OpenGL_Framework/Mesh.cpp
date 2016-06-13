@@ -97,7 +97,7 @@ void Mesh::Draw()
 		glBindTexture(GL_TEXTURE_2D, textures[i].id);
 	}
 	glActiveTexture(GL_TEXTURE0);
-
+	
 	// Draw mesh
 	glBindVertexArray(VAO);
 	glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
@@ -106,12 +106,19 @@ void Mesh::Draw()
 
 void Mesh::Update()
 {
-	//texture->Update();
+	//glPolygonMode(GL_FRONT_AND_BACK, m_polygonMode);
 	
-	glPolygonMode(GL_FRONT_AND_BACK, m_polygonMode);
 	glBindVertexArray(VAO);
-	glDrawArrays(GL_TRIANGLES, 0, verticesInfo->m_verticesSize);
-	//glDrawElements(GL_TRIANGLES, m_verticesInfo->m_indicesSize, GL_UNSIGNED_INT, 0);
+	glDepthMask(0);
+
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, textures[0].id);
+	string name = "material.texture_diffuse1";
+	GLuint texLoc = glGetUniformLocation(m_shaderProgram, name.c_str());
+	glUniform1i(texLoc, 0);
+	glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
+
+	glDepthMask(1);
 	glBindVertexArray(0);
 }
 

@@ -9,7 +9,7 @@
 class LightShader : public Shader
 {
 public:
-	LightShader(const std::string& text, Structs::Transform* transform);
+	LightShader(std::string& text, Structs::Transform* transform);
 	virtual ~LightShader();
 
 	void ShaderUpdate();

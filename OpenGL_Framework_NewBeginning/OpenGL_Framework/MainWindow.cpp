@@ -71,6 +71,8 @@ void MainWindow::MainCycle()
 {
 	ReadSceneInfo();
 
+	skyBox = new SkyBox((string)"Res/skyboxes/day/day_", (string)"F.jpg", (string)"L.jpg", (string)"B.jpg", (string)"R.jpg", (string)"U.jpg", (string)"D.jpg");
+
 	StartSetup();
 
 	double frameTime, timePassed, secoundTime = 1;
@@ -150,7 +152,7 @@ void MainWindow::StartSetup()
 	{
 		gameObject->Start();
 	}
-	//characterController->Start();
+	skyBox->Start();
 }
 
 void MainWindow::Update()
@@ -164,6 +166,9 @@ void MainWindow::Update()
 	list<GameObject*>::iterator i;
 	for (i = GameObjects.begin(); i != GameObjects.end(); i++)
 		(*i)->Update();
+
+	skyBox->transforms[0]->transform = *((Camera*)(Graphics::instance()->MainCamera))->transform;
+	skyBox->Update();
 }
 
 MainWindow::~MainWindow()
