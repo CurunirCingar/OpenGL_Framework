@@ -8,35 +8,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace SceneManager
-{
-    public struct Vec3
-    {
-        public float x, y, z;
-    }
-
-    public struct GameObject
-    {
-        public string name;
-        public string modelPath;
-        public string shaderType;
-        public string lightShaderType;
-
-        public Vec3 pos;
-        public Vec3 rot;
-        public Vec3 scale;
-    }
-    
+{  
     public partial class Form1 : Form
     {
         List<GameObject> gameObjects;
-        int curIndex;
         string path = "Res/SceneInfo.dat";
+        FileStream file;
 
         public int CurIndex
         {
-            get { return gameObjectsGrid.CurrentCell.RowIndex;}
+            get { return gameObjectsGrid.CurrentCell!=null ? gameObjectsGrid.CurrentCell.RowIndex : 0; }
         }
 
         public Form1()
@@ -48,14 +32,15 @@ namespace SceneManager
         {
             gameObjects = new List<GameObject>();
 
-            ResetFormFields();
+            //ResetFormFields();
 
             ReadSceneInfo();
         }
 
         private void WriteSceneInfo()
         {
-            BinaryWriter writer = new BinaryWriter(File.Open(path, FileMode.Create));
+            file = File.Open(path, FileMode.Create, FileAccess.Write);
+            BinaryWriter writer = new BinaryWriter(file);
 
             writer.Write(gameObjects.Count);
             foreach (var gameObject in gameObjects)
@@ -79,24 +64,19 @@ namespace SceneManager
             }
 
             writer.Close();
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            bool result = (shaderTypeCombo.SelectedIndex == 1);
-            lightShaderTypeCombo.Visible = result;
-            label16.Visible = result;
+            file.Close();
         }
 
         private void ReadSceneInfo()
         {
-            GameObject readedGameObject = new GameObject();
+            GameObject readedGameObject;
+            file = File.Open(path, FileMode.OpenOrCreate, FileAccess.Read);
+            BinaryReader reader = new BinaryReader(file);
 
-            BinaryReader reader = new BinaryReader(File.Open(path, FileMode.OpenOrCreate));
-
-            int count = reader.ReadInt32();
+            reader.ReadInt32();
             while (reader.PeekChar() != -1)
             {
+                readedGameObject = new GameObject();
                 readedGameObject.name = reader.ReadString();
                 readedGameObject.modelPath = reader.ReadString();
                 readedGameObject.shaderType = reader.ReadString();
@@ -116,12 +96,20 @@ namespace SceneManager
 
                 gameObjects.Add(readedGameObject);
                 int newRow = gameObjectsGrid.Rows.Add();
-                gameObjectsGrid.Rows[newRow].Cells["ID"].Value = newRow.ToString();
                 gameObjectsGrid.Rows[newRow].Cells["GOName"].Value = readedGameObject.name;
             }
+
             reader.Close();
-            SetFormFields(gameObjects[0]);
+            file.Close();
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bool result = (shaderTypeCombo.SelectedIndex == 1);
+            lightShaderTypeCombo.Visible = result;
+            label16.Visible = result;
+            gameObjects[CurIndex].shaderType = shaderTypeCombo.Text;
+        }  
 
         void SetFormFields(GameObject gameObject)
         {
@@ -200,16 +188,14 @@ namespace SceneManager
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ResetFormFields();
-
-            GameObject newGameObject = GetFormFields();
+            GameObject newGameObject = new GameObject();
             gameObjects.Add(newGameObject);
-
             int newIndex = gameObjectsGrid.Rows.Add();
-            gameObjectsGrid.Rows[curIndex].Selected = false;
-            gameObjectsGrid.Rows[newIndex].Selected = true;
-            gameObjectsGrid.Rows[newIndex].Cells["ID"].Value = CurIndex.ToString();
-            gameObjectsGrid.Rows[newIndex].Cells["GOName"].Value = newGameObject.name;
+            gameObjectsGrid.Rows[newIndex].Cells["GOName"].Value = "GameObject";
+
+            SetFormFields(newGameObject);
+
+            
         }
 
         private void gameObjectsGrid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -222,6 +208,9 @@ namespace SceneManager
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if (gameObjects.Count == 0)
+                return;
+
             gameObjects.RemoveAt(CurIndex);
             gameObjectsGrid.Rows.RemoveAt(CurIndex);
             if (CurIndex != 0)
@@ -230,16 +219,10 @@ namespace SceneManager
             }
             else
             {
-                if(gameObjects.Count != 0)
+                if (gameObjects.Count != 0)
                     SetFormFields(gameObjects[CurIndex]);
-            }
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            gameObjects[CurIndex] = GetFormFields();
-            gameObjectsGrid.Rows[CurIndex].Cells["ID"].Value = CurIndex.ToString();
-            gameObjectsGrid.Rows[CurIndex].Cells["GOName"].Value = gameObjects[CurIndex].name;
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -252,5 +235,111 @@ namespace SceneManager
             System.Diagnostics.Process.Start("OpenGL_Framework.exe");
             Application.Exit();
         }
+
+        private void nameText_TextChanged(object sender, EventArgs e)
+        {
+            gameObjects[CurIndex].name = nameText.Text;
+            gameObjectsGrid.Rows[CurIndex].Cells["GOName"].Value = gameObjects[CurIndex].name;
+        }
+
+        private void positionXText_TextChanged(object sender, EventArgs e)
+        {
+            gameObjects[CurIndex].pos.x =  Convert.ToSingle(positionXText.Text);
+        }
+
+        private void positionYText_TextChanged(object sender, EventArgs e)
+        {
+            gameObjects[CurIndex].pos.y = Convert.ToSingle(positionYText.Text);
+        }
+
+        private void positionZText_TextChanged(object sender, EventArgs e)
+        {
+            gameObjects[CurIndex].pos.z = Convert.ToSingle(positionZText.Text);
+        }
+
+        private void rotationXText_TextChanged(object sender, EventArgs e)
+        {
+            gameObjects[CurIndex].rot.x = Convert.ToSingle(rotationXText.Text);
+        }
+
+        private void rotationYText_TextChanged(object sender, EventArgs e)
+        {
+            gameObjects[CurIndex].rot.y = Convert.ToSingle(rotationYText.Text);
+        }
+
+        private void rotationZText_TextChanged(object sender, EventArgs e)
+        {
+            gameObjects[CurIndex].rot.z = Convert.ToSingle(rotationZText.Text);
+        }
+
+        private void scaleXText_TextChanged(object sender, EventArgs e)
+        {
+            gameObjects[CurIndex].scale.x = Convert.ToSingle(scaleXText.Text);
+        }
+
+        private void scaleYText_TextChanged(object sender, EventArgs e)
+        {
+            gameObjects[CurIndex].scale.y = Convert.ToSingle(scaleYText.Text);
+        }
+
+        private void scaleZText_TextChanged(object sender, EventArgs e)
+        {
+            gameObjects[CurIndex].scale.z = Convert.ToSingle(scaleZText.Text);
+        }
+
+        private void modelPathText_TextChanged(object sender, EventArgs e)
+        {
+            gameObjects[CurIndex].modelPath = modelPathText.Text;
+        }
+
+        private void lightShaderTypeCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            gameObjects[CurIndex].lightShaderType = lightShaderTypeCombo.Text;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() != DialogResult.OK) return;
+            string[] splitArr = Regex.Split(openFileDialog1.FileName, "\\\\Res\\\\");
+            string modelPath = splitArr[splitArr.Length-1];
+            modelPath = modelPath.Replace('\\', '/');
+            gameObjects[CurIndex].modelPath = modelPath;
+            modelPathText.Text = modelPath;
+        }
+    }
+
+    public class Vec3
+    {
+        public Vec3(float x, float y, float z)
+        {
+            this.x = x;
+            this.y = y;
+            this.z = z;
+        }
+        public float x, y, z;
+    }
+
+    public class GameObject
+    {
+        public GameObject()
+        {
+            name = "GameObject";
+            modelPath = "";
+            shaderType = "StandardShader";
+            lightShaderType = "Directional";
+
+            pos = new Vec3(0, 0, 0);
+            rot = new Vec3(0, 0, 0);
+            scale = new Vec3(1, 1, 1);
+        }
+
+        public string name;
+        public string modelPath;
+        public string shaderType;
+        public string lightShaderType;
+
+        public Vec3 pos;
+        public Vec3 rot;
+        public Vec3 scale;
     }
 }

@@ -2,8 +2,8 @@ C:\Users\Curunir\Desktop\Computer graphics\SceneManager\SceneManager\bin\Debug\S
 C:\Users\Curunir\Desktop\Computer graphics\SceneManager\SceneManager\bin\Debug\SceneManager.exe
 C:\Users\Curunir\Desktop\Computer graphics\SceneManager\SceneManager\bin\Debug\SceneManager.pdb
 C:\Users\Curunir\Desktop\Computer graphics\SceneManager\SceneManager\obj\Debug\SceneManager.csprojResolveAssemblyReference.cache
-C:\Users\Curunir\Desktop\Computer graphics\SceneManager\SceneManager\obj\Debug\SceneManager.Form1.resources
 C:\Users\Curunir\Desktop\Computer graphics\SceneManager\SceneManager\obj\Debug\SceneManager.Properties.Resources.resources
 C:\Users\Curunir\Desktop\Computer graphics\SceneManager\SceneManager\obj\Debug\SceneManager.csproj.GenerateResource.Cache
 C:\Users\Curunir\Desktop\Computer graphics\SceneManager\SceneManager\obj\Debug\SceneManager.exe
 C:\Users\Curunir\Desktop\Computer graphics\SceneManager\SceneManager\obj\Debug\SceneManager.pdb
+C:\Users\Curunir\Desktop\Computer graphics\SceneManager\SceneManager\obj\Debug\SceneManager.Form1.resources
