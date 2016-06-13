@@ -33,26 +33,17 @@
             this.nameText = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.positionXText = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.positionYText = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.positionZText = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.rotationZText = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.rotationYText = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.rotationXText = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.scaleZText = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.scaleYText = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.scaleXText = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.modelPathText = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -65,6 +56,15 @@
             this.lightShaderTypeCombo = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.scaleZText = new System.Windows.Forms.TextBox();
+            this.scaleYText = new System.Windows.Forms.TextBox();
+            this.scaleXText = new System.Windows.Forms.TextBox();
+            this.rotationZText = new System.Windows.Forms.TextBox();
+            this.rotationYText = new System.Windows.Forms.TextBox();
+            this.rotationXText = new System.Windows.Forms.TextBox();
+            this.positionZText = new System.Windows.Forms.TextBox();
+            this.positionYText = new System.Windows.Forms.TextBox();
+            this.positionXText = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.gameObjectsGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,14 +108,6 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Position";
             // 
-            // positionXText
-            // 
-            this.positionXText.Location = new System.Drawing.Point(386, 75);
-            this.positionXText.Name = "positionXText";
-            this.positionXText.Size = new System.Drawing.Size(42, 20);
-            this.positionXText.TabIndex = 4;
-            this.positionXText.TextChanged += new System.EventHandler(this.positionXText_TextChanged);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -134,14 +126,6 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "y";
             // 
-            // positionYText
-            // 
-            this.positionYText.Location = new System.Drawing.Point(435, 75);
-            this.positionYText.Name = "positionYText";
-            this.positionYText.Size = new System.Drawing.Size(42, 20);
-            this.positionYText.TabIndex = 7;
-            this.positionYText.TextChanged += new System.EventHandler(this.positionYText_TextChanged);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -150,14 +134,6 @@
             this.label5.Size = new System.Drawing.Size(12, 13);
             this.label5.TabIndex = 10;
             this.label5.Text = "z";
-            // 
-            // positionZText
-            // 
-            this.positionZText.Location = new System.Drawing.Point(483, 75);
-            this.positionZText.Name = "positionZText";
-            this.positionZText.Size = new System.Drawing.Size(42, 20);
-            this.positionZText.TabIndex = 9;
-            this.positionZText.TextChanged += new System.EventHandler(this.positionZText_TextChanged);
             // 
             // label6
             // 
@@ -168,14 +144,6 @@
             this.label6.TabIndex = 17;
             this.label6.Text = "z";
             // 
-            // rotationZText
-            // 
-            this.rotationZText.Location = new System.Drawing.Point(483, 114);
-            this.rotationZText.Name = "rotationZText";
-            this.rotationZText.Size = new System.Drawing.Size(42, 20);
-            this.rotationZText.TabIndex = 16;
-            this.rotationZText.TextChanged += new System.EventHandler(this.rotationZText_TextChanged);
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -184,14 +152,6 @@
             this.label7.Size = new System.Drawing.Size(12, 13);
             this.label7.TabIndex = 15;
             this.label7.Text = "y";
-            // 
-            // rotationYText
-            // 
-            this.rotationYText.Location = new System.Drawing.Point(435, 114);
-            this.rotationYText.Name = "rotationYText";
-            this.rotationYText.Size = new System.Drawing.Size(42, 20);
-            this.rotationYText.TabIndex = 14;
-            this.rotationYText.TextChanged += new System.EventHandler(this.rotationYText_TextChanged);
             // 
             // label8
             // 
@@ -211,14 +171,6 @@
             this.label9.TabIndex = 12;
             this.label9.Text = "Rotation";
             // 
-            // rotationXText
-            // 
-            this.rotationXText.Location = new System.Drawing.Point(386, 114);
-            this.rotationXText.Name = "rotationXText";
-            this.rotationXText.Size = new System.Drawing.Size(42, 20);
-            this.rotationXText.TabIndex = 11;
-            this.rotationXText.TextChanged += new System.EventHandler(this.rotationXText_TextChanged);
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -228,14 +180,6 @@
             this.label10.TabIndex = 24;
             this.label10.Text = "z";
             // 
-            // scaleZText
-            // 
-            this.scaleZText.Location = new System.Drawing.Point(483, 149);
-            this.scaleZText.Name = "scaleZText";
-            this.scaleZText.Size = new System.Drawing.Size(42, 20);
-            this.scaleZText.TabIndex = 23;
-            this.scaleZText.TextChanged += new System.EventHandler(this.scaleZText_TextChanged);
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -244,14 +188,6 @@
             this.label11.Size = new System.Drawing.Size(12, 13);
             this.label11.TabIndex = 22;
             this.label11.Text = "y";
-            // 
-            // scaleYText
-            // 
-            this.scaleYText.Location = new System.Drawing.Point(435, 149);
-            this.scaleYText.Name = "scaleYText";
-            this.scaleYText.Size = new System.Drawing.Size(42, 20);
-            this.scaleYText.TabIndex = 21;
-            this.scaleYText.TextChanged += new System.EventHandler(this.scaleYText_TextChanged);
             // 
             // label12
             // 
@@ -271,14 +207,6 @@
             this.label13.TabIndex = 19;
             this.label13.Text = "Scale";
             // 
-            // scaleXText
-            // 
-            this.scaleXText.Location = new System.Drawing.Point(386, 149);
-            this.scaleXText.Name = "scaleXText";
-            this.scaleXText.Size = new System.Drawing.Size(42, 20);
-            this.scaleXText.TabIndex = 18;
-            this.scaleXText.TextChanged += new System.EventHandler(this.scaleXText_TextChanged);
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -292,7 +220,7 @@
             // 
             this.modelPathText.Location = new System.Drawing.Point(386, 39);
             this.modelPathText.Name = "modelPathText";
-            this.modelPathText.Size = new System.Drawing.Size(194, 20);
+            this.modelPathText.Size = new System.Drawing.Size(187, 20);
             this.modelPathText.TabIndex = 26;
             this.modelPathText.TextChanged += new System.EventHandler(this.modelPathText_TextChanged);
             // 
@@ -384,6 +312,7 @@
             this.lightShaderTypeCombo.Size = new System.Drawing.Size(139, 21);
             this.lightShaderTypeCombo.TabIndex = 36;
             this.lightShaderTypeCombo.Text = "Directional";
+            this.lightShaderTypeCombo.Visible = false;
             this.lightShaderTypeCombo.SelectedIndexChanged += new System.EventHandler(this.lightShaderTypeCombo_SelectedIndexChanged);
             // 
             // label16
@@ -398,14 +327,85 @@
             // 
             // button1
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(581, 39);
+            this.button1.Location = new System.Drawing.Point(579, 39);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(33, 20);
+            this.button1.Size = new System.Drawing.Size(35, 20);
             this.button1.TabIndex = 38;
-            this.button1.Text = "Set";
+            this.button1.Text = "Find";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // scaleZText
+            // 
+            this.scaleZText.Location = new System.Drawing.Point(483, 149);
+            this.scaleZText.Name = "scaleZText";
+            this.scaleZText.Size = new System.Drawing.Size(42, 20);
+            this.scaleZText.TabIndex = 23;
+            this.scaleZText.TextChanged += new System.EventHandler(this.scaleZText_TextChanged);
+            // 
+            // scaleYText
+            // 
+            this.scaleYText.Location = new System.Drawing.Point(435, 149);
+            this.scaleYText.Name = "scaleYText";
+            this.scaleYText.Size = new System.Drawing.Size(42, 20);
+            this.scaleYText.TabIndex = 21;
+            this.scaleYText.TextChanged += new System.EventHandler(this.scaleYText_TextChanged);
+            // 
+            // scaleXText
+            // 
+            this.scaleXText.Location = new System.Drawing.Point(386, 149);
+            this.scaleXText.Name = "scaleXText";
+            this.scaleXText.Size = new System.Drawing.Size(42, 20);
+            this.scaleXText.TabIndex = 18;
+            this.scaleXText.TextChanged += new System.EventHandler(this.scaleXText_TextChanged);
+            // 
+            // rotationZText
+            // 
+            this.rotationZText.Location = new System.Drawing.Point(483, 114);
+            this.rotationZText.Name = "rotationZText";
+            this.rotationZText.Size = new System.Drawing.Size(42, 20);
+            this.rotationZText.TabIndex = 16;
+            this.rotationZText.TextChanged += new System.EventHandler(this.rotationZText_TextChanged);
+            // 
+            // rotationYText
+            // 
+            this.rotationYText.Location = new System.Drawing.Point(435, 114);
+            this.rotationYText.Name = "rotationYText";
+            this.rotationYText.Size = new System.Drawing.Size(42, 20);
+            this.rotationYText.TabIndex = 14;
+            this.rotationYText.TextChanged += new System.EventHandler(this.rotationYText_TextChanged);
+            // 
+            // rotationXText
+            // 
+            this.rotationXText.Location = new System.Drawing.Point(386, 114);
+            this.rotationXText.Name = "rotationXText";
+            this.rotationXText.Size = new System.Drawing.Size(42, 20);
+            this.rotationXText.TabIndex = 11;
+            this.rotationXText.TextChanged += new System.EventHandler(this.rotationXText_TextChanged);
+            // 
+            // positionZText
+            // 
+            this.positionZText.Location = new System.Drawing.Point(483, 75);
+            this.positionZText.Name = "positionZText";
+            this.positionZText.Size = new System.Drawing.Size(42, 20);
+            this.positionZText.TabIndex = 9;
+            this.positionZText.TextChanged += new System.EventHandler(this.positionZText_TextChanged);
+            // 
+            // positionYText
+            // 
+            this.positionYText.Location = new System.Drawing.Point(435, 75);
+            this.positionYText.Name = "positionYText";
+            this.positionYText.Size = new System.Drawing.Size(42, 20);
+            this.positionYText.TabIndex = 7;
+            this.positionYText.TextChanged += new System.EventHandler(this.positionYText_TextChanged);
+            // 
+            // positionXText
+            // 
+            this.positionXText.Location = new System.Drawing.Point(386, 75);
+            this.positionXText.Name = "positionXText";
+            this.positionXText.Size = new System.Drawing.Size(42, 20);
+            this.positionXText.TabIndex = 4;
+            this.positionXText.TextChanged += new System.EventHandler(this.positionXText_TextChanged);
             // 
             // Form1
             // 
@@ -464,26 +464,17 @@
         private System.Windows.Forms.TextBox nameText;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox positionXText;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox positionYText;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox positionZText;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox rotationZText;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox rotationYText;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox rotationXText;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox scaleZText;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox scaleYText;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox scaleXText;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox modelPathText;
         private System.Windows.Forms.Label label15;
@@ -496,6 +487,15 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.DataGridViewTextBoxColumn GOName;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox scaleZText;
+        private System.Windows.Forms.TextBox scaleYText;
+        private System.Windows.Forms.TextBox scaleXText;
+        private System.Windows.Forms.TextBox rotationZText;
+        private System.Windows.Forms.TextBox rotationYText;
+        private System.Windows.Forms.TextBox rotationXText;
+        private System.Windows.Forms.TextBox positionZText;
+        private System.Windows.Forms.TextBox positionYText;
+        private System.Windows.Forms.TextBox positionXText;
     }
 }
 

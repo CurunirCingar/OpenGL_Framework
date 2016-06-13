@@ -192,9 +192,7 @@ namespace SceneManager
             int newIndex = gameObjectsGrid.Rows.Add();
             gameObjectsGrid.Rows[newIndex].Cells["GOName"].Value = "GameObject";
 
-            SetFormFields(newGameObject);
-
-            
+            //SetFormFields(newGameObject);
         }
 
         private void gameObjectsGrid_CellClick(object sender, DataGridViewCellEventArgs e)
