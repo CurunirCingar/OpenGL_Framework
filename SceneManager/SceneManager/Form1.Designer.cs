@@ -330,7 +330,7 @@
             this.gameObjectsGrid.ReadOnly = true;
             this.gameObjectsGrid.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.gameObjectsGrid.RowHeadersVisible = false;
-            this.gameObjectsGrid.Size = new System.Drawing.Size(293, 200);
+            this.gameObjectsGrid.Size = new System.Drawing.Size(295, 200);
             this.gameObjectsGrid.TabIndex = 31;
             this.gameObjectsGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gameObjectsGrid_CellClick);
             this.gameObjectsGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gameObjectsGrid_CellContentClick);

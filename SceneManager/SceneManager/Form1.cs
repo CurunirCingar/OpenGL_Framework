@@ -32,8 +32,7 @@ namespace SceneManager
         {
             gameObjects = new List<GameObject>();
 
-            //ResetFormFields();
-
+            openFileDialog1.InitialDirectory = Application.StartupPath;
             ReadSceneInfo();
         }
 
