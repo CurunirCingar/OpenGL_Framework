@@ -74,22 +74,22 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.upPicture = new System.Windows.Forms.PictureBox();
+            this.rightPicture = new System.Windows.Forms.PictureBox();
+            this.frontPicture = new System.Windows.Forms.PictureBox();
+            this.backPicture = new System.Windows.Forms.PictureBox();
+            this.downPicture = new System.Windows.Forms.PictureBox();
+            this.leftPicture = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.gameObjectsGrid)).BeginInit();
             this.gameObjectTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.upPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rightPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frontPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.downPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leftPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -489,12 +489,12 @@
             this.tabPage2.Controls.Add(this.label19);
             this.tabPage2.Controls.Add(this.label18);
             this.tabPage2.Controls.Add(this.label17);
-            this.tabPage2.Controls.Add(this.pictureBox6);
-            this.tabPage2.Controls.Add(this.pictureBox5);
-            this.tabPage2.Controls.Add(this.pictureBox4);
-            this.tabPage2.Controls.Add(this.pictureBox3);
-            this.tabPage2.Controls.Add(this.pictureBox2);
-            this.tabPage2.Controls.Add(this.pictureBox1);
+            this.tabPage2.Controls.Add(this.upPicture);
+            this.tabPage2.Controls.Add(this.rightPicture);
+            this.tabPage2.Controls.Add(this.frontPicture);
+            this.tabPage2.Controls.Add(this.backPicture);
+            this.tabPage2.Controls.Add(this.downPicture);
+            this.tabPage2.Controls.Add(this.leftPicture);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -558,76 +558,76 @@
             this.label17.TabIndex = 6;
             this.label17.Text = "Back";
             // 
-            // pictureBox6
+            // upPicture
             // 
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox6.Location = new System.Drawing.Point(154, 27);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(60, 60);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 5;
-            this.pictureBox6.TabStop = false;
-            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
+            this.upPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.upPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.upPicture.Location = new System.Drawing.Point(154, 27);
+            this.upPicture.Name = "upPicture";
+            this.upPicture.Size = new System.Drawing.Size(60, 60);
+            this.upPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.upPicture.TabIndex = 5;
+            this.upPicture.TabStop = false;
+            this.upPicture.Click += new System.EventHandler(this.pictureBox6_Click);
             // 
-            // pictureBox5
+            // rightPicture
             // 
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox5.Location = new System.Drawing.Point(214, 87);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(60, 60);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 4;
-            this.pictureBox5.TabStop = false;
-            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
+            this.rightPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.rightPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rightPicture.Location = new System.Drawing.Point(214, 87);
+            this.rightPicture.Name = "rightPicture";
+            this.rightPicture.Size = new System.Drawing.Size(60, 60);
+            this.rightPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.rightPicture.TabIndex = 4;
+            this.rightPicture.TabStop = false;
+            this.rightPicture.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
-            // pictureBox4
+            // frontPicture
             // 
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox4.Location = new System.Drawing.Point(154, 87);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(60, 60);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 3;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            this.frontPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.frontPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.frontPicture.Location = new System.Drawing.Point(154, 87);
+            this.frontPicture.Name = "frontPicture";
+            this.frontPicture.Size = new System.Drawing.Size(60, 60);
+            this.frontPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.frontPicture.TabIndex = 3;
+            this.frontPicture.TabStop = false;
+            this.frontPicture.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
-            // pictureBox3
+            // backPicture
             // 
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Location = new System.Drawing.Point(34, 87);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(60, 60);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.backPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.backPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.backPicture.Location = new System.Drawing.Point(34, 87);
+            this.backPicture.Name = "backPicture";
+            this.backPicture.Size = new System.Drawing.Size(60, 60);
+            this.backPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.backPicture.TabIndex = 2;
+            this.backPicture.TabStop = false;
+            this.backPicture.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
-            // pictureBox2
+            // downPicture
             // 
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Location = new System.Drawing.Point(154, 147);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(60, 60);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.downPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.downPicture.Location = new System.Drawing.Point(154, 147);
+            this.downPicture.Name = "downPicture";
+            this.downPicture.Size = new System.Drawing.Size(60, 60);
+            this.downPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.downPicture.TabIndex = 1;
+            this.downPicture.TabStop = false;
+            this.downPicture.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-            // pictureBox1
+            // leftPicture
             // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(94, 87);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(60, 60);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.leftPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.leftPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.leftPicture.Location = new System.Drawing.Point(94, 87);
+            this.leftPicture.Name = "leftPicture";
+            this.leftPicture.Size = new System.Drawing.Size(60, 60);
+            this.leftPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.leftPicture.TabIndex = 0;
+            this.leftPicture.TabStop = false;
+            this.leftPicture.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Form1
             // 
@@ -650,12 +650,12 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.upPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rightPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frontPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.downPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leftPicture)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -702,18 +702,18 @@
         private System.Windows.Forms.TabControl gameObjectTab;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox rightPicture;
+        private System.Windows.Forms.PictureBox frontPicture;
+        private System.Windows.Forms.PictureBox backPicture;
+        private System.Windows.Forms.PictureBox downPicture;
+        private System.Windows.Forms.PictureBox leftPicture;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox upPicture;
     }
 }
 

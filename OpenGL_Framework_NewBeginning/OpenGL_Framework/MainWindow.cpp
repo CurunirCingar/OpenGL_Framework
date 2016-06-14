@@ -101,7 +101,7 @@ void MainWindow::ReadSceneInfo()
 {
 	char readbuf[50];
 	char* pBuf = readbuf;
-	ifstream in("Res/SceneInfo.dat", ios::binary | ios::in);
+	ifstream in("Res/SceneInfo.scn", ios::binary | ios::in);
 
 	GameObject* newGameObject;
 	string name, shaderName, lightType, modelPath;
@@ -140,14 +140,30 @@ void MainWindow::ReadSceneInfo()
 		GameObjects.push_back(newGameObject);
 	}
 
+	string rightSkybox;
+	string leftSkybox;
+	string backSkybox;
+	string frontSkybox;
+	string upSkybox;
+	string downSkybox;
+
+	if (!in.eof())
+	{
+		ReadStringFromFile(in, rightSkybox);
+		ReadStringFromFile(in, leftSkybox);
+		ReadStringFromFile(in, backSkybox);
+		ReadStringFromFile(in, frontSkybox);
+		ReadStringFromFile(in, upSkybox);
+		ReadStringFromFile(in, downSkybox);
+	}
+
 	skyBox = new SkyBox(
-		(string)"Res/skyboxes/ely_cloudtop/cloudtop_", // Base
-		(string)"rt.tga", // Right
-		(string)"lf.tga", // Left
-		(string)"bk.tga", // Back
-		(string)"ft.tga", // Front
-		(string)"up.tga", // Up
-		(string)"dn.tga" //Down
+		rightSkybox,
+		leftSkybox,
+		backSkybox,
+		frontSkybox,
+		upSkybox,
+		downSkybox
 		);
 
 	in.close();

@@ -1,7 +1,7 @@
 #include "SkyBox.h"
 
 
-SkyBox::SkyBox(string& fileBase, string& right, string& left, string& back, string& front, string& up, string& down)
+SkyBox::SkyBox(string& right, string& left, string& back, string& front, string& up, string& down)
 {
 	transform = new Transform();
 	for (int i = 0; i < 6; i++)
@@ -10,17 +10,17 @@ SkyBox::SkyBox(string& fileBase, string& right, string& left, string& back, stri
 	transform->SetProgramID(shaders[0]->GetProgramID());
 	transform->m_scale = glm::vec3(500, 500, 500);
 
-	SetupMesh(fileBase, right, left, back, front, up, down);
+	SetupMesh(right, left, back, front, up, down);
 }
 
 SkyBox::~SkyBox()
 {
 }
 
-void SkyBox::SetupMesh(string& fileBase, string& right, string& left, string& back, string& front, string& up, string& down)
+void SkyBox::SetupMesh(string& right, string& left, string& back, string& front, string& up, string& down)
 {
 	vector<Structs::Vertex> vertices = {
-		// Back
+		// Right
 		{ glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(0.0f, 0.0f, -1.0f), glm::vec2(0, 0) },
 		{ glm::vec3(0.5f, -0.5f, -0.5f), glm::vec3(0.0f, 0.0f, -1.0f), glm::vec2(1, 0) },
 		{ glm::vec3(0.5f, 0.5f, -0.5f), glm::vec3(0.0f, 0.0f, -1.0f), glm::vec2(1, 1) },
@@ -28,7 +28,7 @@ void SkyBox::SetupMesh(string& fileBase, string& right, string& left, string& ba
 		{ glm::vec3(-0.5f, 0.5f, -0.5f), glm::vec3(0.0f, 0.0f, -1.0f), glm::vec2(0, 1) },
 		{ glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(0.0f, 0.0f, -1.0f), glm::vec2(0, 0) },
 
-		// Front
+		// Left
 		{ glm::vec3(-0.5f, -0.5f, 0.5f), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(1, 0) },
 		{ glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(0, 0) },
 		{ glm::vec3(0.5f, 0.5f, 0.5f), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(0, 1) },
@@ -36,7 +36,7 @@ void SkyBox::SetupMesh(string& fileBase, string& right, string& left, string& ba
 		{ glm::vec3(-0.5f, 0.5f, 0.5f), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(1, 1) },
 		{ glm::vec3(-0.5f, -0.5f, 0.5f), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(1, 0) },
 
-		// Left
+		// Back
 		{ glm::vec3(-0.5f, 0.5f, 0.5f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(0, 1) },
 		{ glm::vec3(-0.5f, 0.5f, -0.5f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(1, 1) },
 		{ glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(-1.0f, 0.0f, 0.0f), glm::vec2(1, 0) },
@@ -44,7 +44,7 @@ void SkyBox::SetupMesh(string& fileBase, string& right, string& left, string& ba
 		{ glm::vec3(-0.5f, -0.5f, 0.5f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(0, 0) },
 		{ glm::vec3(-0.5f, 0.5f, 0.5f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(0, 1) },
 
-		// Right
+		// Front
 		{ glm::vec3(0.5f, 0.5f, 0.5f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(1, 1) },
 		{ glm::vec3(0.5f, 0.5f, -0.5f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(0, 1) },
 		{ glm::vec3(0.5f, -0.5f, -0.5f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(0, 0) },
@@ -52,7 +52,7 @@ void SkyBox::SetupMesh(string& fileBase, string& right, string& left, string& ba
 		{ glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(1, 0) },
 		{ glm::vec3(0.5f, 0.5f, 0.5f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(1, 1) },
 
-		// Top
+		// Up
 		{ glm::vec3(-0.5f, 0.5f, -0.5f), glm::vec3(0.0f, 1.0f, 0.0), glm::vec2(0, 0) },
 		{ glm::vec3(0.5f, 0.5f, -0.5f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(1, 0) },
 		{ glm::vec3(0.5f, 0.5f, 0.5f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(1, 1) },
@@ -60,7 +60,7 @@ void SkyBox::SetupMesh(string& fileBase, string& right, string& left, string& ba
 		{ glm::vec3(-0.5f, 0.5f, 0.5f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(0, 1) },
 		{ glm::vec3(-0.5f, 0.5f, -0.5f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(0, 0) },
 
-		// Bottom
+		// Down
 		{ glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(0, 0) },
 		{ glm::vec3(0.5f, -0.5f, -0.5f), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(1, 0) },
 		{ glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(1, 1) },
@@ -92,27 +92,27 @@ void SkyBox::SetupMesh(string& fileBase, string& right, string& left, string& ba
 	vector<Structs::Texture> textures;
 	Structs::Texture bufTex;
 
-	bufTex.id = LoadTexture(fileBase + right);
+	bufTex.id = LoadTexture(right);
 	bufTex.type = "texture_diffuse1";
 	textures.push_back(bufTex);
 
-	bufTex.id = LoadTexture(fileBase + left);
+	bufTex.id = LoadTexture(left);
 	bufTex.type = "texture_diffuse1";
 	textures.push_back(bufTex);
 
-	bufTex.id = LoadTexture(fileBase + back);
+	bufTex.id = LoadTexture(back);
 	bufTex.type = "texture_diffuse1";
 	textures.push_back(bufTex);
 
-	bufTex.id = LoadTexture(fileBase + front);
+	bufTex.id = LoadTexture(front);
 	bufTex.type = "texture_diffuse1";
 	textures.push_back(bufTex);
 
-	bufTex.id = LoadTexture(fileBase + up);
+	bufTex.id = LoadTexture(up);
 	bufTex.type = "texture_diffuse1";
 	textures.push_back(bufTex);
 
-	bufTex.id = LoadTexture(fileBase + down);
+	bufTex.id = LoadTexture(down);
 	bufTex.type = "texture_diffuse1";
 	textures.push_back(bufTex);
 

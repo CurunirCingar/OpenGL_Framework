@@ -69,37 +69,37 @@ namespace SceneManager
             string[] splitArr;
             string imagePath;
 
-            if (pictureBox5.ImageLocation != null)
+            if (rightPicture.ImageLocation != null)
             {
-                splitArr = Regex.Split(pictureBox5.ImageLocation, "\\\\Res\\\\");
+                splitArr = Regex.Split(rightPicture.ImageLocation, "\\\\Res\\\\");
                 imagePath = splitArr[splitArr.Length - 1];
                 imagePath = imagePath.Replace('\\', '/');
-                writer.Write(imagePath);
+                writer.Write("Res/" + imagePath);
 
-                splitArr = Regex.Split(pictureBox1.ImageLocation, "\\\\Res\\\\");
+                splitArr = Regex.Split(leftPicture.ImageLocation, "\\\\Res\\\\");
                 imagePath = splitArr[splitArr.Length - 1];
                 imagePath = imagePath.Replace('\\', '/');
-                writer.Write(imagePath);
+                writer.Write("Res/" + imagePath);
 
-                splitArr = Regex.Split(pictureBox3.ImageLocation, "\\\\Res\\\\");
+                splitArr = Regex.Split(backPicture.ImageLocation, "\\\\Res\\\\");
                 imagePath = splitArr[splitArr.Length - 1];
                 imagePath = imagePath.Replace('\\', '/');
-                writer.Write(imagePath);
+                writer.Write("Res/" + imagePath);
 
-                splitArr = Regex.Split(pictureBox4.ImageLocation, "\\\\Res\\\\");
+                splitArr = Regex.Split(frontPicture.ImageLocation, "\\\\Res\\\\");
                 imagePath = splitArr[splitArr.Length - 1];
                 imagePath = imagePath.Replace('\\', '/');
-                writer.Write(imagePath);
+                writer.Write("Res/" + imagePath);
 
-                splitArr = Regex.Split(pictureBox6.ImageLocation, "\\\\Res\\\\");
+                splitArr = Regex.Split(upPicture.ImageLocation, "\\\\Res\\\\");
                 imagePath = splitArr[splitArr.Length - 1];
                 imagePath = imagePath.Replace('\\', '/');
-                writer.Write(imagePath);
+                writer.Write("Res/" + imagePath);
 
-                splitArr = Regex.Split(pictureBox2.ImageLocation, "\\\\Res\\\\");
+                splitArr = Regex.Split(downPicture.ImageLocation, "\\\\Res\\\\");
                 imagePath = splitArr[splitArr.Length - 1];
                 imagePath = imagePath.Replace('\\', '/');
-                writer.Write(imagePath);
+                writer.Write("Res/" + imagePath);
             }
 
             writer.Close();
@@ -144,17 +144,17 @@ namespace SceneManager
                 if (reader.PeekChar() != -1)
                 {
                     strBuf = reader.ReadString();
-                    pictureBox5.ImageLocation = Application.StartupPath + "\\Res\\" + strBuf.Replace('/', '\\'); ;
-                    strBuf = reader.ReadString();
-                    pictureBox1.ImageLocation = Application.StartupPath + "\\Res\\" + strBuf.Replace('/', '\\');
-                    strBuf = reader.ReadString();
-                    pictureBox3.ImageLocation = Application.StartupPath + "\\Res\\" + strBuf.Replace('/', '\\');
-                    strBuf = reader.ReadString();
-                    pictureBox4.ImageLocation = Application.StartupPath + "\\Res\\" + strBuf.Replace('/', '\\');
-                    strBuf = reader.ReadString();
-                    pictureBox6.ImageLocation = Application.StartupPath + "\\Res\\" + strBuf.Replace('/', '\\');
-                    strBuf = reader.ReadString();
-                    pictureBox2.ImageLocation = Application.StartupPath + "\\Res\\" + strBuf.Replace('/', '\\');
+                    rightPicture.ImageLocation = Application.StartupPath + "\\" + strBuf.Replace('/', '\\'); ;
+                    strBuf = reader.ReadString();                         
+                    leftPicture.ImageLocation = Application.StartupPath + "\\" + strBuf.Replace('/', '\\');
+                    strBuf = reader.ReadString();                         
+                    backPicture.ImageLocation = Application.StartupPath + "\\" + strBuf.Replace('/', '\\');
+                    strBuf = reader.ReadString();                         
+                    frontPicture.ImageLocation = Application.StartupPath + "\\" + strBuf.Replace('/', '\\');
+                    strBuf = reader.ReadString();                         
+                    upPicture.ImageLocation = Application.StartupPath + "\\" + strBuf.Replace('/', '\\');
+                    strBuf = reader.ReadString();                         
+                    downPicture.ImageLocation = Application.StartupPath + "\\" + strBuf.Replace('/', '\\');
                 }
             }
             reader.Close();
@@ -365,46 +365,46 @@ namespace SceneManager
         {
             if (openFileDialog1.ShowDialog() != DialogResult.OK) return;
             string modelPath = openFileDialog1.FileName;
-            pictureBox3.ImageLocation = modelPath;
-            pictureBox3.BackgroundImageLayout = ImageLayout.Stretch;
+            backPicture.ImageLocation = modelPath;
+            backPicture.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() != DialogResult.OK) return;
             string modelPath = openFileDialog1.FileName;
-            pictureBox1.ImageLocation = modelPath;
+            leftPicture.ImageLocation = modelPath;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() != DialogResult.OK) return;
             string modelPath = openFileDialog1.FileName;
-            pictureBox2.ImageLocation = modelPath;
+            downPicture.ImageLocation = modelPath;
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() != DialogResult.OK) return;
             string modelPath = openFileDialog1.FileName;
-            pictureBox4.ImageLocation = modelPath;
-            pictureBox4.BackgroundImageLayout = ImageLayout.Stretch;
+            frontPicture.ImageLocation = modelPath;
+            frontPicture.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() != DialogResult.OK) return;
             string modelPath = openFileDialog1.FileName;
-            pictureBox6.ImageLocation = modelPath;
-            pictureBox6.BackgroundImageLayout = ImageLayout.Stretch;
+            upPicture.ImageLocation = modelPath;
+            upPicture.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() != DialogResult.OK) return;
             string modelPath = openFileDialog1.FileName;
-            pictureBox5.ImageLocation = modelPath;
-            pictureBox5.BackgroundImageLayout = ImageLayout.Stretch;
+            rightPicture.ImageLocation = modelPath;
+            rightPicture.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         private void tabPage2_Click(object sender, EventArgs e)

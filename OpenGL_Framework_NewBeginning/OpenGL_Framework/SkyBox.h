@@ -19,10 +19,10 @@ using namespace std;
 class SkyBox
 {
 public:
-	SkyBox(string& fileBase, string& right, string& left, string& back, string& front, string& up, string& down);
+	SkyBox(string& right, string& left, string& back, string& front, string& up, string& down);
 	~SkyBox();
 
-	void SetupMesh(string& fileBase, string& right, string& left, string& back, string& front, string& up, string& down);
+	void SetupMesh(string& right, string& left, string& back, string& front, string& up, string& down);
 	GLuint LoadTexture(string filename);
 
 	void Start();

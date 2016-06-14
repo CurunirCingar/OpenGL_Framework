@@ -1,4 +1,4 @@
-﻿Сборка начата 14.06.2016 13:41:07.
+﻿Сборка начата 14.06.2016 21:36:29.
      1>Проект "C:\Users\Curunir\Desktop\Computer graphics\OpenGL_Framework_NewBeginning\OpenGL_Framework\OpenGL_Framework.vcxproj" в узле 2 (целевые объекты Build).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I.\Include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt SkyBox.cpp
@@ -28,4 +28,4 @@
 
 Сборка успешно завершена.
 
-Затраченное время: 00:00:01.31
+Затраченное время: 00:00:01.52
