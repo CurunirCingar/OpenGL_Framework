@@ -19,17 +19,17 @@ using namespace std;
 class SkyBox
 {
 public:
-	SkyBox(string& fileBase, string& front, string& back, string& left, string& right, string& top, string& bottom);
+	SkyBox(string& fileBase, string& right, string& left, string& back, string& front, string& up, string& down);
 	~SkyBox();
 
-	void SetupMesh(string& fileBase, string& front, string& back, string& left, string& right, string& top, string& bottom);
+	void SetupMesh(string& fileBase, string& right, string& left, string& back, string& front, string& up, string& down);
 	GLuint LoadTexture(string filename);
 
 	void Start();
 	void Update();
 
 	vector<Shader*> shaders;
-	vector<Transform*> transforms;
+	Transform* transform;
 	vector<Mesh*> meshes;
 
 	GLuint shaderProgram;

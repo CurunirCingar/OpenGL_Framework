@@ -71,8 +71,6 @@ void MainWindow::MainCycle()
 {
 	ReadSceneInfo();
 
-	skyBox = new SkyBox((string)"Res/skyboxes/day/day_", (string)"F.jpg", (string)"L.jpg", (string)"B.jpg", (string)"R.jpg", (string)"U.jpg", (string)"D.jpg");
-
 	StartSetup();
 
 	double frameTime, timePassed, secoundTime = 1;
@@ -141,6 +139,17 @@ void MainWindow::ReadSceneInfo()
 
 		GameObjects.push_back(newGameObject);
 	}
+
+	skyBox = new SkyBox(
+		(string)"Res/skyboxes/ely_cloudtop/cloudtop_", // Base
+		(string)"rt.tga", // Right
+		(string)"lf.tga", // Left
+		(string)"bk.tga", // Back
+		(string)"ft.tga", // Front
+		(string)"up.tga", // Up
+		(string)"dn.tga" //Down
+		);
+
 	in.close();
 }
 
@@ -167,7 +176,6 @@ void MainWindow::Update()
 	for (i = GameObjects.begin(); i != GameObjects.end(); i++)
 		(*i)->Update();
 
-	skyBox->transforms[0]->transform = *((Camera*)(Graphics::instance()->MainCamera))->transform;
 	skyBox->Update();
 }
 

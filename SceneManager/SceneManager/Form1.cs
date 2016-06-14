@@ -9,14 +9,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace SceneManager
 {  
     public partial class Form1 : Form
     {
         List<GameObject> gameObjects;
-        string path = "Res/SceneInfo.dat";
+        string path = "Res/SceneInfo.scn";
         FileStream file;
+        BinaryReader reader;
+
 
         public int CurIndex
         {
@@ -34,6 +37,7 @@ namespace SceneManager
 
             openFileDialog1.InitialDirectory = Application.StartupPath;
             ReadSceneInfo();
+            
         }
 
         private void WriteSceneInfo()
@@ -62,6 +66,42 @@ namespace SceneManager
                 writer.Write(gameObject.scale.z);
             }
 
+            string[] splitArr;
+            string imagePath;
+
+            if (pictureBox5.ImageLocation != null)
+            {
+                splitArr = Regex.Split(pictureBox5.ImageLocation, "\\\\Res\\\\");
+                imagePath = splitArr[splitArr.Length - 1];
+                imagePath = imagePath.Replace('\\', '/');
+                writer.Write(imagePath);
+
+                splitArr = Regex.Split(pictureBox1.ImageLocation, "\\\\Res\\\\");
+                imagePath = splitArr[splitArr.Length - 1];
+                imagePath = imagePath.Replace('\\', '/');
+                writer.Write(imagePath);
+
+                splitArr = Regex.Split(pictureBox3.ImageLocation, "\\\\Res\\\\");
+                imagePath = splitArr[splitArr.Length - 1];
+                imagePath = imagePath.Replace('\\', '/');
+                writer.Write(imagePath);
+
+                splitArr = Regex.Split(pictureBox4.ImageLocation, "\\\\Res\\\\");
+                imagePath = splitArr[splitArr.Length - 1];
+                imagePath = imagePath.Replace('\\', '/');
+                writer.Write(imagePath);
+
+                splitArr = Regex.Split(pictureBox6.ImageLocation, "\\\\Res\\\\");
+                imagePath = splitArr[splitArr.Length - 1];
+                imagePath = imagePath.Replace('\\', '/');
+                writer.Write(imagePath);
+
+                splitArr = Regex.Split(pictureBox2.ImageLocation, "\\\\Res\\\\");
+                imagePath = splitArr[splitArr.Length - 1];
+                imagePath = imagePath.Replace('\\', '/');
+                writer.Write(imagePath);
+            }
+
             writer.Close();
             file.Close();
         }
@@ -69,35 +109,54 @@ namespace SceneManager
         private void ReadSceneInfo()
         {
             GameObject readedGameObject;
-            file = File.Open(path, FileMode.OpenOrCreate, FileAccess.Read);
+            file = File.Open(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
             BinaryReader reader = new BinaryReader(file);
 
-            reader.ReadInt32();
-            while (reader.PeekChar() != -1)
+            if (reader.PeekChar() != -1)
             {
-                readedGameObject = new GameObject();
-                readedGameObject.name = reader.ReadString();
-                readedGameObject.modelPath = reader.ReadString();
-                readedGameObject.shaderType = reader.ReadString();
-                readedGameObject.lightShaderType = reader.ReadString();
+                int amount = reader.ReadInt32();
+                for (int i = 0; i < amount; i++)
+                {
+                    readedGameObject = new GameObject();
+                    readedGameObject.name = reader.ReadString();
+                    readedGameObject.modelPath = reader.ReadString();
+                    readedGameObject.shaderType = reader.ReadString();
+                    readedGameObject.lightShaderType = reader.ReadString();
 
-                readedGameObject.pos.x = reader.ReadSingle();
-                readedGameObject.pos.y = reader.ReadSingle();
-                readedGameObject.pos.z = reader.ReadSingle();
+                    readedGameObject.pos.x = reader.ReadSingle();
+                    readedGameObject.pos.y = reader.ReadSingle();
+                    readedGameObject.pos.z = reader.ReadSingle();
 
-                readedGameObject.rot.x = reader.ReadSingle();
-                readedGameObject.rot.y = reader.ReadSingle();
-                readedGameObject.rot.z = reader.ReadSingle();
+                    readedGameObject.rot.x = reader.ReadSingle();
+                    readedGameObject.rot.y = reader.ReadSingle();
+                    readedGameObject.rot.z = reader.ReadSingle();
 
-                readedGameObject.scale.x = reader.ReadSingle();
-                readedGameObject.scale.y = reader.ReadSingle();
-                readedGameObject.scale.z = reader.ReadSingle();
+                    readedGameObject.scale.x = reader.ReadSingle();
+                    readedGameObject.scale.y = reader.ReadSingle();
+                    readedGameObject.scale.z = reader.ReadSingle();
 
-                gameObjects.Add(readedGameObject);
-                int newRow = gameObjectsGrid.Rows.Add();
-                gameObjectsGrid.Rows[newRow].Cells["GOName"].Value = readedGameObject.name;
+                    gameObjects.Add(readedGameObject);
+                    int newRow = gameObjectsGrid.Rows.Add();
+                    gameObjectsGrid.Rows[newRow].Cells["GOName"].Value = readedGameObject.name;
+                }
+
+                string strBuf;
+                if (reader.PeekChar() != -1)
+                {
+                    strBuf = reader.ReadString();
+                    pictureBox5.ImageLocation = Application.StartupPath + "\\Res\\" + strBuf.Replace('/', '\\'); ;
+                    strBuf = reader.ReadString();
+                    pictureBox1.ImageLocation = Application.StartupPath + "\\Res\\" + strBuf.Replace('/', '\\');
+                    strBuf = reader.ReadString();
+                    pictureBox3.ImageLocation = Application.StartupPath + "\\Res\\" + strBuf.Replace('/', '\\');
+                    strBuf = reader.ReadString();
+                    pictureBox4.ImageLocation = Application.StartupPath + "\\Res\\" + strBuf.Replace('/', '\\');
+                    strBuf = reader.ReadString();
+                    pictureBox6.ImageLocation = Application.StartupPath + "\\Res\\" + strBuf.Replace('/', '\\');
+                    strBuf = reader.ReadString();
+                    pictureBox2.ImageLocation = Application.StartupPath + "\\Res\\" + strBuf.Replace('/', '\\');
+                }
             }
-
             reader.Close();
             file.Close();
         }
@@ -191,8 +250,6 @@ namespace SceneManager
             gameObjects.Add(newGameObject);
             int newIndex = gameObjectsGrid.Rows.Add();
             gameObjectsGrid.Rows[newIndex].Cells["GOName"].Value = "GameObject";
-
-            //SetFormFields(newGameObject);
         }
 
         private void gameObjectsGrid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -302,6 +359,57 @@ namespace SceneManager
             modelPath = modelPath.Replace('\\', '/');
             gameObjects[CurIndex].modelPath = modelPath;
             modelPathText.Text = modelPath;
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() != DialogResult.OK) return;
+            string modelPath = openFileDialog1.FileName;
+            pictureBox3.ImageLocation = modelPath;
+            pictureBox3.BackgroundImageLayout = ImageLayout.Stretch;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() != DialogResult.OK) return;
+            string modelPath = openFileDialog1.FileName;
+            pictureBox1.ImageLocation = modelPath;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() != DialogResult.OK) return;
+            string modelPath = openFileDialog1.FileName;
+            pictureBox2.ImageLocation = modelPath;
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() != DialogResult.OK) return;
+            string modelPath = openFileDialog1.FileName;
+            pictureBox4.ImageLocation = modelPath;
+            pictureBox4.BackgroundImageLayout = ImageLayout.Stretch;
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() != DialogResult.OK) return;
+            string modelPath = openFileDialog1.FileName;
+            pictureBox6.ImageLocation = modelPath;
+            pictureBox6.BackgroundImageLayout = ImageLayout.Stretch;
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() != DialogResult.OK) return;
+            string modelPath = openFileDialog1.FileName;
+            pictureBox5.ImageLocation = modelPath;
+            pictureBox5.BackgroundImageLayout = ImageLayout.Stretch;
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

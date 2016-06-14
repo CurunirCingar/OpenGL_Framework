@@ -1,26 +1,23 @@
 #include "SkyBox.h"
 
 
-SkyBox::SkyBox(string& fileBase, string& front, string& back, string& left, string& right, string& top, string& bottom)
+SkyBox::SkyBox(string& fileBase, string& right, string& left, string& back, string& front, string& up, string& down)
 {
-	transforms.push_back(new Transform());
+	transform = new Transform();
 	for (int i = 0; i < 6; i++)
-	{
-		
-		shaders.push_back(new LightShader((string)"LightShader", &transforms[0]->transform));
-		
-	}
-	transforms[0]->SetProgramID(shaders[0]->GetProgramID());
-	transforms[0]->m_scale = glm::vec3(500, 500, 500);
+		shaders.push_back(new LightShader((string)"LightShader", &transform->transform));
 
-	SetupMesh(fileBase, front, back, left, right, top, bottom);
+	transform->SetProgramID(shaders[0]->GetProgramID());
+	transform->m_scale = glm::vec3(500, 500, 500);
+
+	SetupMesh(fileBase, right, left, back, front, up, down);
 }
 
 SkyBox::~SkyBox()
 {
 }
 
-void SkyBox::SetupMesh(string& fileBase, string& front, string& back, string& left, string& right, string& top, string& bottom)
+void SkyBox::SetupMesh(string& fileBase, string& right, string& left, string& back, string& front, string& up, string& down)
 {
 	vector<Structs::Vertex> vertices = {
 		// Back
@@ -55,14 +52,6 @@ void SkyBox::SetupMesh(string& fileBase, string& front, string& back, string& le
 		{ glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(1, 0) },
 		{ glm::vec3(0.5f, 0.5f, 0.5f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(1, 1) },
 
-		// Bottom
-		{ glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(0, 0) },
-		{ glm::vec3(0.5f, -0.5f, -0.5f), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(1, 0) },
-		{ glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(1, 1) },
-		{ glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(1, 1) },
-		{ glm::vec3(-0.5f, -0.5f, 0.5f), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(0, 1) },
-		{ glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(0, 0) },
-
 		// Top
 		{ glm::vec3(-0.5f, 0.5f, -0.5f), glm::vec3(0.0f, 1.0f, 0.0), glm::vec2(0, 0) },
 		{ glm::vec3(0.5f, 0.5f, -0.5f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(1, 0) },
@@ -70,6 +59,14 @@ void SkyBox::SetupMesh(string& fileBase, string& front, string& back, string& le
 		{ glm::vec3(0.5f, 0.5f, 0.5f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(1, 1) },
 		{ glm::vec3(-0.5f, 0.5f, 0.5f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(0, 1) },
 		{ glm::vec3(-0.5f, 0.5f, -0.5f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(0, 0) },
+
+		// Bottom
+		{ glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(0, 0) },
+		{ glm::vec3(0.5f, -0.5f, -0.5f), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(1, 0) },
+		{ glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(1, 1) },
+		{ glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(1, 1) },
+		{ glm::vec3(-0.5f, -0.5f, 0.5f), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(0, 1) },
+		{ glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(0, 0) },
 	};
 
 	vector<GLuint> indices = {
@@ -95,11 +92,7 @@ void SkyBox::SetupMesh(string& fileBase, string& front, string& back, string& le
 	vector<Structs::Texture> textures;
 	Structs::Texture bufTex;
 
-	bufTex.id = LoadTexture(fileBase + front);
-	bufTex.type = "texture_diffuse1";
-	textures.push_back(bufTex);
-
-	bufTex.id = LoadTexture(fileBase + back);
+	bufTex.id = LoadTexture(fileBase + right);
 	bufTex.type = "texture_diffuse1";
 	textures.push_back(bufTex);
 
@@ -107,15 +100,19 @@ void SkyBox::SetupMesh(string& fileBase, string& front, string& back, string& le
 	bufTex.type = "texture_diffuse1";
 	textures.push_back(bufTex);
 
-	bufTex.id = LoadTexture(fileBase + right);
+	bufTex.id = LoadTexture(fileBase + back);
 	bufTex.type = "texture_diffuse1";
 	textures.push_back(bufTex);
 
-	bufTex.id = LoadTexture(fileBase + bottom);
+	bufTex.id = LoadTexture(fileBase + front);
 	bufTex.type = "texture_diffuse1";
 	textures.push_back(bufTex);
 
-	bufTex.id = LoadTexture(fileBase + top);
+	bufTex.id = LoadTexture(fileBase + up);
+	bufTex.type = "texture_diffuse1";
+	textures.push_back(bufTex);
+
+	bufTex.id = LoadTexture(fileBase + down);
 	bufTex.type = "texture_diffuse1";
 	textures.push_back(bufTex);
 
@@ -157,15 +154,16 @@ GLuint SkyBox::LoadTexture(string filename)
 void SkyBox::Start()
 {
 	//for (int i = 0; i < 6; i++)
-		transforms[0]->Start();
+		transform->Start();
 }
 
 void SkyBox::Update()
 {
+	transform->transform = *((Camera*)(Graphics::instance()->MainCamera))->transform;
 	for (int i = 0; i < 6; i++)
 	{
 		shaders[i]->Update();
-		transforms[0]->Update();
+		transform->Update();
 		meshes[i]->Update();
 	}
 }
