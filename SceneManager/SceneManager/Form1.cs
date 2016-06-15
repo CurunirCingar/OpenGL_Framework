@@ -18,8 +18,27 @@ namespace SceneManager
         List<GameObject> gameObjects;
         string path = "Res/SceneInfo.scn";
         FileStream file;
-        BinaryReader reader;
 
+        bool isTerrainSet = false;
+        int tileSizeBuf;
+
+        public bool IsTerrainSet
+        {
+            get { return isTerrainSet; }
+            set 
+            { 
+                terrainWidth.Text = heightmapPicture.Image.Width.ToString();
+                terrainHeight.Text = heightmapPicture.Image.Height.ToString();
+                
+                isTerrainSet = value;
+                tileSize.Enabled = value;
+                textureTiling.Enabled = value;
+                tileSizeBuf = 1;
+                tileSize.Value = tileSizeBuf;
+                textureTiling.Value = 1;
+                tilesAmount.Text = (heightmapPicture.Image.Width / tileSize.Value).ToString();
+            }
+        }
 
         public int CurIndex
         {
@@ -37,7 +56,6 @@ namespace SceneManager
 
             openFileDialog1.InitialDirectory = Application.StartupPath;
             ReadSceneInfo();
-            
         }
 
         private void WriteSceneInfo()
@@ -102,6 +120,21 @@ namespace SceneManager
                 writer.Write("Res/" + imagePath);
             }
 
+            if(tilingTexturePicture.Image != null)
+            {
+                splitArr = Regex.Split(tilingTexturePicture.ImageLocation, "\\\\Res\\\\");
+                imagePath = splitArr[splitArr.Length - 1];
+                imagePath = imagePath.Replace('\\', '/');
+                writer.Write("Res/" + imagePath);
+
+                splitArr = Regex.Split(heightmapPicture.ImageLocation, "\\\\Res\\\\");
+                imagePath = splitArr[splitArr.Length - 1];
+                imagePath = imagePath.Replace('\\', '/');
+                writer.Write("Res/" + imagePath);
+                writer.Write((int)tileSize.Value);
+                writer.Write((int)textureTiling.Value);
+            }
+
             writer.Close();
             file.Close();
         }
@@ -109,7 +142,7 @@ namespace SceneManager
         private void ReadSceneInfo()
         {
             GameObject readedGameObject;
-            file = File.Open(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            file = File.Open(path, FileMode.OpenOrCreate, FileAccess.Read);
             BinaryReader reader = new BinaryReader(file);
 
             if (reader.PeekChar() != -1)
@@ -156,7 +189,26 @@ namespace SceneManager
                     strBuf = reader.ReadString();                         
                     downPicture.ImageLocation = Application.StartupPath + "\\" + strBuf.Replace('/', '\\');
                 }
+
+                if (reader.PeekChar() != -1)
+                {
+                    strBuf = reader.ReadString();
+                    tilingTexturePicture.Image = Image.FromFile(Application.StartupPath + "\\" + strBuf.Replace('/', '\\'));
+                    tilingTexturePicture.ImageLocation = Application.StartupPath + "\\" + strBuf.Replace('/', '\\');
+
+                    strBuf = reader.ReadString();
+                    heightmapPicture.Image = Image.FromFile(Application.StartupPath + "\\" + strBuf.Replace('/', '\\'));
+                    heightmapPicture.ImageLocation = Application.StartupPath + "\\" + strBuf.Replace('/', '\\');
+                    IsTerrainSet = true;
+
+                    int buf = reader.ReadInt32();
+                    tileSizeBuf = buf;
+                    tileSize.Value = buf;
+                    buf = reader.ReadInt32();
+                    textureTiling.Value = buf;
+                }
             }
+
             reader.Close();
             file.Close();
         }
@@ -366,7 +418,6 @@ namespace SceneManager
             if (openFileDialog1.ShowDialog() != DialogResult.OK) return;
             string modelPath = openFileDialog1.FileName;
             backPicture.ImageLocation = modelPath;
-            backPicture.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -388,7 +439,6 @@ namespace SceneManager
             if (openFileDialog1.ShowDialog() != DialogResult.OK) return;
             string modelPath = openFileDialog1.FileName;
             frontPicture.ImageLocation = modelPath;
-            frontPicture.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
@@ -396,7 +446,6 @@ namespace SceneManager
             if (openFileDialog1.ShowDialog() != DialogResult.OK) return;
             string modelPath = openFileDialog1.FileName;
             upPicture.ImageLocation = modelPath;
-            upPicture.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
@@ -404,12 +453,41 @@ namespace SceneManager
             if (openFileDialog1.ShowDialog() != DialogResult.OK) return;
             string modelPath = openFileDialog1.FileName;
             rightPicture.ImageLocation = modelPath;
-            rightPicture.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
-        private void tabPage2_Click(object sender, EventArgs e)
+        private void pictureBox1_Click_1(object sender, EventArgs e)
         {
+            if (openFileDialog1.ShowDialog() != DialogResult.OK) return;
+            string modelPath = openFileDialog1.FileName;
+            tilingTexturePicture.ImageLocation = modelPath;
+            
+        }
 
+        private void heightmapPicture_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() != DialogResult.OK) return;
+            string modelPath = openFileDialog1.FileName;
+            heightmapPicture.Image = Image.FromFile(modelPath);
+            heightmapPicture.ImageLocation = modelPath;
+            
+            IsTerrainSet = true;
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            if (tileSizeBuf < tileSize.Value)
+            {
+                tileSizeBuf = (tileSizeBuf == heightmapPicture.Image.Width) ? tileSizeBuf : tileSizeBuf * 2;
+                tileSize.Value = tileSizeBuf;
+            }
+            else
+                if (tileSizeBuf > tileSize.Value)
+                {
+                    tileSizeBuf = (tileSizeBuf == 1) ? tileSizeBuf : tileSizeBuf/2;
+                    tileSize.Value = tileSizeBuf;
+                }
+
+            tilesAmount.Text = (heightmapPicture.Image.Width / tileSize.Value).ToString();
         }
     }
 

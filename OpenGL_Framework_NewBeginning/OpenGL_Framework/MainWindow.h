@@ -7,6 +7,7 @@ using namespace std;
 #include "Camera.h"
 #include "GameObject.h"
 #include "Skybox.h"
+#include "Terrain.h"
 
 class MainWindow
 {
@@ -33,6 +34,7 @@ private:
 	GameObject* characterController;
 
 	Skybox* skybox;
+	Terrain* terrain;
 
 	GLboolean isClosed;
 	GLboolean isPaused;
