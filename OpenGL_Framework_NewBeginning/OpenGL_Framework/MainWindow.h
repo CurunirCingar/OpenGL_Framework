@@ -6,7 +6,7 @@ using namespace std;
 
 #include "Camera.h"
 #include "GameObject.h"
-#include "SkyBox.h"
+#include "Skybox.h"
 
 class MainWindow
 {
@@ -32,7 +32,7 @@ private:
 
 	GameObject* characterController;
 
-	SkyBox* skyBox;
+	Skybox* skybox;
 
 	GLboolean isClosed;
 	GLboolean isPaused;

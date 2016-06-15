@@ -1,7 +1,7 @@
 #include "LightShader.h"
 
 
-LightShader::LightShader(std::string& text, Structs::Transform* transform) : Shader(text)
+LightShader::LightShader(Structs::Transform* transform) : Shader("LightShader")
 {
 	type = ShaderTypes::Light;
 

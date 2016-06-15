@@ -10,8 +10,9 @@
 #define  _StandardShader_
 class StandardShader : public Shader
 {
+	const string fileName = "StandardShader";
 public:
-	StandardShader(const std::string& text);
+	StandardShader();
 	virtual ~StandardShader();
 
 	void ShaderUpdate();

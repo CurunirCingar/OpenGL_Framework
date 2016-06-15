@@ -140,36 +140,21 @@ void MainWindow::ReadSceneInfo()
 		GameObjects.push_back(newGameObject);
 	}
 
-	string rightSkybox;
-	string leftSkybox;
-	string backSkybox;
-	string frontSkybox;
-	string upSkybox;
-	string downSkybox;
+	vector<string> texFilenames;
+	string texFilenameBuf;
 
-	if (!in.eof())
+	for (int i = 0; i < 6; i++)
 	{
-		ReadStringFromFile(in, rightSkybox);
-		ReadStringFromFile(in, leftSkybox);
-		ReadStringFromFile(in, backSkybox);
-		ReadStringFromFile(in, frontSkybox);
-		ReadStringFromFile(in, upSkybox);
-		ReadStringFromFile(in, downSkybox);
+		ReadStringFromFile(in, texFilenameBuf);
+		texFilenames.push_back(texFilenameBuf);
 	}
 
-	skyBox = new SkyBox(
-		rightSkybox,
-		leftSkybox,
-		backSkybox,
-		frontSkybox,
-		upSkybox,
-		downSkybox
-		);
+	skybox = new Skybox(texFilenames, ShaderTypes::Light);
+
+
 
 	in.close();
 }
-
-
 
 void MainWindow::StartSetup()
 {
@@ -177,7 +162,7 @@ void MainWindow::StartSetup()
 	{
 		gameObject->Start();
 	}
-	skyBox->Start();
+	skybox->Start();
 }
 
 void MainWindow::Update()
@@ -192,7 +177,7 @@ void MainWindow::Update()
 	for (i = GameObjects.begin(); i != GameObjects.end(); i++)
 		(*i)->Update();
 
-	skyBox->Update();
+	skybox->Update();
 }
 
 MainWindow::~MainWindow()

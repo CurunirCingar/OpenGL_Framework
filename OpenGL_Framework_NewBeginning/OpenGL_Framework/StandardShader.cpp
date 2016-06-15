@@ -1,6 +1,6 @@
 #include "StandardShader.h"
 
-StandardShader::StandardShader(const std::string& text) : Shader(text)
+StandardShader::StandardShader() : Shader("StandardShader")
 {
 	type = ShaderTypes::Standard;
 }

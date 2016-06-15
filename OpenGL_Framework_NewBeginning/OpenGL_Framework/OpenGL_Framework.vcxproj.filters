@@ -86,6 +86,15 @@
     <ClInclude Include="SkyBox.h">
       <Filter>Заголовочные файлы\System</Filter>
     </ClInclude>
+    <ClInclude Include="SkyboxMesh.h">
+      <Filter>Заголовочные файлы\System</Filter>
+    </ClInclude>
+    <ClInclude Include="Terrain.h">
+      <Filter>Заголовочные файлы\System</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedMesh.h">
+      <Filter>Заголовочные файлы\System</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Shader.cpp">
@@ -140,6 +149,15 @@
       <Filter>Файлы исходного кода\Shaders</Filter>
     </ClCompile>
     <ClCompile Include="SkyBox.cpp">
+      <Filter>Файлы исходного кода\System</Filter>
+    </ClCompile>
+    <ClCompile Include="SkyboxMesh.cpp">
+      <Filter>Файлы исходного кода\System</Filter>
+    </ClCompile>
+    <ClCompile Include="Terrain.cpp">
+      <Filter>Файлы исходного кода\System</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedMesh.cpp">
       <Filter>Файлы исходного кода\System</Filter>
     </ClCompile>
   </ItemGroup>

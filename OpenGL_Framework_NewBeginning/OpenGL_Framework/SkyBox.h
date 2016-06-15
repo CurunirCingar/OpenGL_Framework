@@ -13,25 +13,16 @@ using namespace std;
 #include <assimp\postprocess.h>
 //#include "stb_image.h"
 
-#include "Mesh.h"
-#include "Transform.h"
+#include "SkyboxMesh.h"
+#include "GeneratedMesh.h"
 
-class SkyBox
+class Skybox : public GeneratedMesh
 {
 public:
-	SkyBox(string& right, string& left, string& back, string& front, string& up, string& down);
-	~SkyBox();
+	Skybox(vector<string>& texFilenames, ShaderTypes::Enum shaderType);
+	~Skybox();
 
-	void SetupMesh(string& right, string& left, string& back, string& front, string& up, string& down);
-	GLuint LoadTexture(string filename);
-
-	void Start();
+	void SetupMesh(vector<string>& textures);
 	void Update();
-
-	vector<Shader*> shaders;
-	Transform* transform;
-	vector<Mesh*> meshes;
-
-	GLuint shaderProgram;
 };
 

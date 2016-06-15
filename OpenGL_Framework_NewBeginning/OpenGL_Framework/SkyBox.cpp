@@ -1,23 +1,16 @@
-#include "SkyBox.h"
+#include "Skybox.h"
 
 
-SkyBox::SkyBox(string& right, string& left, string& back, string& front, string& up, string& down)
+Skybox::Skybox(vector<string>& texFilenames, ShaderTypes::Enum shaderType) : GeneratedMesh(texFilenames, shaderType)
 {
-	transform = new Transform();
-	for (int i = 0; i < 6; i++)
-		shaders.push_back(new LightShader((string)"LightShader", &transform->transform));
-
-	transform->SetProgramID(shaders[0]->GetProgramID());
-	transform->m_scale = glm::vec3(500, 500, 500);
-
-	SetupMesh(right, left, back, front, up, down);
+	SetupMesh(texFilenames);
 }
 
-SkyBox::~SkyBox()
+Skybox::~Skybox()
 {
 }
 
-void SkyBox::SetupMesh(string& right, string& left, string& back, string& front, string& up, string& down)
+void Skybox::SetupMesh(vector<string>& texFilenames)
 {
 	vector<Structs::Vertex> vertices = {
 		// Right
@@ -92,29 +85,12 @@ void SkyBox::SetupMesh(string& right, string& left, string& back, string& front,
 	vector<Structs::Texture> textures;
 	Structs::Texture bufTex;
 
-	bufTex.id = LoadTexture(right);
-	bufTex.type = "texture_diffuse1";
-	textures.push_back(bufTex);
-
-	bufTex.id = LoadTexture(left);
-	bufTex.type = "texture_diffuse1";
-	textures.push_back(bufTex);
-
-	bufTex.id = LoadTexture(back);
-	bufTex.type = "texture_diffuse1";
-	textures.push_back(bufTex);
-
-	bufTex.id = LoadTexture(front);
-	bufTex.type = "texture_diffuse1";
-	textures.push_back(bufTex);
-
-	bufTex.id = LoadTexture(up);
-	bufTex.type = "texture_diffuse1";
-	textures.push_back(bufTex);
-
-	bufTex.id = LoadTexture(down);
-	bufTex.type = "texture_diffuse1";
-	textures.push_back(bufTex);
+	for (int i = 0; i < 6; i++)
+	{
+		bufTex.id = LoadTexture(texFilenames[i]);
+		bufTex.type = "texture_diffuse1";
+		textures.push_back(bufTex);
+	}
 
 	vector<Structs::Vertex> meshVertices;
 	vector<GLuint> meshIndices;
@@ -126,44 +102,17 @@ void SkyBox::SetupMesh(string& right, string& left, string& back, string& front,
 		meshIndices.assign( indices.begin(), indices.begin() + 6 );
 		meshTextures.assign( 1, textures[i] );
 
-		meshes.push_back(new Mesh(meshVertices, meshIndices, meshTextures, shaders[i]->GetProgramID()));
+		meshes.push_back(new SkyboxMesh(meshVertices, meshIndices, meshTextures, shaders[i]->GetProgramID()));
 	}
 }
 
-GLuint SkyBox::LoadTexture(string filename)
-{
-	GLuint textureID;
-	glGenTextures(1, &textureID);
-	int width, height, numComponents;
-	unsigned char* image = stbi_load(filename.c_str(), &width, &height, &numComponents, 3);
-	// Assign texture to ID
-	glBindTexture(GL_TEXTURE_2D, textureID);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
-	glGenerateMipmap(GL_TEXTURE_2D);
-
-	// Parameters
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	glBindTexture(GL_TEXTURE_2D, 0);
-	stbi_image_free(image);
-	return textureID;
-}
-
-void SkyBox::Start()
-{
-	//for (int i = 0; i < 6; i++)
-		transform->Start();
-}
-
-void SkyBox::Update()
+void Skybox::Update()
 {
 	transform->transform = *((Camera*)(Graphics::instance()->MainCamera))->transform;
 	for (int i = 0; i < 6; i++)
 	{
 		shaders[i]->Update();
 		transform->Update();
-		meshes[i]->Update();
+		meshes[i]->Draw();
 	}
 }

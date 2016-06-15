@@ -38,14 +38,13 @@ public:
 	void Draw();
 	virtual ~Mesh();
 
-	void Update();
 	void ChangePolygonMode();
 
 	VerticesBlockT* verticesInfo;
 	//Material* material;
 	Texture* texture;
 
-private:
+protected:
 	void SetupMesh();
 
 	GLuint m_shaderProgram;

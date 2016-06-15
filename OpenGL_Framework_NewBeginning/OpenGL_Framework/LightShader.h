@@ -8,8 +8,9 @@
 #define  _LightShader_
 class LightShader : public Shader
 {
+	const string fileName = "LightShader";
 public:
-	LightShader(std::string& text, Structs::Transform* transform);
+	LightShader(Structs::Transform* transform);
 	virtual ~LightShader();
 
 	void ShaderUpdate();

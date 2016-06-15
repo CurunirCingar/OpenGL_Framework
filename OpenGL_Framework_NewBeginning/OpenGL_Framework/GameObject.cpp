@@ -23,10 +23,10 @@ GameObject::GameObject(string& objectName, string& shaderFilename, string& model
 void GameObject::CreateShader(std::string& shaderFilename, Structs::Transform* transform)
 {
 	if (!shaderFilename.compare("StandardShader"))
-		shader = new StandardShader(shaderFilename);
+		shader = new StandardShader();
 
 	else if (!shaderFilename.compare("LightShader"))
-		shader = new LightShader(shaderFilename, transform);
+		shader = new LightShader(transform);
 }
 
 GameObject::~GameObject()
