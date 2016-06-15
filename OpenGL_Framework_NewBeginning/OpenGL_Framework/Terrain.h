@@ -19,10 +19,15 @@ using namespace std;
 class Terrain : public GeneratedMesh
 {
 public:
-	Terrain(vector<string>& texFilenames, ShaderTypes::Enum shaderType);
+	Terrain(vector<string>& texFilenames, int& tileSize, int& textureTiling, ShaderTypes::Enum shaderType);
 	~Terrain();
 
-	void SetupMesh(vector<string>& textures);
+	void SetupMesh(vector<string>& texFilenames);
+	GLuint LoadTexture(string filename, int& width, int& height, vector<float>& heightsArr);
+	GLuint LoadTexture(string filename);
 	void Update();
+
+	int tileSize;
+	int textureTiling;
 };
 

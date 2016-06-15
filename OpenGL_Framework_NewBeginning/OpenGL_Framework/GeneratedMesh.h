@@ -20,6 +20,7 @@ class GeneratedMesh
 {
 public:
 	GeneratedMesh(vector<string>& textures, ShaderTypes::Enum shaderType);
+	GeneratedMesh(ShaderTypes::Enum shaderType);
 	~GeneratedMesh();
 
 	void Start();

@@ -161,7 +161,7 @@ void MainWindow::ReadSceneInfo()
 	in.read((char*)&tileSize, sizeof(tileSize));
 	in.read((char*)&textureTiling, sizeof(textureTiling));
 
-	//terrain = new Terrain(texFilenames, ShaderTypes::Standard);*/
+	terrain = new Terrain(texFilenames, tileSize, textureTiling, ShaderTypes::Standard);
 
 	in.close();
 }
@@ -173,6 +173,7 @@ void MainWindow::StartSetup()
 		gameObject->Start();
 	}
 	skybox->Start();
+	terrain->Start();
 }
 
 void MainWindow::Update()
@@ -187,6 +188,7 @@ void MainWindow::Update()
 	for (i = GameObjects.begin(); i != GameObjects.end(); i++)
 		(*i)->Update();
 
+	terrain->Update();
 	skybox->Update();
 }
 

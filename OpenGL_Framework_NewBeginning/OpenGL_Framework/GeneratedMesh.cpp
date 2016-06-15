@@ -17,7 +17,21 @@ GeneratedMesh::GeneratedMesh(vector<string>& texFilenames, ShaderTypes::Enum sha
 			shaders.push_back(new LightShader(&transform->transform));
 	}
 	transform->SetProgramID(shaders[0]->GetProgramID());
-	transform->m_scale = glm::vec3(500, 500, 500);
+}
+
+GeneratedMesh::GeneratedMesh(ShaderTypes::Enum shaderType)
+{
+	transform = new Transform();
+	if (shaderType == ShaderTypes::Standard)
+	{
+		shaders.push_back(new StandardShader());
+	}
+	else if (shaderType == ShaderTypes::Light)
+	{
+		shaders.push_back(new LightShader(&transform->transform));
+	}
+
+	transform->SetProgramID(shaders[0]->GetProgramID());
 }
 
 

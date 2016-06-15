@@ -16,7 +16,7 @@ Mesh::Mesh(const std::string& shaderFilename, const std::string& verticesFilenam
 	m_shaderProgram = shaderProgram;
 
 	verticesInfo = new VerticesBlockT(verticesFilename);
-	//material = new Material(verticesInfo, shaderFilename, transform);
+
 	texture = new Texture(verticesInfo->m_texturesFilesArrLen, verticesInfo->m_texturesFilesArr, m_shaderProgram);
 
 	m_polygonMode = GL_FILL;

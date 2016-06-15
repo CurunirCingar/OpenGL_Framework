@@ -11,7 +11,7 @@ SkyboxMesh::~SkyboxMesh()
 {
 }
 
-void SkyboxMesh::Draw()
+void SkyboxMesh::Update()
 {
 	//glPolygonMode(GL_FRONT_AND_BACK, m_polygonMode);
 

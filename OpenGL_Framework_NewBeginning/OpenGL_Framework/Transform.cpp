@@ -37,7 +37,6 @@ void Transform::Update()
 	model = glm::rotate(model, glm::radians(transform.rot.y), yRot);
 	model = glm::rotate(model, glm::radians(transform.rot.z), zRot);
 	
-
 	glm::mat4 projection;
 	projection = glm::perspective(45.0f, 1000.0f / 600.0f, 0.5f, 500.0f);
 

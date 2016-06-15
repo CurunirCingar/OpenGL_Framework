@@ -3,6 +3,7 @@
 
 Skybox::Skybox(vector<string>& texFilenames, ShaderTypes::Enum shaderType) : GeneratedMesh(texFilenames, shaderType)
 {
+	transform->m_scale = glm::vec3(200, 200, 200);
 	SetupMesh(texFilenames);
 }
 
@@ -14,52 +15,52 @@ void Skybox::SetupMesh(vector<string>& texFilenames)
 {
 	vector<Structs::Vertex> vertices = {
 		// Right
-		{ glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(0.0f, 0.0f, -1.0f), glm::vec2(0, 0) },
-		{ glm::vec3(0.5f, -0.5f, -0.5f), glm::vec3(0.0f, 0.0f, -1.0f), glm::vec2(1, 0) },
-		{ glm::vec3(0.5f, 0.5f, -0.5f), glm::vec3(0.0f, 0.0f, -1.0f), glm::vec2(1, 1) },
-		{ glm::vec3(0.5f, 0.5f, -0.5f), glm::vec3(0.0f, 0.0f, -1.0f), glm::vec2(1, 1) },
-		{ glm::vec3(-0.5f, 0.5f, -0.5f), glm::vec3(0.0f, 0.0f, -1.0f), glm::vec2(0, 1) },
-		{ glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(0.0f, 0.0f, -1.0f), glm::vec2(0, 0) },
+		{ glm::vec3(-1, -1, -1), glm::vec3(0.0f, 0.0f, -1.0f), glm::vec2(0, 0) },
+		{ glm::vec3(1, -1, -1), glm::vec3(0.0f, 0.0f, -1.0f), glm::vec2(1, 0) },
+		{ glm::vec3(1, 1, -1), glm::vec3(0.0f, 0.0f, -1.0f), glm::vec2(1, 1) },
+		{ glm::vec3(1, 1, -1), glm::vec3(0.0f, 0.0f, -1.0f), glm::vec2(1, 1) },
+		{ glm::vec3(-1, 1, -1), glm::vec3(0.0f, 0.0f, -1.0f), glm::vec2(0, 1) },
+		{ glm::vec3(-1, -1, -1), glm::vec3(0.0f, 0.0f, -1.0f), glm::vec2(0, 0) },
 
 		// Left
-		{ glm::vec3(-0.5f, -0.5f, 0.5f), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(1, 0) },
-		{ glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(0, 0) },
-		{ glm::vec3(0.5f, 0.5f, 0.5f), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(0, 1) },
-		{ glm::vec3(0.5f, 0.5f, 0.5f), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(0, 1) },
-		{ glm::vec3(-0.5f, 0.5f, 0.5f), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(1, 1) },
-		{ glm::vec3(-0.5f, -0.5f, 0.5f), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(1, 0) },
+		{ glm::vec3(-1, -1, 1), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(1, 0) },
+		{ glm::vec3(1, -1, 1), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(0, 0) },
+		{ glm::vec3(1, 1, 1), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(0, 1) },
+		{ glm::vec3(1, 1, 1), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(0, 1) },
+		{ glm::vec3(-1, 1, 1), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(1, 1) },
+		{ glm::vec3(-1, -1, 1), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(1, 0) },
 
 		// Back
-		{ glm::vec3(-0.5f, 0.5f, 0.5f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(0, 1) },
-		{ glm::vec3(-0.5f, 0.5f, -0.5f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(1, 1) },
-		{ glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(-1.0f, 0.0f, 0.0f), glm::vec2(1, 0) },
-		{ glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(-1.0f, 0.0f, 0.0f), glm::vec2(1, 0) },
-		{ glm::vec3(-0.5f, -0.5f, 0.5f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(0, 0) },
-		{ glm::vec3(-0.5f, 0.5f, 0.5f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(0, 1) },
+		{ glm::vec3(-1, 1, 1), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(0, 1) },
+		{ glm::vec3(-1, 1, -1), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(1, 1) },
+		{ glm::vec3(-1, -1, -1), glm::vec3(-1.0f, 0.0f, 0.0f), glm::vec2(1, 0) },
+		{ glm::vec3(-1, -1, -1), glm::vec3(-1.0f, 0.0f, 0.0f), glm::vec2(1, 0) },
+		{ glm::vec3(-1, -1, 1), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(0, 0) },
+		{ glm::vec3(-1, 1, 1), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(0, 1) },
 
 		// Front
-		{ glm::vec3(0.5f, 0.5f, 0.5f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(1, 1) },
-		{ glm::vec3(0.5f, 0.5f, -0.5f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(0, 1) },
-		{ glm::vec3(0.5f, -0.5f, -0.5f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(0, 0) },
-		{ glm::vec3(0.5f, -0.5f, -0.5f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(0, 0) },
-		{ glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(1, 0) },
-		{ glm::vec3(0.5f, 0.5f, 0.5f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(1, 1) },
+		{ glm::vec3(1, 1, 1), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(1, 1) },
+		{ glm::vec3(1, 1, -1), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(0, 1) },
+		{ glm::vec3(1, -1, -1), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(0, 0) },
+		{ glm::vec3(1, -1, -1), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(0, 0) },
+		{ glm::vec3(1, -1, 1), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(1, 0) },
+		{ glm::vec3(1, 1, 1), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(1, 1) },
 
 		// Up
-		{ glm::vec3(-0.5f, 0.5f, -0.5f), glm::vec3(0.0f, 1.0f, 0.0), glm::vec2(0, 0) },
-		{ glm::vec3(0.5f, 0.5f, -0.5f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(1, 0) },
-		{ glm::vec3(0.5f, 0.5f, 0.5f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(1, 1) },
-		{ glm::vec3(0.5f, 0.5f, 0.5f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(1, 1) },
-		{ glm::vec3(-0.5f, 0.5f, 0.5f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(0, 1) },
-		{ glm::vec3(-0.5f, 0.5f, -0.5f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(0, 0) },
+		{ glm::vec3(-1, 1, -1), glm::vec3(0.0f, 1.0f, 0.0), glm::vec2(0, 0) },
+		{ glm::vec3(1, 1, -1), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(1, 0) },
+		{ glm::vec3(1, 1, 1), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(1, 1) },
+		{ glm::vec3(1, 1, 1), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(1, 1) },
+		{ glm::vec3(-1, 1, 1), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(0, 1) },
+		{ glm::vec3(-1, 1, -1), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(0, 0) },
 
 		// Down
-		{ glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(0, 0) },
-		{ glm::vec3(0.5f, -0.5f, -0.5f), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(1, 0) },
-		{ glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(1, 1) },
-		{ glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(1, 1) },
-		{ glm::vec3(-0.5f, -0.5f, 0.5f), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(0, 1) },
-		{ glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(0, 0) },
+		{ glm::vec3(-1, -1, -1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(0, 0) },
+		{ glm::vec3(1, -1, -1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(1, 0) },
+		{ glm::vec3(1, -1, 1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(1, 1) },
+		{ glm::vec3(1, -1, 1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(1, 1) },
+		{ glm::vec3(-1, -1, 1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(0, 1) },
+		{ glm::vec3(-1, -1, -1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(0, 0) },
 	};
 
 	vector<GLuint> indices = {
@@ -113,6 +114,6 @@ void Skybox::Update()
 	{
 		shaders[i]->Update();
 		transform->Update();
-		meshes[i]->Draw();
+		((SkyboxMesh*)meshes[i])->Update();
 	}
 }
