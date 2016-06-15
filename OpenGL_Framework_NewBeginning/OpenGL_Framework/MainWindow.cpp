@@ -151,7 +151,17 @@ void MainWindow::ReadSceneInfo()
 
 	skybox = new Skybox(texFilenames, ShaderTypes::Light);
 
+	int tileSize, textureTiling;
+	texFilenames.clear();
+	for (int i = 0; i < 2; i++)
+	{
+		ReadStringFromFile(in, texFilenameBuf);
+		texFilenames.push_back(texFilenameBuf);
+	}
+	in.read((char*)&tileSize, sizeof(tileSize));
+	in.read((char*)&textureTiling, sizeof(textureTiling));
 
+	//terrain = new Terrain(texFilenames, ShaderTypes::Standard);*/
 
 	in.close();
 }

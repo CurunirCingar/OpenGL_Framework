@@ -80,6 +80,21 @@
             this.backPicture = new System.Windows.Forms.PictureBox();
             this.downPicture = new System.Windows.Forms.PictureBox();
             this.leftPicture = new System.Windows.Forms.PictureBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label29 = new System.Windows.Forms.Label();
+            this.textureTiling = new System.Windows.Forms.NumericUpDown();
+            this.label26 = new System.Windows.Forms.Label();
+            this.terrainHeight = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.terrainWidth = new System.Windows.Forms.TextBox();
+            this.tileSize = new System.Windows.Forms.NumericUpDown();
+            this.heightmapPicture = new System.Windows.Forms.PictureBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.tilesAmount = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.tilingTexturePicture = new System.Windows.Forms.PictureBox();
+            this.label23 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gameObjectsGrid)).BeginInit();
             this.gameObjectTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -90,6 +105,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.backPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.downPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leftPicture)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textureTiling)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileSize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.heightmapPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tilingTexturePicture)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -435,6 +455,7 @@
             // 
             this.gameObjectTab.Controls.Add(this.tabPage1);
             this.gameObjectTab.Controls.Add(this.tabPage2);
+            this.gameObjectTab.Controls.Add(this.tabPage3);
             this.gameObjectTab.Location = new System.Drawing.Point(324, 12);
             this.gameObjectTab.Name = "gameObjectTab";
             this.gameObjectTab.SelectedIndex = 0;
@@ -502,12 +523,11 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "SkyBox";
             this.tabPage2.UseVisualStyleBackColor = true;
-            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(229, 110);
+            this.label22.Location = new System.Drawing.Point(49, 108);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(32, 13);
             this.label22.TabIndex = 11;
@@ -516,7 +536,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(114, 110);
+            this.label21.Location = new System.Drawing.Point(171, 108);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(25, 13);
             this.label21.TabIndex = 10;
@@ -525,7 +545,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(173, 46);
+            this.label20.Location = new System.Drawing.Point(53, 52);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(21, 13);
             this.label20.TabIndex = 9;
@@ -534,7 +554,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(168, 110);
+            this.label19.Location = new System.Drawing.Point(110, 108);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(31, 13);
             this.label19.TabIndex = 8;
@@ -543,7 +563,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(166, 174);
+            this.label18.Location = new System.Drawing.Point(227, 168);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(35, 13);
             this.label18.TabIndex = 7;
@@ -552,7 +572,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(47, 110);
+            this.label17.Location = new System.Drawing.Point(229, 108);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(32, 13);
             this.label17.TabIndex = 6;
@@ -562,7 +582,7 @@
             // 
             this.upPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.upPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.upPicture.Location = new System.Drawing.Point(154, 27);
+            this.upPicture.Location = new System.Drawing.Point(34, 27);
             this.upPicture.Name = "upPicture";
             this.upPicture.Size = new System.Drawing.Size(60, 60);
             this.upPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -574,7 +594,7 @@
             // 
             this.rightPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.rightPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rightPicture.Location = new System.Drawing.Point(214, 87);
+            this.rightPicture.Location = new System.Drawing.Point(34, 85);
             this.rightPicture.Name = "rightPicture";
             this.rightPicture.Size = new System.Drawing.Size(60, 60);
             this.rightPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -586,7 +606,7 @@
             // 
             this.frontPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.frontPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.frontPicture.Location = new System.Drawing.Point(154, 87);
+            this.frontPicture.Location = new System.Drawing.Point(94, 85);
             this.frontPicture.Name = "frontPicture";
             this.frontPicture.Size = new System.Drawing.Size(60, 60);
             this.frontPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -598,7 +618,7 @@
             // 
             this.backPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.backPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.backPicture.Location = new System.Drawing.Point(34, 87);
+            this.backPicture.Location = new System.Drawing.Point(214, 85);
             this.backPicture.Name = "backPicture";
             this.backPicture.Size = new System.Drawing.Size(60, 60);
             this.backPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -609,7 +629,7 @@
             // downPicture
             // 
             this.downPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.downPicture.Location = new System.Drawing.Point(154, 147);
+            this.downPicture.Location = new System.Drawing.Point(214, 145);
             this.downPicture.Name = "downPicture";
             this.downPicture.Size = new System.Drawing.Size(60, 60);
             this.downPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -621,7 +641,7 @@
             // 
             this.leftPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.leftPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.leftPicture.Location = new System.Drawing.Point(94, 87);
+            this.leftPicture.Location = new System.Drawing.Point(154, 85);
             this.leftPicture.Name = "leftPicture";
             this.leftPicture.Size = new System.Drawing.Size(60, 60);
             this.leftPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -629,11 +649,169 @@
             this.leftPicture.TabStop = false;
             this.leftPicture.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.label29);
+            this.tabPage3.Controls.Add(this.textureTiling);
+            this.tabPage3.Controls.Add(this.label26);
+            this.tabPage3.Controls.Add(this.terrainHeight);
+            this.tabPage3.Controls.Add(this.label28);
+            this.tabPage3.Controls.Add(this.label25);
+            this.tabPage3.Controls.Add(this.terrainWidth);
+            this.tabPage3.Controls.Add(this.tileSize);
+            this.tabPage3.Controls.Add(this.heightmapPicture);
+            this.tabPage3.Controls.Add(this.label27);
+            this.tabPage3.Controls.Add(this.tilesAmount);
+            this.tabPage3.Controls.Add(this.label24);
+            this.tabPage3.Controls.Add(this.tilingTexturePicture);
+            this.tabPage3.Controls.Add(this.label23);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(311, 232);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Terrain";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(229, 185);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(67, 13);
+            this.label29.TabIndex = 27;
+            this.label29.Text = "Tiles amount";
+            // 
+            // textureTiling
+            // 
+            this.textureTiling.Enabled = false;
+            this.textureTiling.Location = new System.Drawing.Point(174, 207);
+            this.textureTiling.Name = "textureTiling";
+            this.textureTiling.ReadOnly = true;
+            this.textureTiling.Size = new System.Drawing.Size(44, 20);
+            this.textureTiling.TabIndex = 25;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(3, 209);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(38, 13);
+            this.label26.TabIndex = 20;
+            this.label26.Text = "Height";
+            // 
+            // terrainHeight
+            // 
+            this.terrainHeight.Location = new System.Drawing.Point(44, 206);
+            this.terrainHeight.Name = "terrainHeight";
+            this.terrainHeight.ReadOnly = true;
+            this.terrainHeight.Size = new System.Drawing.Size(59, 20);
+            this.terrainHeight.TabIndex = 19;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(111, 209);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(59, 13);
+            this.label28.TabIndex = 24;
+            this.label28.Text = "Texture tile";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(3, 185);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(35, 13);
+            this.label25.TabIndex = 18;
+            this.label25.Text = "Width";
+            // 
+            // terrainWidth
+            // 
+            this.terrainWidth.Location = new System.Drawing.Point(44, 182);
+            this.terrainWidth.Name = "terrainWidth";
+            this.terrainWidth.ReadOnly = true;
+            this.terrainWidth.Size = new System.Drawing.Size(59, 20);
+            this.terrainWidth.TabIndex = 17;
+            // 
+            // tileSize
+            // 
+            this.tileSize.Enabled = false;
+            this.tileSize.Location = new System.Drawing.Point(174, 183);
+            this.tileSize.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.tileSize.Name = "tileSize";
+            this.tileSize.ReadOnly = true;
+            this.tileSize.Size = new System.Drawing.Size(44, 20);
+            this.tileSize.TabIndex = 23;
+            this.tileSize.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
+            // heightmapPicture
+            // 
+            this.heightmapPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.heightmapPicture.Location = new System.Drawing.Point(155, 24);
+            this.heightmapPicture.Name = "heightmapPicture";
+            this.heightmapPicture.Size = new System.Drawing.Size(150, 150);
+            this.heightmapPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.heightmapPicture.TabIndex = 16;
+            this.heightmapPicture.TabStop = false;
+            this.heightmapPicture.Click += new System.EventHandler(this.heightmapPicture_Click);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(111, 185);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(45, 13);
+            this.label27.TabIndex = 22;
+            this.label27.Text = "Tile size";
+            // 
+            // tilesAmount
+            // 
+            this.tilesAmount.Location = new System.Drawing.Point(232, 202);
+            this.tilesAmount.Name = "tilesAmount";
+            this.tilesAmount.ReadOnly = true;
+            this.tilesAmount.Size = new System.Drawing.Size(64, 20);
+            this.tilesAmount.TabIndex = 26;
+            this.tilesAmount.Text = "0";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(199, 8);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(61, 13);
+            this.label24.TabIndex = 15;
+            this.label24.Text = "Height map";
+            // 
+            // tilingTexturePicture
+            // 
+            this.tilingTexturePicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tilingTexturePicture.Location = new System.Drawing.Point(6, 24);
+            this.tilingTexturePicture.Name = "tilingTexturePicture";
+            this.tilingTexturePicture.Size = new System.Drawing.Size(150, 150);
+            this.tilingTexturePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.tilingTexturePicture.TabIndex = 12;
+            this.tilingTexturePicture.TabStop = false;
+            this.tilingTexturePicture.Click += new System.EventHandler(this.pictureBox1_Click_1);
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(48, 8);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(67, 13);
+            this.label23.TabIndex = 14;
+            this.label23.Text = "Tiling texture";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(657, 309);
+            this.ClientSize = new System.Drawing.Size(652, 310);
             this.Controls.Add(this.gameObjectTab);
             this.Controls.Add(this.gameObjectsGrid);
             this.Controls.Add(this.NewButton);
@@ -656,6 +834,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.backPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.downPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.leftPicture)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textureTiling)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileSize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.heightmapPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tilingTexturePicture)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -714,6 +898,21 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.PictureBox upPicture;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.PictureBox tilingTexturePicture;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.PictureBox heightmapPicture;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox terrainWidth;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox terrainHeight;
+        private System.Windows.Forms.NumericUpDown tileSize;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.NumericUpDown textureTiling;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox tilesAmount;
     }
 }
 
