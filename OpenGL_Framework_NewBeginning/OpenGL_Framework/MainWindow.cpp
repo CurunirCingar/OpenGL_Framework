@@ -84,7 +84,7 @@ void MainWindow::MainCycle()
 			
 			if (((clock() - secoundTime) / CLOCKS_PER_SEC) >= 1)
 			{
-				cout << FramesCounter << endl;
+				//cout << FramesCounter << endl;
 				FramesCounter = 0;
 				secoundTime = clock();
 			}
@@ -105,6 +105,7 @@ void MainWindow::ReadSceneInfo()
 
 	GameObject* newGameObject;
 	string name, shaderName, lightType, modelPath;
+	glm::vec3 bufVec;
 
 	int objectsCount = 0;
 	in.read((char*)&objectsCount, sizeof(objectsCount));
@@ -130,9 +131,18 @@ void MainWindow::ReadSceneInfo()
 				((LightShader*)(newGameObject->shader))->SetLightSourceType(LightSources::Spot);
 		}
 
-		ReadVec3FromFile(in, newGameObject->transform->transform.pos);
-		ReadVec3FromFile(in, newGameObject->transform->transform.rot);
-		ReadVec3FromFile(in, newGameObject->transform->m_scale);
+		
+		ReadVec3FromFile(in, bufVec);
+		newGameObject->transform->SetPosition(bufVec);
+
+		ReadVec3FromFile(in, bufVec);
+		newGameObject->transform->SetRotation(bufVec);
+		
+		ReadVec3FromFile(in, bufVec);
+		newGameObject->transform->SetScale(bufVec);
+
+		if (!name.compare("Sun"))
+			Graphics::instance()->Sun = newGameObject;
 
 		if (!name.compare("Player"))
 			newGameObject->SetCamera();
@@ -225,6 +235,15 @@ void MainWindow::UpdateStates()
 					break;
 				case SDLK_ESCAPE:
 					isClosed = true;
+					break;
+				case SDLK_1:
+					((GameObject*)(Graphics::instance()->Sun))->transform->RotateAround(1, glm::vec3(1,0,0));
+					break;
+				case SDLK_2:
+					((GameObject*)(Graphics::instance()->Sun))->transform->RotateAround(1, glm::vec3(0, 1, 0));
+					break;
+				case SDLK_3:
+					((GameObject*)(Graphics::instance()->Sun))->transform->RotateAround(1, glm::vec3(0, 0, 1));
 					break;
 			}
 		}

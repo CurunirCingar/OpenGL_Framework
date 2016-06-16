@@ -39,7 +39,7 @@ public:
 	inline GLint GetNewId() { return objectsAmount++; }
 
 	list<void*> lightSources;
-
+	void* Sun;
 	void* MainCamera;
 
 private:
@@ -54,6 +54,7 @@ namespace Structs
 	{
 		glm::vec3 pos;
 		glm::vec3 rot;
+		glm::vec3 front;
 	};
 
 	struct Vertex

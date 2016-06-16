@@ -3,7 +3,7 @@
 
 Skybox::Skybox(vector<string>& texFilenames, ShaderTypes::Enum shaderType) : GeneratedMesh(texFilenames, shaderType)
 {
-	transform->m_scale = glm::vec3(200, 200, 200);
+	transform->SetScale(glm::vec3(200, 200, 200));
 	SetupMesh(texFilenames);
 }
 
@@ -109,7 +109,7 @@ void Skybox::SetupMesh(vector<string>& texFilenames)
 
 void Skybox::Update()
 {
-	transform->transform = *((Camera*)(Graphics::instance()->MainCamera))->transform;
+	transform->SetPosition(((Camera*)(Graphics::instance()->MainCamera))->transform->pos);
 	for (int i = 0; i < 6; i++)
 	{
 		shaders[i]->Update();

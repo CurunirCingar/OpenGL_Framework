@@ -53,6 +53,7 @@ void GameObject::ChangeDrawingMode()
 
 void GameObject::SetCamera()
 {
+	//transform->SetPosition(glm::vec3(0,0,0));
 	camera = new Camera(&transform->transform);
 	Graphics::instance()->MainCamera = camera;
 }

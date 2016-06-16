@@ -6,7 +6,7 @@ Terrain::Terrain(vector<string>& texFilenames, int& tileSize, int& textureTiling
 	this->tileSize = tileSize;
 	this->textureTiling = textureTiling;
 	SetupMesh(texFilenames);
-	transform->m_scale = glm::vec3(0.3, 0.3, 0.3);
+	transform->SetScale(glm::vec3(0.3, 0.3, 0.3));
 }
 
 Terrain::~Terrain()
@@ -35,38 +35,64 @@ void Terrain::SetupMesh(vector<string>& texFilenames)
 	Structs::Vertex bufVertex;
 	int tilesAmount = terrainWidth / tileSize;
 	int x, y;
+	glm::vec3 posBuf[6], normalBuf[2];
 
 	for (int i = 0; i < terrainWidth; i += tileSize)
 	{
 		for (int j = 0; j < terrainWidth; j += tileSize)
 		{
-			x = (j == terrainWidth - 1) ? (j - 1) : j;
-			y = (i == terrainWidth - 1) ? (i - 1) : i;
+			x = (j == terrainWidth - tileSize) ? (j - tileSize) : j;
+			y = (i == terrainWidth - tileSize) ? (i - tileSize) : i;
 
-
-			vertices.push_back(Structs::Vertex() =
-			{ glm::vec3(x,					heightsArr[x*terrainWidth + y],			y),	
-			glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(0, 0) });
-
-			vertices.push_back(Structs::Vertex() =
-			{ glm::vec3(x + tileSize,		heightsArr[(x+1)*terrainWidth + y],			y), 
-			glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(1, 0) });
+			posBuf[0] = glm::vec3(x, heightsArr[x*terrainWidth + y], y);
+			posBuf[1] = glm::vec3(x + tileSize, heightsArr[(x + tileSize)*terrainWidth + y], y);
+			posBuf[2] = glm::vec3(x + tileSize, heightsArr[(x + tileSize)*terrainWidth + (y + tileSize)], y + tileSize);
+			normalBuf[0] = glm::cross(posBuf[0] - posBuf[1], posBuf[1] - posBuf[2]);
+			normalBuf[0] = glm::normalize(-normalBuf[0]);
 
 			vertices.push_back(Structs::Vertex() =
-			{ glm::vec3(x + tileSize,		heightsArr[(x+1)*terrainWidth + (y+1)],			y + tileSize), 
-			glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(1, 1) });
-
+			{ 
+				posBuf[0],
+				normalBuf[0],
+				glm::vec2(0, 0) 
+			});
 			vertices.push_back(Structs::Vertex() =
-			{ glm::vec3(x + tileSize,		heightsArr[(x+1)*terrainWidth + (y+1)],			y + tileSize), 
-			glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(1, 1) });
-
+			{ 
+				posBuf[1],
+				normalBuf[0],
+				glm::vec2(1, 0) 
+			});
 			vertices.push_back(Structs::Vertex() =
-			{ glm::vec3(x,					heightsArr[x*terrainWidth + (y+1)],			y + tileSize), 
-			glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(0, 1) });
+			{ 
+				posBuf[2],
+				normalBuf[0],
+				glm::vec2(1, 1) 
+			});
 
+			posBuf[3] = glm::vec3(x + tileSize, heightsArr[(x + tileSize)*terrainWidth + (y + tileSize)], y + tileSize);
+			posBuf[4] = glm::vec3(x, heightsArr[x*terrainWidth + (y + tileSize)], y + tileSize);
+			posBuf[5] = glm::vec3(x, heightsArr[x*terrainWidth + y], y);
+			normalBuf[1] = glm::cross(posBuf[3] - posBuf[4], posBuf[3] - posBuf[5]);
+			normalBuf[1] = glm::normalize(-normalBuf[1]);
+			
 			vertices.push_back(Structs::Vertex() =
-			{ glm::vec3(x,					heightsArr[x*terrainWidth + y],			y), 
-			glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(0, 0) });
+			{ 
+				posBuf[3],
+				normalBuf[1],
+				glm::vec2(1, 1) 
+			});
+			vertices.push_back(Structs::Vertex() =
+			{ 
+				posBuf[4],
+				normalBuf[1],
+				glm::vec2(0, 1) 
+			});
+			vertices.push_back(Structs::Vertex() =
+			{ 
+				posBuf[5],
+				normalBuf[1],
+				glm::vec2(0, 0) 
+			});
 		}
 	}
 

@@ -10,6 +10,11 @@ Transform::Transform()
 	xRot = glm::vec3(1, 0, 0);
 	yRot = glm::vec3(0, 1, 0);
 	zRot = glm::vec3(0, 0, 1);
+
+	front.x = cos(transform.rot.y) * cos(transform.rot.x);
+	front.y = sin(transform.rot.x);
+	front.z = sin(transform.rot.y) * cos(transform.rot.x);
+	front = glm::normalize(-front);
 }
 
 void Transform::Start()
@@ -28,14 +33,18 @@ void Transform::Update()
 
 	glm::mat4 model;
 
-	
+	transform.front.x = cos(transform.rot.y) * cos(transform.rot.x);
+	transform.front.y = sin(transform.rot.x);
+	transform.front.z = sin(transform.rot.y) * cos(transform.rot.x);
+	transform.front = glm::normalize(-transform.front);
+
 	model = glm::translate(model, transform.pos);
 	
 	model = glm::scale(model, m_scale);
 
-	model = glm::rotate(model, glm::radians(transform.rot.x), xRot);
-	model = glm::rotate(model, glm::radians(transform.rot.y), yRot);
-	model = glm::rotate(model, glm::radians(transform.rot.z), zRot);
+	model = glm::rotate(model, transform.rot.x, xRot);
+	model = glm::rotate(model, transform.rot.y, yRot);
+	model = glm::rotate(model, transform.rot.z, zRot);
 	
 	glm::mat4 projection;
 	projection = glm::perspective(45.0f, 1000.0f / 600.0f, 0.5f, 500.0f);
@@ -57,13 +66,24 @@ void Transform::SetPosition(glm::vec3& position)
 
 void Transform::SetRotation(glm::vec3& rotation)
 {
-	transform.rot = rotation;
+	transform.rot.x = glm::radians(rotation.x);
+	transform.rot.y = glm::radians(rotation.y);
+	transform.rot.z = glm::radians(rotation.z);
 }
 
 void Transform::SetRotationOnAxis(GLfloat rotationAngle, glm::vec3& rotationAxis)
 {
-	m_rotationAngle = rotationAngle;
-	m_rotationAxis = rotationAxis;
+	float* axisAngle;
+
+	if (rotationAxis.x == 1)
+		axisAngle = &transform.rot.x;
+	else
+	if (rotationAxis.y == 1)
+		axisAngle = &transform.rot.y;
+	else
+		axisAngle = &transform.rot.z;
+
+	*axisAngle = rotationAngle;
 }
 
 void Transform::SetScale(glm::vec3& scale)
@@ -73,7 +93,15 @@ void Transform::SetScale(glm::vec3& scale)
 
 void Transform::RotateAround(GLfloat rotationAngle, glm::vec3& rotationAxis)
 {
-	m_rotationAngle += rotationAngle;
-	m_rotationAngle = (m_rotationAngle > 360) ? (m_rotationAngle - 360) : m_rotationAngle;
-	m_rotationAxis = rotationAxis;
+	float* axisAngle;
+
+	if (rotationAxis.x == 1)
+		axisAngle = &transform.rot.x;
+	else
+		if (rotationAxis.y == 1)
+			axisAngle = &transform.rot.y;
+		else
+			axisAngle = &transform.rot.z;
+	
+	*axisAngle += glm::radians(rotationAngle);
 }

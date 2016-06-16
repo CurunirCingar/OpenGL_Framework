@@ -30,12 +30,15 @@ public:
 	void SetScale(glm::vec3& scale);
 	void RotateAround(GLfloat rotationAngle, glm::vec3& rotationAxis);
 
+	Structs::Transform transform;
+	glm::vec3 front;
+
+private:
 	GLuint m_program;
 	
-	Structs::Transform transform;
 	glm::vec3 m_scale;
 	GLfloat m_rotationAngle;
-	glm::vec3 m_rotationAxis;
+	
 	glm::mat4* cameraViewMatrix;
 
 	glm::vec3 xRot, yRot, zRot;

@@ -51,11 +51,11 @@ DirectionalLightSource::DirectionalLightSource(Structs::Transform* transform)
 {
 	type = LightSources::Directional;
 	
-	direction = &transform->rot;
+	direction = &transform->front;
 
-	ambient = glm::vec3(0, 0, 0);
+	ambient = glm::vec3(0.2, 0.2, 0.2);
 	diffuse = glm::vec3(0.9, 0.9, 0.9);
-	specular = glm::vec3(1, 1, 1);
+	specular = glm::vec3(0.6, 0.6, 0.6);
 }
 
 DirectionalLightSource::~DirectionalLightSource()
