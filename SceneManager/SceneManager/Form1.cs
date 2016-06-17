@@ -215,7 +215,7 @@ namespace SceneManager
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            bool result = (shaderTypeCombo.SelectedIndex == 1);
+            bool result = (shaderTypeCombo.SelectedIndex == 2);
             lightShaderTypeCombo.Visible = result;
             label16.Visible = result;
             gameObjects[CurIndex].shaderType = shaderTypeCombo.Text;

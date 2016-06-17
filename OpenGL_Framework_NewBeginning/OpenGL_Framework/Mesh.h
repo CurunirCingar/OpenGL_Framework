@@ -11,8 +11,12 @@ using namespace std;
 #include <gl\glew.h>
 #include <glm\glm.hpp>
 
-#include "VerticesBlockT.h"
-#include "Material.h"
+#include "stb_image.h"
+
+#include "Shader.h"
+#include "StandardShader.h"
+#include "LightShader.h"
+#include "StandardBlendedShader.h"
 #include "Graphics.h"
 
 #ifndef _Mesh_
@@ -33,16 +37,11 @@ public:
 	vector<GLuint> indices;
 	vector<Structs::Texture> textures;
 
-	Mesh(const std::string& shaderFilename, const std::string& verticesFilename, GLuint shaderProgram);
 	Mesh(vector<Structs::Vertex> vertices, vector<GLuint> indices, vector<Structs::Texture> textures, GLuint shaderProgram);
 	void Draw();
 	virtual ~Mesh();
 
 	void ChangePolygonMode();
-
-	VerticesBlockT* verticesInfo;
-	//Material* material;
-	Texture* texture;
 
 protected:
 	void SetupMesh();

@@ -16,6 +16,7 @@ public:
 	virtual ~StandardShader();
 
 	void ShaderUpdate();
+	float shininess;
 };
 #endif
 

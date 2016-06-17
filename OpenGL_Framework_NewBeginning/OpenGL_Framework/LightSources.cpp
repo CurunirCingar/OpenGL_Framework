@@ -24,7 +24,7 @@ void PointLightSource::SetLightShader(GLuint shader)
 {
 	GLint matAmbientLoc = glGetUniformLocation(shader, "ambient");
 
-	glUniform3f(matAmbientLoc, diffuse.x, diffuse.y, diffuse.z);
+	glUniform4f(matAmbientLoc, diffuse.x, diffuse.y, diffuse.z, 1);
 }
 
 void PointLightSource::SetStandardShader(GLuint shader)
@@ -79,7 +79,7 @@ void DirectionalLightSource::SetLightShader(GLuint shader)
 {
 	GLint matAmbientLoc = glGetUniformLocation(shader, "ambient");
 
-	glUniform3f(matAmbientLoc, diffuse.x, diffuse.y, diffuse.z);
+	glUniform4f(matAmbientLoc, diffuse.x, diffuse.y, diffuse.z, 1);
 }
 
 
@@ -136,5 +136,5 @@ void SpotLightSource::SetLightShader(GLuint shader)
 {
 	GLint matAmbientLoc = glGetUniformLocation(shader, "ambient");
 
-	glUniform3f(matAmbientLoc, diffuse.x, diffuse.y, diffuse.z);
+	glUniform4f(matAmbientLoc, diffuse.x, diffuse.y, diffuse.z, 1);
 }

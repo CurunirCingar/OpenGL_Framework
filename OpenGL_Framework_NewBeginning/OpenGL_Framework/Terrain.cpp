@@ -7,6 +7,7 @@ Terrain::Terrain(vector<string>& texFilenames, int& tileSize, int& textureTiling
 	this->textureTiling = textureTiling;
 	SetupMesh(texFilenames);
 	transform->SetScale(glm::vec3(0.3, 0.3, 0.3));
+	((StandardBlendedShader*)(shaders[0]))->shininess = 2;
 }
 
 Terrain::~Terrain()
@@ -160,11 +161,11 @@ GLuint Terrain::LoadTexture(string filename)
 	GLuint textureID;
 	glGenTextures(1, &textureID);
 	int width, height, numComponents;
-	unsigned char* image = stbi_load(filename.c_str(), &width, &height, &numComponents, 3);
+	unsigned char* image = stbi_load(filename.c_str(), &width, &height, &numComponents, 4);
 
 	// Assign texture to ID
 	glBindTexture(GL_TEXTURE_2D, textureID);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
 	glGenerateMipmap(GL_TEXTURE_2D);
 
 	// Parameters

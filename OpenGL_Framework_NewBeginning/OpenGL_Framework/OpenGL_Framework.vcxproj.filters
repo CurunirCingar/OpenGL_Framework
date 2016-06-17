@@ -56,9 +56,6 @@
     <ClInclude Include="Shader.h">
       <Filter>Заголовочные файлы\Shaders</Filter>
     </ClInclude>
-    <ClInclude Include="Material.h">
-      <Filter>Заголовочные файлы\GameObject</Filter>
-    </ClInclude>
     <ClInclude Include="Transform.h">
       <Filter>Заголовочные файлы\GameObject</Filter>
     </ClInclude>
@@ -95,6 +92,12 @@
     <ClInclude Include="GeneratedMesh.h">
       <Filter>Заголовочные файлы\System</Filter>
     </ClInclude>
+    <ClInclude Include="NovaGL.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="StandardBlendedShader.h">
+      <Filter>Заголовочные файлы\Shaders</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Shader.cpp">
@@ -110,9 +113,6 @@
       <Filter>Файлы исходного кода\GameObject</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
-      <Filter>Файлы исходного кода\GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="Material.cpp">
       <Filter>Файлы исходного кода\GameObject</Filter>
     </ClCompile>
     <ClCompile Include="Mesh.cpp">
@@ -160,8 +160,11 @@
     <ClCompile Include="GeneratedMesh.cpp">
       <Filter>Файлы исходного кода\System</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="OpenGL_Framework.rc" />
+    <ClCompile Include="NovaGL.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="StandardBlendedShader.cpp">
+      <Filter>Файлы исходного кода\Shaders</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

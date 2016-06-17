@@ -14,6 +14,7 @@
     <ProjectGuid>{0FE03316-D4F7-4FEE-BA36-81D52D248ADB}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>OpenGL_Framework</RootNamespace>
+    <ProjectName>NovaGL</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -89,7 +90,6 @@
     <ClInclude Include="LightShader.h" />
     <ClInclude Include="LightSources.h" />
     <ClInclude Include="MainWindow.h" />
-    <ClInclude Include="Material.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Model.h" />
@@ -97,12 +97,14 @@
     <ClInclude Include="Shader.h" />
     <ClInclude Include="SkyBox.h" />
     <ClInclude Include="SkyboxMesh.h" />
+    <ClInclude Include="StandardBlendedShader.h" />
     <ClInclude Include="StandardShader.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="Terrain.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="VerticesBlockT.h" />
+    <ClInclude Include="NovaGL.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
@@ -113,22 +115,20 @@
     <ClCompile Include="LightSources.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainWindow.cpp" />
-    <ClCompile Include="Material.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Model.cpp" />
+    <ClCompile Include="NovaGL.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="SkyBox.cpp" />
     <ClCompile Include="SkyboxMesh.cpp" />
+    <ClCompile Include="StandardBlendedShader.cpp" />
     <ClCompile Include="StandardShader.cpp" />
     <ClCompile Include="stb_image.c" />
     <ClCompile Include="Terrain.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="VerticesBlockT.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="OpenGL_Framework.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -11,39 +11,6 @@ Mesh::Mesh(vector<Structs::Vertex> vertices, vector<GLuint> indices, vector<Stru
 	SetupMesh();
 }
 
-Mesh::Mesh(const std::string& shaderFilename, const std::string& verticesFilename, GLuint shaderProgram)
-{
-	m_shaderProgram = shaderProgram;
-
-	verticesInfo = new VerticesBlockT(verticesFilename);
-
-	texture = new Texture(verticesInfo->m_texturesFilesArrLen, verticesInfo->m_texturesFilesArr, m_shaderProgram);
-
-	m_polygonMode = GL_FILL;
-
-	glGenVertexArrays(1, &VAO);
-	glGenBuffers(1, &VBO);
-
-	glBindVertexArray(VAO);
-
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, verticesInfo->m_verticesSize * sizeof(verticesInfo->m_vertices[0]), verticesInfo->m_vertices, GL_STATIC_DRAW);
-
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, verticesInfo->m_indicesSize * sizeof(verticesInfo->m_indices[0]), verticesInfo->m_indices, GL_STATIC_DRAW);
-
-	glVertexAttribPointer(POSITION_VB, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(GLfloat), (GLvoid*)0);
-	glEnableVertexAttribArray(POSITION_VB);
-
-	glVertexAttribPointer(NORMAL_VB, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
-	glEnableVertexAttribArray(NORMAL_VB);
-
-	glVertexAttribPointer(TEXTURECOORD_VB, 2, GL_FLOAT, GL_FALSE, 11 * sizeof(GLfloat), (GLvoid*)(9 * sizeof(GLfloat)));
-	glEnableVertexAttribArray(TEXTURECOORD_VB);
-
-	glBindVertexArray(0);
-}
-
 Mesh::~Mesh()
 {
 
@@ -108,3 +75,40 @@ void Mesh::ChangePolygonMode()
 {
 	m_polygonMode = m_polygonMode == GL_LINE ? GL_FILL : GL_LINE;
 }
+
+/*
+// Old Mesh constructor 
+
+Mesh::Mesh(const std::string& shaderFilename, const std::string& verticesFilename, GLuint shaderProgram)
+{
+	m_shaderProgram = shaderProgram;
+
+	verticesInfo = new VerticesBlockT(verticesFilename);
+
+	texture = new Texture(verticesInfo->m_texturesFilesArrLen, verticesInfo->m_texturesFilesArr, m_shaderProgram);
+
+	m_polygonMode = GL_FILL;
+
+	glGenVertexArrays(1, &VAO);
+	glGenBuffers(1, &VBO);
+
+	glBindVertexArray(VAO);
+
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glBufferData(GL_ARRAY_BUFFER, verticesInfo->m_verticesSize * sizeof(verticesInfo->m_vertices[0]), verticesInfo->m_vertices, GL_STATIC_DRAW);
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, verticesInfo->m_indicesSize * sizeof(verticesInfo->m_indices[0]), verticesInfo->m_indices, GL_STATIC_DRAW);
+
+	glVertexAttribPointer(POSITION_VB, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(GLfloat), (GLvoid*)0);
+	glEnableVertexAttribArray(POSITION_VB);
+
+	glVertexAttribPointer(NORMAL_VB, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
+	glEnableVertexAttribArray(NORMAL_VB);
+
+	glVertexAttribPointer(TEXTURECOORD_VB, 2, GL_FLOAT, GL_FALSE, 11 * sizeof(GLfloat), (GLvoid*)(9 * sizeof(GLfloat)));
+	glEnableVertexAttribArray(TEXTURECOORD_VB);
+
+	glBindVertexArray(0);
+}
+*/

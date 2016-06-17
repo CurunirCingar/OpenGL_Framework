@@ -7,9 +7,7 @@
 #include <gl\glew.h>
 
 #include "VerticesBlockT.h"
-#include "Shader.h"
-#include "StandardShader.h"
-#include "LightShader.h"
+
 #include "Texture.h"
 
 #ifndef _Material_

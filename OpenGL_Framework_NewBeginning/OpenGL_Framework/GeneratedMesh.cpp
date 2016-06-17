@@ -6,29 +6,44 @@ GeneratedMesh::GeneratedMesh(vector<string>& texFilenames, ShaderTypes::Enum sha
 	int len = texFilenames.size();
 
 	transform = new Transform();
-	if (shaderType == ShaderTypes::Standard)
+	switch (shaderType)
 	{
+	case ShaderTypes::Standard:
 		for (int i = 0; i < len; i++)
 			shaders.push_back(new StandardShader());
-	}
-	else if (shaderType == ShaderTypes::Light)
-	{
+		break;
+	case ShaderTypes::StandardBlended:
+		for (int i = 0; i < len; i++)
+			shaders.push_back(new StandardBlendedShader());
+		break;
+	case ShaderTypes::Light:
 		for (int i = 0; i < len; i++)
 			shaders.push_back(new LightShader(&transform->transform));
+		break;
+	default:
+		break;
 	}
+
 	transform->SetProgramID(shaders[0]->GetProgramID());
 }
 
 GeneratedMesh::GeneratedMesh(ShaderTypes::Enum shaderType)
 {
 	transform = new Transform();
-	if (shaderType == ShaderTypes::Standard)
+
+	switch (shaderType)
 	{
+	case ShaderTypes::Standard:
 		shaders.push_back(new StandardShader());
-	}
-	else if (shaderType == ShaderTypes::Light)
-	{
+		break;
+	case ShaderTypes::StandardBlended:
+		shaders.push_back(new StandardBlendedShader());
+		break;
+	case ShaderTypes::Light:
 		shaders.push_back(new LightShader(&transform->transform));
+		break;
+	default:
+		break;
 	}
 
 	transform->SetProgramID(shaders[0]->GetProgramID());
@@ -44,11 +59,11 @@ GLuint GeneratedMesh::LoadTexture(string filename)
 	GLuint textureID;
 	glGenTextures(1, &textureID);
 	int width, height, numComponents;
-	unsigned char* image = stbi_load(filename.c_str(), &width, &height, &numComponents, 3);
+	unsigned char* image = stbi_load(filename.c_str(), &width, &height, &numComponents, 4);
 
 	// Assign texture to ID
 	glBindTexture(GL_TEXTURE_2D, textureID);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
 	glGenerateMipmap(GL_TEXTURE_2D);
 
 	// Parameters

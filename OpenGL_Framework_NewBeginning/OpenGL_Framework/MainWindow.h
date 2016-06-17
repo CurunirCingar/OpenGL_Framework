@@ -30,7 +30,9 @@ private:
 	SDL_GLContext m_glcontext;
 
 	std::list<GameObject*> GameObjects;
+	std::list<GameObject*> BlendedGameObjects;
 
+	GameObject* Sun;
 	GameObject* characterController;
 
 	Skybox* skybox;

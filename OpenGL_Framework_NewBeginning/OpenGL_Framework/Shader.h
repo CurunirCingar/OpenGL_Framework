@@ -17,7 +17,8 @@ namespace ShaderTypes
 	enum Enum
 	{
 		Standard,
-		Light
+		StandardBlended,
+		Light,
 	};
 };
 

@@ -56,8 +56,14 @@ MainWindow::MainWindow(int width, int height, const std::string& title)
 	}
 
 	glViewport(0, 0, width, height);
+
 	glEnable(GL_DEPTH_TEST);
-	glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
+
+	glEnable(GL_BLEND);
+	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ZERO);
+
+	glClearColor(0.5, 0.5, 0.5, 1.0f);
 	isPaused = false;
 	isClosed = false;
 
@@ -131,7 +137,6 @@ void MainWindow::ReadSceneInfo()
 				((LightShader*)(newGameObject->shader))->SetLightSourceType(LightSources::Spot);
 		}
 
-		
 		ReadVec3FromFile(in, bufVec);
 		newGameObject->transform->SetPosition(bufVec);
 
@@ -142,13 +147,22 @@ void MainWindow::ReadSceneInfo()
 		newGameObject->transform->SetScale(bufVec);
 
 		if (!name.compare("Sun"))
+		{
 			Graphics::instance()->Sun = newGameObject;
+			Sun = newGameObject;
+		}
 
 		if (!name.compare("Player"))
 			newGameObject->SetCamera();
-
-		GameObjects.push_back(newGameObject);
 	}
+
+	list<void*>::iterator i;
+
+	for (i = Graphics::instance()->GameObjects.begin(); i != Graphics::instance()->GameObjects.end(); i++)
+		GameObjects.push_back( (GameObject*)(*i) );
+
+	for (i = Graphics::instance()->BlendedGameObjects.begin(); i != Graphics::instance()->BlendedGameObjects.end(); i++)
+		BlendedGameObjects.push_back((GameObject*)(*i));
 
 	vector<string> texFilenames;
 	string texFilenameBuf;
@@ -179,9 +193,11 @@ void MainWindow::ReadSceneInfo()
 void MainWindow::StartSetup()
 {
 	for each (GameObject* gameObject in GameObjects)
-	{
 		gameObject->Start();
-	}
+
+	for each (GameObject* gameObject in BlendedGameObjects)
+		gameObject->Start();
+
 	skybox->Start();
 	terrain->Start();
 }
@@ -194,12 +210,19 @@ void MainWindow::Update()
 	UpdateStates();
 
 	Clear();
+
+	skybox->Update();
+
 	list<GameObject*>::iterator i;
 	for (i = GameObjects.begin(); i != GameObjects.end(); i++)
 		(*i)->Update();
 
+	for (i = BlendedGameObjects.begin(); i != BlendedGameObjects.end(); i++)
+		(*i)->Update();
+	
 	terrain->Update();
-	skybox->Update();
+
+	
 }
 
 MainWindow::~MainWindow()

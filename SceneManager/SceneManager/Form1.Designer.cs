@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.NewButton = new System.Windows.Forms.Button();
             this.nameText = new System.Windows.Forms.TextBox();
@@ -118,6 +119,7 @@
             // 
             // NewButton
             // 
+            this.NewButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.NewButton.Location = new System.Drawing.Point(12, 277);
             this.NewButton.Name = "NewButton";
             this.NewButton.Size = new System.Drawing.Size(141, 20);
@@ -128,6 +130,8 @@
             // 
             // nameText
             // 
+            this.nameText.BackColor = System.Drawing.Color.LightGray;
+            this.nameText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.nameText.Location = new System.Drawing.Point(75, 16);
             this.nameText.Name = "nameText";
             this.nameText.Size = new System.Drawing.Size(228, 20);
@@ -146,7 +150,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 82);
+            this.label2.Location = new System.Drawing.Point(10, 81);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 5;
@@ -209,7 +213,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(10, 121);
+            this.label9.Location = new System.Drawing.Point(10, 119);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(47, 13);
             this.label9.TabIndex = 12;
@@ -218,7 +222,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(187, 137);
+            this.label10.Location = new System.Drawing.Point(187, 140);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(12, 13);
             this.label10.TabIndex = 24;
@@ -227,7 +231,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(139, 137);
+            this.label11.Location = new System.Drawing.Point(139, 140);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(12, 13);
             this.label11.TabIndex = 22;
@@ -236,7 +240,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(90, 137);
+            this.label12.Location = new System.Drawing.Point(90, 140);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(12, 13);
             this.label12.TabIndex = 20;
@@ -245,7 +249,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(10, 156);
+            this.label13.Location = new System.Drawing.Point(10, 158);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(34, 13);
             this.label13.TabIndex = 19;
@@ -262,9 +266,11 @@
             // 
             // modelPathText
             // 
+            this.modelPathText.BackColor = System.Drawing.Color.LightGray;
+            this.modelPathText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.modelPathText.Location = new System.Drawing.Point(75, 43);
             this.modelPathText.Name = "modelPathText";
-            this.modelPathText.Size = new System.Drawing.Size(187, 20);
+            this.modelPathText.Size = new System.Drawing.Size(195, 20);
             this.modelPathText.TabIndex = 26;
             this.modelPathText.TextChanged += new System.EventHandler(this.modelPathText_TextChanged);
             // 
@@ -279,15 +285,17 @@
             // 
             // shaderTypeCombo
             // 
+            this.shaderTypeCombo.BackColor = System.Drawing.Color.LightGray;
+            this.shaderTypeCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.shaderTypeCombo.FormattingEnabled = true;
             this.shaderTypeCombo.Items.AddRange(new object[] {
             "StandardShader",
+            "StandardBlendedShader",
             "LightShader"});
             this.shaderTypeCombo.Location = new System.Drawing.Point(75, 182);
             this.shaderTypeCombo.Name = "shaderTypeCombo";
             this.shaderTypeCombo.Size = new System.Drawing.Size(139, 21);
             this.shaderTypeCombo.TabIndex = 28;
-            this.shaderTypeCombo.Text = "StandardShader";
             this.shaderTypeCombo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // gameObjectsGrid
@@ -316,6 +324,7 @@
             // 
             // DeleteButton
             // 
+            this.DeleteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.DeleteButton.Location = new System.Drawing.Point(166, 276);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(141, 21);
@@ -326,6 +335,7 @@
             // 
             // ExitButton
             // 
+            this.ExitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ExitButton.Location = new System.Drawing.Point(500, 277);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Size = new System.Drawing.Size(143, 20);
@@ -336,6 +346,7 @@
             // 
             // RunButton
             // 
+            this.RunButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.RunButton.Location = new System.Drawing.Point(324, 276);
             this.RunButton.Name = "RunButton";
             this.RunButton.Size = new System.Drawing.Size(143, 21);
@@ -346,23 +357,24 @@
             // 
             // lightShaderTypeCombo
             // 
+            this.lightShaderTypeCombo.BackColor = System.Drawing.Color.LightGray;
+            this.lightShaderTypeCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.lightShaderTypeCombo.FormattingEnabled = true;
             this.lightShaderTypeCombo.Items.AddRange(new object[] {
             "Directional",
             "Point",
             "Spot"});
-            this.lightShaderTypeCombo.Location = new System.Drawing.Point(74, 201);
+            this.lightShaderTypeCombo.Location = new System.Drawing.Point(75, 204);
             this.lightShaderTypeCombo.Name = "lightShaderTypeCombo";
             this.lightShaderTypeCombo.Size = new System.Drawing.Size(139, 21);
             this.lightShaderTypeCombo.TabIndex = 36;
-            this.lightShaderTypeCombo.Text = "Directional";
             this.lightShaderTypeCombo.Visible = false;
             this.lightShaderTypeCombo.SelectedIndexChanged += new System.EventHandler(this.lightShaderTypeCombo_SelectedIndexChanged);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(10, 204);
+            this.label16.Location = new System.Drawing.Point(10, 207);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(53, 13);
             this.label16.TabIndex = 37;
@@ -371,17 +383,21 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.LightGray;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Location = new System.Drawing.Point(268, 43);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(35, 20);
             this.button1.TabIndex = 38;
             this.button1.Text = "Find";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // scaleZText
             // 
-            this.scaleZText.Location = new System.Drawing.Point(172, 153);
+            this.scaleZText.BackColor = System.Drawing.Color.LightGray;
+            this.scaleZText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.scaleZText.Location = new System.Drawing.Point(172, 156);
             this.scaleZText.Name = "scaleZText";
             this.scaleZText.Size = new System.Drawing.Size(42, 20);
             this.scaleZText.TabIndex = 23;
@@ -389,7 +405,9 @@
             // 
             // scaleYText
             // 
-            this.scaleYText.Location = new System.Drawing.Point(124, 153);
+            this.scaleYText.BackColor = System.Drawing.Color.LightGray;
+            this.scaleYText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.scaleYText.Location = new System.Drawing.Point(124, 156);
             this.scaleYText.Name = "scaleYText";
             this.scaleYText.Size = new System.Drawing.Size(42, 20);
             this.scaleYText.TabIndex = 21;
@@ -397,7 +415,9 @@
             // 
             // scaleXText
             // 
-            this.scaleXText.Location = new System.Drawing.Point(75, 153);
+            this.scaleXText.BackColor = System.Drawing.Color.LightGray;
+            this.scaleXText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.scaleXText.Location = new System.Drawing.Point(75, 156);
             this.scaleXText.Name = "scaleXText";
             this.scaleXText.Size = new System.Drawing.Size(42, 20);
             this.scaleXText.TabIndex = 18;
@@ -405,7 +425,9 @@
             // 
             // rotationZText
             // 
-            this.rotationZText.Location = new System.Drawing.Point(172, 118);
+            this.rotationZText.BackColor = System.Drawing.Color.LightGray;
+            this.rotationZText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rotationZText.Location = new System.Drawing.Point(172, 117);
             this.rotationZText.Name = "rotationZText";
             this.rotationZText.Size = new System.Drawing.Size(42, 20);
             this.rotationZText.TabIndex = 16;
@@ -413,7 +435,9 @@
             // 
             // rotationYText
             // 
-            this.rotationYText.Location = new System.Drawing.Point(124, 118);
+            this.rotationYText.BackColor = System.Drawing.Color.LightGray;
+            this.rotationYText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rotationYText.Location = new System.Drawing.Point(124, 117);
             this.rotationYText.Name = "rotationYText";
             this.rotationYText.Size = new System.Drawing.Size(42, 20);
             this.rotationYText.TabIndex = 14;
@@ -421,7 +445,9 @@
             // 
             // rotationXText
             // 
-            this.rotationXText.Location = new System.Drawing.Point(75, 118);
+            this.rotationXText.BackColor = System.Drawing.Color.LightGray;
+            this.rotationXText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rotationXText.Location = new System.Drawing.Point(75, 117);
             this.rotationXText.Name = "rotationXText";
             this.rotationXText.Size = new System.Drawing.Size(42, 20);
             this.rotationXText.TabIndex = 11;
@@ -429,6 +455,8 @@
             // 
             // positionZText
             // 
+            this.positionZText.BackColor = System.Drawing.Color.LightGray;
+            this.positionZText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.positionZText.Location = new System.Drawing.Point(172, 79);
             this.positionZText.Name = "positionZText";
             this.positionZText.Size = new System.Drawing.Size(42, 20);
@@ -437,6 +465,8 @@
             // 
             // positionYText
             // 
+            this.positionYText.BackColor = System.Drawing.Color.LightGray;
+            this.positionYText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.positionYText.Location = new System.Drawing.Point(124, 79);
             this.positionYText.Name = "positionYText";
             this.positionYText.Size = new System.Drawing.Size(42, 20);
@@ -445,6 +475,8 @@
             // 
             // positionXText
             // 
+            this.positionXText.BackColor = System.Drawing.Color.LightGray;
+            this.positionXText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.positionXText.Location = new System.Drawing.Point(75, 79);
             this.positionXText.Name = "positionXText";
             this.positionXText.Size = new System.Drawing.Size(42, 20);
@@ -464,6 +496,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.DarkGray;
             this.tabPage1.Controls.Add(this.nameText);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.label16);
@@ -500,10 +533,10 @@
             this.tabPage1.Size = new System.Drawing.Size(311, 232);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "GameObjects";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.DarkGray;
             this.tabPage2.Controls.Add(this.label22);
             this.tabPage2.Controls.Add(this.label21);
             this.tabPage2.Controls.Add(this.label20);
@@ -522,11 +555,12 @@
             this.tabPage2.Size = new System.Drawing.Size(311, 232);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "SkyBox";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
+            this.label22.BackColor = System.Drawing.Color.LightGray;
+            this.label22.ForeColor = System.Drawing.Color.Black;
             this.label22.Location = new System.Drawing.Point(49, 108);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(32, 13);
@@ -536,6 +570,8 @@
             // label21
             // 
             this.label21.AutoSize = true;
+            this.label21.BackColor = System.Drawing.Color.LightGray;
+            this.label21.ForeColor = System.Drawing.Color.Black;
             this.label21.Location = new System.Drawing.Point(171, 108);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(25, 13);
@@ -545,6 +581,8 @@
             // label20
             // 
             this.label20.AutoSize = true;
+            this.label20.BackColor = System.Drawing.Color.LightGray;
+            this.label20.ForeColor = System.Drawing.Color.Black;
             this.label20.Location = new System.Drawing.Point(53, 52);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(21, 13);
@@ -554,6 +592,8 @@
             // label19
             // 
             this.label19.AutoSize = true;
+            this.label19.BackColor = System.Drawing.Color.LightGray;
+            this.label19.ForeColor = System.Drawing.Color.Black;
             this.label19.Location = new System.Drawing.Point(110, 108);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(31, 13);
@@ -563,6 +603,8 @@
             // label18
             // 
             this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.LightGray;
+            this.label18.ForeColor = System.Drawing.Color.Black;
             this.label18.Location = new System.Drawing.Point(227, 168);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(35, 13);
@@ -572,6 +614,8 @@
             // label17
             // 
             this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.LightGray;
+            this.label17.ForeColor = System.Drawing.Color.Black;
             this.label17.Location = new System.Drawing.Point(229, 108);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(32, 13);
@@ -580,6 +624,7 @@
             // 
             // upPicture
             // 
+            this.upPicture.BackColor = System.Drawing.Color.LightGray;
             this.upPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.upPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.upPicture.Location = new System.Drawing.Point(34, 27);
@@ -592,6 +637,7 @@
             // 
             // rightPicture
             // 
+            this.rightPicture.BackColor = System.Drawing.Color.LightGray;
             this.rightPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.rightPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rightPicture.Location = new System.Drawing.Point(34, 85);
@@ -604,6 +650,7 @@
             // 
             // frontPicture
             // 
+            this.frontPicture.BackColor = System.Drawing.Color.LightGray;
             this.frontPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.frontPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.frontPicture.Location = new System.Drawing.Point(94, 85);
@@ -616,6 +663,7 @@
             // 
             // backPicture
             // 
+            this.backPicture.BackColor = System.Drawing.Color.LightGray;
             this.backPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.backPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.backPicture.Location = new System.Drawing.Point(214, 85);
@@ -628,6 +676,7 @@
             // 
             // downPicture
             // 
+            this.downPicture.BackColor = System.Drawing.Color.LightGray;
             this.downPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.downPicture.Location = new System.Drawing.Point(214, 145);
             this.downPicture.Name = "downPicture";
@@ -639,6 +688,7 @@
             // 
             // leftPicture
             // 
+            this.leftPicture.BackColor = System.Drawing.Color.LightGray;
             this.leftPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.leftPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.leftPicture.Location = new System.Drawing.Point(154, 85);
@@ -651,6 +701,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.BackColor = System.Drawing.Color.DarkGray;
             this.tabPage3.Controls.Add(this.label29);
             this.tabPage3.Controls.Add(this.textureTiling);
             this.tabPage3.Controls.Add(this.label26);
@@ -671,7 +722,6 @@
             this.tabPage3.Size = new System.Drawing.Size(311, 232);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Terrain";
-            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // label29
             // 
@@ -684,6 +734,7 @@
             // 
             // textureTiling
             // 
+            this.textureTiling.BackColor = System.Drawing.Color.LightGray;
             this.textureTiling.Enabled = false;
             this.textureTiling.Location = new System.Drawing.Point(174, 207);
             this.textureTiling.Name = "textureTiling";
@@ -702,6 +753,7 @@
             // 
             // terrainHeight
             // 
+            this.terrainHeight.BackColor = System.Drawing.Color.LightGray;
             this.terrainHeight.Location = new System.Drawing.Point(44, 206);
             this.terrainHeight.Name = "terrainHeight";
             this.terrainHeight.ReadOnly = true;
@@ -728,6 +780,7 @@
             // 
             // terrainWidth
             // 
+            this.terrainWidth.BackColor = System.Drawing.Color.LightGray;
             this.terrainWidth.Location = new System.Drawing.Point(44, 182);
             this.terrainWidth.Name = "terrainWidth";
             this.terrainWidth.ReadOnly = true;
@@ -736,6 +789,7 @@
             // 
             // tileSize
             // 
+            this.tileSize.BackColor = System.Drawing.Color.LightGray;
             this.tileSize.Enabled = false;
             this.tileSize.Location = new System.Drawing.Point(174, 183);
             this.tileSize.Maximum = new decimal(new int[] {
@@ -751,6 +805,7 @@
             // 
             // heightmapPicture
             // 
+            this.heightmapPicture.BackColor = System.Drawing.Color.LightGray;
             this.heightmapPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.heightmapPicture.Location = new System.Drawing.Point(155, 24);
             this.heightmapPicture.Name = "heightmapPicture";
@@ -771,6 +826,7 @@
             // 
             // tilesAmount
             // 
+            this.tilesAmount.BackColor = System.Drawing.Color.LightGray;
             this.tilesAmount.Location = new System.Drawing.Point(232, 202);
             this.tilesAmount.Name = "tilesAmount";
             this.tilesAmount.ReadOnly = true;
@@ -789,6 +845,7 @@
             // 
             // tilingTexturePicture
             // 
+            this.tilingTexturePicture.BackColor = System.Drawing.Color.LightGray;
             this.tilingTexturePicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tilingTexturePicture.Location = new System.Drawing.Point(6, 24);
             this.tilingTexturePicture.Name = "tilingTexturePicture";
@@ -811,6 +868,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(652, 310);
             this.Controls.Add(this.gameObjectTab);
             this.Controls.Add(this.gameObjectsGrid);
@@ -818,8 +876,9 @@
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.RunButton);
             this.Controls.Add(this.DeleteButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "SceneManager";
+            this.Text = "NovaEditor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gameObjectsGrid)).EndInit();

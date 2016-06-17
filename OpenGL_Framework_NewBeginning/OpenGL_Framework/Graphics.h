@@ -38,6 +38,9 @@ public:
 
 	inline GLint GetNewId() { return objectsAmount++; }
 
+	list<void*> GameObjects;
+	list<void*> BlendedGameObjects;
+
 	list<void*> lightSources;
 	void* Sun;
 	void* MainCamera;

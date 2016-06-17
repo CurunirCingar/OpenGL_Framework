@@ -1,0 +1,8 @@
+C:\Users\Curunir\Desktop\Computer graphics\SceneManager\SceneManager\obj\Debug\SceneManager.Form1.resources
+C:\Users\Curunir\Desktop\Computer graphics\SceneManager\SceneManager\obj\Debug\NovaEditor.csproj.GenerateResource.Cache
+C:\Users\Curunir\Desktop\Computer graphics\SceneManager\SceneManager\bin\Debug\NovaEditor.exe.config
+C:\Users\Curunir\Desktop\Computer graphics\SceneManager\SceneManager\bin\Debug\NovaEditor.exe
+C:\Users\Curunir\Desktop\Computer graphics\SceneManager\SceneManager\bin\Debug\NovaEditor.pdb
+C:\Users\Curunir\Desktop\Computer graphics\SceneManager\SceneManager\obj\Debug\NovaEditor.Properties.Resources.resources
+C:\Users\Curunir\Desktop\Computer graphics\SceneManager\SceneManager\obj\Debug\NovaEditor.exe
+C:\Users\Curunir\Desktop\Computer graphics\SceneManager\SceneManager\obj\Debug\NovaEditor.pdb
