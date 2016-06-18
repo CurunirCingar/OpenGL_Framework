@@ -2,7 +2,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-
+#include <map>
+using namespace std;
 #include <SDL\SDL.h>
 #include <gl\glew.h>
 #include <glm\glm.hpp>
@@ -12,13 +13,18 @@
 #ifndef _Shader_
 #define  _Shader_
 
-namespace ShaderTypes
+namespace sdr
 {
 	enum Enum
 	{
 		Standard,
 		StandardBlended,
 		Light,
+	};
+	static map<string, Enum> type = {
+		{ "StandardShader", Standard },
+		{ "StandardBlendedShader", StandardBlended },
+		{ "LightShader", Light }
 	};
 };
 
@@ -29,7 +35,7 @@ public:
 	Shader(const std::string& text);
 	virtual ~Shader();
 
-	ShaderTypes::Enum type;
+	sdr::Enum type;
 
 	void Update();
 	inline GLuint GetProgramID() { return m_program; }

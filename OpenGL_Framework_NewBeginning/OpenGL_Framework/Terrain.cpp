@@ -1,7 +1,7 @@
 #include "Terrain.h"
 
 
-Terrain::Terrain(vector<string>& texFilenames, int& tileSize, int& textureTiling, ShaderTypes::Enum shaderType) : GeneratedMesh(shaderType)
+Terrain::Terrain(vector<string>& texFilenames, int& tileSize, int& textureTiling, sdr::Enum shaderType) : GeneratedMesh(shaderType)
 {
 	this->tileSize = tileSize;
 	this->textureTiling = textureTiling;

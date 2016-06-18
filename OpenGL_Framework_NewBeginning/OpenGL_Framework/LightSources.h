@@ -3,6 +3,7 @@
 #include <fstream>
 #include <string>
 #include <list>
+#include <map>
 using namespace std;
 
 #include <SDL\SDL.h>
@@ -14,14 +15,19 @@ using namespace std;
 #ifndef _LightSources_
 #define  _LightSources_
 
-namespace LightSources
+namespace lightSrc
 {
-	enum Type
+	enum Enum
 	{
 		None,
 		Directional,
 		Point,
 		Spot
+	};
+	static map<string, Enum> type = {
+		{ "Directional", Directional },
+		{ "Point", Point },
+		{ "Spot", Spot }
 	};
 };
 
@@ -31,7 +37,7 @@ public:
 	virtual void SetLightShader(GLuint shader) {}
 	virtual void SetStandardShader(GLuint shader) {}
 
-	LightSources::Type type;
+	lightSrc::Enum type;
 
 	glm::vec3* position;
 	glm::vec3* direction;

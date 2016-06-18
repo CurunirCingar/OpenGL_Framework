@@ -125,17 +125,8 @@ void MainWindow::ReadSceneInfo()
 		ReadStringFromFile(in, lightType);
 
 		newGameObject = new GameObject(name, shaderName, modelPath);
-		if (newGameObject->shader->type == ShaderTypes::Light)
-		{
-			if (!lightType.compare("Directional"))
-				((LightShader*)(newGameObject->shader))->SetLightSourceType(LightSources::Directional);
-
-			else if (!lightType.compare("Point"))
-				((LightShader*)(newGameObject->shader))->SetLightSourceType(LightSources::Point);
-		
-			else if (!lightType.compare("Spot"))
-				((LightShader*)(newGameObject->shader))->SetLightSourceType(LightSources::Spot);
-		}
+		if (newGameObject->shader->type == sdr::Light)
+			((LightShader*)(newGameObject->shader))->SetLightSourceType(lightSrc::type[lightType]);
 
 		ReadVec3FromFile(in, bufVec);
 		newGameObject->transform->SetPosition(bufVec);
@@ -147,22 +138,11 @@ void MainWindow::ReadSceneInfo()
 		newGameObject->transform->SetScale(bufVec);
 
 		if (!name.compare("Sun"))
-		{
-			Graphics::instance()->Sun = newGameObject;
 			Sun = newGameObject;
-		}
 
-		if (!name.compare("Player"))
+		else if (!name.compare("Player"))
 			newGameObject->SetCamera();
 	}
-
-	list<void*>::iterator i;
-
-	for (i = Graphics::instance()->GameObjects.begin(); i != Graphics::instance()->GameObjects.end(); i++)
-		GameObjects.push_back( (GameObject*)(*i) );
-
-	for (i = Graphics::instance()->BlendedGameObjects.begin(); i != Graphics::instance()->BlendedGameObjects.end(); i++)
-		BlendedGameObjects.push_back((GameObject*)(*i));
 
 	vector<string> texFilenames;
 	string texFilenameBuf;
@@ -173,7 +153,7 @@ void MainWindow::ReadSceneInfo()
 		texFilenames.push_back(texFilenameBuf);
 	}
 
-	skybox = new Skybox(texFilenames, ShaderTypes::Light);
+	skybox = new Skybox(texFilenames, sdr::Light);
 
 	int tileSize, textureTiling;
 	texFilenames.clear();
@@ -185,13 +165,21 @@ void MainWindow::ReadSceneInfo()
 	in.read((char*)&tileSize, sizeof(tileSize));
 	in.read((char*)&textureTiling, sizeof(textureTiling));
 
-	terrain = new Terrain(texFilenames, tileSize, textureTiling, ShaderTypes::Standard);
+	terrain = new Terrain(texFilenames, tileSize, textureTiling, sdr::Standard);
 
 	in.close();
 }
 
 void MainWindow::StartSetup()
 {
+	list<void*>::iterator i;
+
+	for (i = Graphics::instance()->GameObjects.begin(); i != Graphics::instance()->GameObjects.end(); i++)
+		GameObjects.push_back((GameObject*)(*i));
+
+	for (i = Graphics::instance()->BlendedGameObjects.begin(); i != Graphics::instance()->BlendedGameObjects.end(); i++)
+		BlendedGameObjects.push_back((GameObject*)(*i));
+
 	for each (GameObject* gameObject in GameObjects)
 		gameObject->Start();
 
@@ -260,13 +248,13 @@ void MainWindow::UpdateStates()
 					isClosed = true;
 					break;
 				case SDLK_1:
-					((GameObject*)(Graphics::instance()->Sun))->transform->RotateAround(1, glm::vec3(1,0,0));
+					Sun->transform->RotateAround(1, glm::vec3(1, 0, 0));
 					break;
 				case SDLK_2:
-					((GameObject*)(Graphics::instance()->Sun))->transform->RotateAround(1, glm::vec3(0, 1, 0));
+					Sun->transform->RotateAround(1, glm::vec3(0, 1, 0));
 					break;
 				case SDLK_3:
-					((GameObject*)(Graphics::instance()->Sun))->transform->RotateAround(1, glm::vec3(0, 0, 1));
+					Sun->transform->RotateAround(1, glm::vec3(0, 0, 1));
 					break;
 			}
 		}

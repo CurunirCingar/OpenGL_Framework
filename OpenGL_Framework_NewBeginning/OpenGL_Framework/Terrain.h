@@ -18,7 +18,7 @@ using namespace std;
 class Terrain : public GeneratedMesh
 {
 public:
-	Terrain(vector<string>& texFilenames, int& tileSize, int& textureTiling, ShaderTypes::Enum shaderType);
+	Terrain(vector<string>& texFilenames, int& tileSize, int& textureTiling, sdr::Enum shaderType);
 	~Terrain();
 
 	void SetupMesh(vector<string>& texFilenames);

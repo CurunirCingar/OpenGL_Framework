@@ -2,7 +2,7 @@
 
 StandardShader::StandardShader() : Shader("StandardShader")
 {
-	type = ShaderTypes::Standard;
+	type = sdr::Standard;
 	shininess = 32;
 }
 

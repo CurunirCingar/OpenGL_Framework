@@ -2,7 +2,7 @@
 
 PointLightSource::PointLightSource(Structs::Transform* transform)
 {
-	type = LightSources::Point;
+	type = lightSrc::Point;
 
 	position = &transform->pos;
 	direction = &transform->rot;
@@ -49,7 +49,7 @@ void PointLightSource::SetStandardShader(GLuint shader)
 
 DirectionalLightSource::DirectionalLightSource(Structs::Transform* transform)
 {
-	type = LightSources::Directional;
+	type = lightSrc::Directional;
 	
 	direction = &transform->front;
 
@@ -85,7 +85,7 @@ void DirectionalLightSource::SetLightShader(GLuint shader)
 
 SpotLightSource::SpotLightSource(Structs::Transform* transform)
 {
-	type = LightSources::Spot;
+	type = lightSrc::Spot;
 
 	position = &transform->pos;
 	direction = &transform->rot;

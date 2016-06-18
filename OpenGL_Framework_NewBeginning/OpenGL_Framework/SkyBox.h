@@ -19,7 +19,7 @@ using namespace std;
 class Skybox : public GeneratedMesh
 {
 public:
-	Skybox(vector<string>& texFilenames, ShaderTypes::Enum shaderType);
+	Skybox(vector<string>& texFilenames, sdr::Enum shaderType);
 	~Skybox();
 
 	void SetupMesh(vector<string>& textures);

@@ -1,7 +1,7 @@
 #include "Skybox.h"
 
 
-Skybox::Skybox(vector<string>& texFilenames, ShaderTypes::Enum shaderType) : GeneratedMesh(texFilenames, shaderType)
+Skybox::Skybox(vector<string>& texFilenames, sdr::Enum shaderType) : GeneratedMesh(texFilenames, shaderType)
 {
 	transform->SetScale(glm::vec3(2, 2, 2));
 	SetupMesh(texFilenames);

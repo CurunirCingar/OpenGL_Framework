@@ -1,22 +1,22 @@
 #include "GeneratedMesh.h"
 
 
-GeneratedMesh::GeneratedMesh(vector<string>& texFilenames, ShaderTypes::Enum shaderType)
+GeneratedMesh::GeneratedMesh(vector<string>& texFilenames, sdr::Enum shaderType)
 {
 	int len = texFilenames.size();
 
 	transform = new Transform();
 	switch (shaderType)
 	{
-	case ShaderTypes::Standard:
+	case sdr::Standard:
 		for (int i = 0; i < len; i++)
 			shaders.push_back(new StandardShader());
 		break;
-	case ShaderTypes::StandardBlended:
+	case sdr::StandardBlended:
 		for (int i = 0; i < len; i++)
 			shaders.push_back(new StandardBlendedShader());
 		break;
-	case ShaderTypes::Light:
+	case sdr::Light:
 		for (int i = 0; i < len; i++)
 			shaders.push_back(new LightShader(&transform->transform));
 		break;
@@ -27,19 +27,19 @@ GeneratedMesh::GeneratedMesh(vector<string>& texFilenames, ShaderTypes::Enum sha
 	transform->SetProgramID(shaders[0]->GetProgramID());
 }
 
-GeneratedMesh::GeneratedMesh(ShaderTypes::Enum shaderType)
+GeneratedMesh::GeneratedMesh(sdr::Enum shaderType)
 {
 	transform = new Transform();
 
 	switch (shaderType)
 	{
-	case ShaderTypes::Standard:
+	case sdr::Standard:
 		shaders.push_back(new StandardShader());
 		break;
-	case ShaderTypes::StandardBlended:
+	case sdr::StandardBlended:
 		shaders.push_back(new StandardBlendedShader());
 		break;
-	case ShaderTypes::Light:
+	case sdr::Light:
 		shaders.push_back(new LightShader(&transform->transform));
 		break;
 	default:

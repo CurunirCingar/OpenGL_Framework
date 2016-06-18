@@ -3,7 +3,7 @@
 
 LightShader::LightShader(Structs::Transform* transform) : Shader("LightShader")
 {
-	type = ShaderTypes::Light;
+	type = sdr::Light;
 
 	this->transform = transform;
 	light = new PointLightSource(transform);
@@ -19,7 +19,7 @@ void LightShader::ShaderUpdate()
 	light->SetLightShader(m_program);
 }
 
-void LightShader::SetLightSourceType(LightSources::Type type)
+void LightShader::SetLightSourceType(lightSrc::Enum type)
 {
 	if (type != light->type)
 	{
@@ -27,13 +27,13 @@ void LightShader::SetLightSourceType(LightSources::Type type)
 
 		switch (type)
 		{
-			case LightSources::Directional:
+			case lightSrc::Directional:
 				newLight = new DirectionalLightSource(transform);
 				break;
-			case LightSources::Point:
+			case lightSrc::Point:
 				newLight = new PointLightSource(transform);
 				break;
-			case LightSources::Spot:
+			case lightSrc::Spot:
 				newLight = new SpotLightSource(transform);
 				break;
 			default:

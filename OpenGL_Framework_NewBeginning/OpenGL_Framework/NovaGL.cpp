@@ -125,16 +125,16 @@
 //			ReadStringFromFile(in, lightType);
 //
 //			newGameObject = new GameObject(name, shaderName, modelPath);
-//			if (newGameObject->shader->type == ShaderTypes::Light)
+//			if (newGameObject->shader->type == sdr::Light)
 //			{
 //				if (!lightType.compare("Directional"))
-//					((LightShader*)(newGameObject->shader))->SetLightSourceType(LightSources::Directional);
+//					((LightShader*)(newGameObject->shader))->SetLightSourceType(lightSrc::Directional);
 //
 //				else if (!lightType.compare("Point"))
-//					((LightShader*)(newGameObject->shader))->SetLightSourceType(LightSources::Point);
+//					((LightShader*)(newGameObject->shader))->SetLightSourceType(lightSrc::Point);
 //
 //				else if (!lightType.compare("Spot"))
-//					((LightShader*)(newGameObject->shader))->SetLightSourceType(LightSources::Spot);
+//					((LightShader*)(newGameObject->shader))->SetLightSourceType(lightSrc::Spot);
 //			}
 //
 //			ReadVec3FromFile(in, bufVec);
@@ -164,7 +164,7 @@
 //			texFilenames.push_back(texFilenameBuf);
 //		}
 //
-//		skybox = new Skybox(texFilenames, ShaderTypes::Light);
+//		skybox = new Skybox(texFilenames, sdr::Light);
 //
 //		int tileSize, textureTiling;
 //		texFilenames.clear();
@@ -176,7 +176,7 @@
 //		in.read((char*)&tileSize, sizeof(tileSize));
 //		in.read((char*)&textureTiling, sizeof(textureTiling));
 //
-//		terrain = new Terrain(texFilenames, tileSize, textureTiling, ShaderTypes::Standard);
+//		terrain = new Terrain(texFilenames, tileSize, textureTiling, sdr::Standard);
 //
 //		in.close();
 //	}

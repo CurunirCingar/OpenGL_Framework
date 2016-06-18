@@ -22,20 +22,22 @@ GameObject::GameObject(string& objectName, string& shaderFilename, string& model
 
 void GameObject::CreateShader(std::string& shaderFilename, Structs::Transform* transform)
 {
-	if (!shaderFilename.compare("StandardShader"))
+	switch (sdr::type[shaderFilename])
 	{
+	case sdr::Standard:
 		shader = new StandardShader();
 		Graphics::instance()->GameObjects.push_back((void*)this);
-	}
-	else if (!shaderFilename.compare("StandardBlendedShader"))
-	{
+		break;
+
+	case sdr::StandardBlended:
 		shader = new StandardBlendedShader();
 		Graphics::instance()->BlendedGameObjects.push_back((void*)this);
-	}
-	else if (!shaderFilename.compare("LightShader"))
-	{
+		break;
+
+	case sdr::Light:
 		shader = new LightShader(transform);
 		Graphics::instance()->GameObjects.push_back((void*)this);
+		break;
 	}
 }
 
@@ -46,7 +48,20 @@ GameObject::~GameObject()
 
 void GameObject::Start()
 {
+	CheckName();
 	transform->Start();
+}
+
+void GameObject::CheckName()
+{
+	
+}
+
+void GameObject::SetCamera()
+{
+	//transform->SetPosition(glm::vec3(0,0,0));
+	camera = new Camera(&transform->transform);
+	Graphics::instance()->MainCamera = camera;
 }
 
 void GameObject::Update()
@@ -59,11 +74,4 @@ void GameObject::Update()
 void GameObject::ChangeDrawingMode()
 {
 	//mesh->ChangePolygonMode();
-}
-
-void GameObject::SetCamera()
-{
-	//transform->SetPosition(glm::vec3(0,0,0));
-	camera = new Camera(&transform->transform);
-	Graphics::instance()->MainCamera = camera;
 }

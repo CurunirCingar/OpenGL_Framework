@@ -14,7 +14,7 @@ public:
 	virtual ~LightShader();
 
 	void ShaderUpdate();
-	void SetLightSourceType(LightSources::Type type);
+	void SetLightSourceType(lightSrc::Enum type);
 
 	LightSource* light;
 	Structs::Transform* transform;

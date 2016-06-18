@@ -18,8 +18,8 @@ using namespace std;
 class GeneratedMesh
 {
 public:
-	GeneratedMesh(vector<string>& textures, ShaderTypes::Enum shaderType);
-	GeneratedMesh(ShaderTypes::Enum shaderType);
+	GeneratedMesh(vector<string>& textures, sdr::Enum shaderType);
+	GeneratedMesh(sdr::Enum shaderType);
 	~GeneratedMesh();
 
 	void Start();
