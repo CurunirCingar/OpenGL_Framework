@@ -44,16 +44,16 @@ void Terrain::SetupMesh(vector<string>& texFilenames)
 		{
 			x = (j == terrainWidth - tileSize) ? (j - tileSize) : j;
 			y = (i == terrainWidth - tileSize) ? (i - tileSize) : i;
-
 			posBuf[0] = glm::vec3(x, heightsArr[x*terrainWidth + y], y);
 			posBuf[1] = glm::vec3(x + tileSize, heightsArr[(x + tileSize)*terrainWidth + y], y);
-			posBuf[2] = glm::vec3(x + tileSize, heightsArr[(x + tileSize)*terrainWidth + (y + tileSize)], y + tileSize);
+			posBuf[2] = glm::vec3(x + tileSize, heightsArr[(x + tileSize)*terrainWidth + (y + tileSize)], y + tileSize);			
+			
 			normalBuf[0] = glm::cross(posBuf[0] - posBuf[1], posBuf[1] - posBuf[2]);
 			normalBuf[0] = glm::normalize(-normalBuf[0]);
 
 			vertices.push_back(Structs::Vertex() =
 			{ 
-				posBuf[0],
+				posBuf[2],
 				normalBuf[0],
 				glm::vec2(0, 0) 
 			});
@@ -65,7 +65,7 @@ void Terrain::SetupMesh(vector<string>& texFilenames)
 			});
 			vertices.push_back(Structs::Vertex() =
 			{ 
-				posBuf[2],
+				posBuf[0],
 				normalBuf[0],
 				glm::vec2(1, 1) 
 			});
@@ -78,7 +78,7 @@ void Terrain::SetupMesh(vector<string>& texFilenames)
 			
 			vertices.push_back(Structs::Vertex() =
 			{ 
-				posBuf[3],
+				posBuf[5],
 				normalBuf[1],
 				glm::vec2(1, 1) 
 			});
@@ -90,7 +90,7 @@ void Terrain::SetupMesh(vector<string>& texFilenames)
 			});
 			vertices.push_back(Structs::Vertex() =
 			{ 
-				posBuf[5],
+				posBuf[3],
 				normalBuf[1],
 				glm::vec2(0, 0) 
 			});

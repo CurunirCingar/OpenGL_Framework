@@ -1,6 +1,7 @@
 #pragma once
 #include "resource.h"
 #include <list>
+#include <map>
 #include <time.h>
 using namespace std;
 
@@ -12,7 +13,7 @@ using namespace std;
 class MainWindow
 {
 public:
-	MainWindow(int width, int height, const std::string& title);
+	MainWindow(int width, int height, const string& title);
 	virtual ~MainWindow();
 
 	void MainCycle();
@@ -29,8 +30,9 @@ private:
 	GLuint m_width, m_height;
 	SDL_GLContext m_glcontext;
 
-	std::list<GameObject*> GameObjects;
-	std::list<GameObject*> BlendedGameObjects;
+	list<GameObject*> GameObjects;
+	list<GameObject*> BlendedGameObjects;
+	
 
 	GameObject* Sun;
 	GameObject* characterController;

@@ -60,8 +60,11 @@ MainWindow::MainWindow(int width, int height, const std::string& title)
 	glEnable(GL_DEPTH_TEST);
 
 	glEnable(GL_BLEND);
-	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ZERO);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	//glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ZERO);
+
+	glEnable(GL_CULL_FACE);
+	glFrontFace(GL_CCW);
 
 	glClearColor(0.5, 0.5, 0.5, 1.0f);
 	isPaused = false;
@@ -141,7 +144,10 @@ void MainWindow::ReadSceneInfo()
 			Sun = newGameObject;
 
 		else if (!name.compare("Player"))
+		{
 			newGameObject->SetCamera();
+			characterController = newGameObject;
+		}
 	}
 
 	vector<string> texFilenames;
@@ -200,17 +206,22 @@ void MainWindow::Update()
 	Clear();
 
 	skybox->Update();
+	terrain->Update();
 
 	list<GameObject*>::iterator i;
 	for (i = GameObjects.begin(); i != GameObjects.end(); i++)
 		(*i)->Update();
 
+	map<float, GameObject*> blendDrawBuffer;
 	for (i = BlendedGameObjects.begin(); i != BlendedGameObjects.end(); i++)
-		(*i)->Update();
-	
-	terrain->Update();
+	{
+		GLfloat distance = glm::length(characterController->transform->transform.pos - (*i)->transform->transform.pos);
+		blendDrawBuffer[distance] = (*i);
+	}
 
-	
+	std::map<float, GameObject*>::reverse_iterator it;
+	for (it = blendDrawBuffer.rbegin(); it != blendDrawBuffer.rend(); ++it)
+		it->second->Update(); 
 }
 
 MainWindow::~MainWindow()
