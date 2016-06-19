@@ -23,20 +23,20 @@ void Skybox::SetupMesh(vector<string>& texFilenames)
 		{ glm::vec3(-1, -1, -1), glm::vec3(0.0f, 0.0f, -1.0f), glm::vec2(0, 0) },
 
 		// Left
-		{ glm::vec3(-1, -1, 1), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(1, 0) },
+		{ glm::vec3(1, 1, 1), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(0, 1) },
 		{ glm::vec3(1, -1, 1), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(0, 0) },
-		{ glm::vec3(1, 1, 1), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(0, 1) },
-		{ glm::vec3(1, 1, 1), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(0, 1) },
-		{ glm::vec3(-1, 1, 1), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(1, 1) },
 		{ glm::vec3(-1, -1, 1), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(1, 0) },
+		{ glm::vec3(-1, -1, 1), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(1, 0) },
+		{ glm::vec3(-1, 1, 1), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(1, 1) },
+		{ glm::vec3(1, 1, 1), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(0, 1) },
 
 		// Back
-		{ glm::vec3(-1, 1, 1), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(0, 1) },
+		{ glm::vec3(-1, -1, -1), glm::vec3(-1.0f, 0.0f, 0.0f), glm::vec2(1, 0) },
 		{ glm::vec3(-1, 1, -1), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(1, 1) },
-		{ glm::vec3(-1, -1, -1), glm::vec3(-1.0f, 0.0f, 0.0f), glm::vec2(1, 0) },
-		{ glm::vec3(-1, -1, -1), glm::vec3(-1.0f, 0.0f, 0.0f), glm::vec2(1, 0) },
-		{ glm::vec3(-1, -1, 1), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(0, 0) },
 		{ glm::vec3(-1, 1, 1), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(0, 1) },
+		{ glm::vec3(-1, 1, 1), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(0, 1) },
+		{ glm::vec3(-1, -1, 1), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(0, 0) },
+		{ glm::vec3(-1, -1, -1), glm::vec3(-1.0f, 0.0f, 0.0f), glm::vec2(1, 0) },
 
 		// Front
 		{ glm::vec3(1, 1, 1), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(1, 1) },
@@ -55,12 +55,12 @@ void Skybox::SetupMesh(vector<string>& texFilenames)
 		{ glm::vec3(-1, 1, -1), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(0, 0) },
 
 		// Down
-		{ glm::vec3(-1, -1, -1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(0, 0) },
+		{ glm::vec3(1, -1, 1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(1, 1) },
 		{ glm::vec3(1, -1, -1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(1, 0) },
-		{ glm::vec3(1, -1, 1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(1, 1) },
-		{ glm::vec3(1, -1, 1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(1, 1) },
-		{ glm::vec3(-1, -1, 1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(0, 1) },
 		{ glm::vec3(-1, -1, -1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(0, 0) },
+		{ glm::vec3(-1, -1, -1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(0, 0) },
+		{ glm::vec3(-1, -1, 1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(0, 1) },
+		{ glm::vec3(1, -1, 1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(1, 1) },
 	};
 
 	vector<GLuint> indices = {

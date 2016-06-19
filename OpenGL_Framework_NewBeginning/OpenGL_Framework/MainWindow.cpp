@@ -4,8 +4,10 @@ bool ReadStringFromFile(ifstream& in, string& str)
 {
 	char readbuf[256];
 	char* pBuf = readbuf;
-	char len = 0;
+	unsigned char len = 0;
 	in.read((char*)&len, sizeof(char));
+	if (len < 0)
+		len = 255;
 	readbuf[len] = '\0';
 
 	for (int i = 0; i < len; i++)
@@ -42,6 +44,9 @@ MainWindow::MainWindow(int width, int height, const std::string& title)
 	SDL_GL_SetAttribute(SDL_GL_BUFFER_SIZE, 32);
 	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16);
 	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+
+	Graphics::instance()->width = width;
+	Graphics::instance()->height = height;
 
 	m_window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_OPENGL);
 	m_glcontext = SDL_GL_CreateContext(m_window);
@@ -194,14 +199,14 @@ void MainWindow::StartSetup()
 
 	skybox->Start();
 	terrain->Start();
+	framebuffer = new Framebuffer();
 }
 
 void MainWindow::Update()
 {
-	static glm::vec3 sinVec;
-	static float sinC;
-
 	UpdateStates();
+	
+	framebuffer->BindBuffer();
 
 	Clear();
 
@@ -222,6 +227,8 @@ void MainWindow::Update()
 	std::map<float, GameObject*>::reverse_iterator it;
 	for (it = blendDrawBuffer.rbegin(); it != blendDrawBuffer.rend(); ++it)
 		it->second->Update(); 
+
+	framebuffer->Update();
 }
 
 MainWindow::~MainWindow()
@@ -233,12 +240,15 @@ MainWindow::~MainWindow()
 
 void MainWindow::Clear()
 {
+	glEnable(GL_DEPTH_TEST);
 	SDL_GL_SwapWindow(m_window);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
 void MainWindow::UpdateStates()
 {
+	int post;
+
 	while (SDL_PollEvent(&e))
 	{
 		if (e.type == SDL_QUIT)
@@ -266,6 +276,22 @@ void MainWindow::UpdateStates()
 					break;
 				case SDLK_3:
 					Sun->transform->RotateAround(1, glm::vec3(0, 0, 1));
+					break;
+				case SDLK_0:
+					framebuffer->shader->offset--;
+					break;
+				case SDLK_9:
+					framebuffer->shader->offset++;
+					break;
+				case SDLK_7:
+					post = framebuffer->shader->curPosteffect;
+					post--;
+					framebuffer->shader->SetPosteffect((scrnSdr::PosteffectType)post);
+					break;
+				case SDLK_8:
+					post = framebuffer->shader->curPosteffect;
+					post++;
+					framebuffer->shader->SetPosteffect((scrnSdr::PosteffectType)post);
 					break;
 			}
 		}

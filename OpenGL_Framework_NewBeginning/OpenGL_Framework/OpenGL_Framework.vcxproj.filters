@@ -98,6 +98,12 @@
     <ClInclude Include="StandardBlendedShader.h">
       <Filter>Заголовочные файлы\Shaders</Filter>
     </ClInclude>
+    <ClInclude Include="ScreenShader.h">
+      <Filter>Заголовочные файлы\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="Framebuffer.h">
+      <Filter>Заголовочные файлы\System</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Shader.cpp">
@@ -165,6 +171,12 @@
     </ClCompile>
     <ClCompile Include="StandardBlendedShader.cpp">
       <Filter>Файлы исходного кода\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenShader.cpp">
+      <Filter>Файлы исходного кода\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="Framebuffer.cpp">
+      <Filter>Файлы исходного кода\System</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

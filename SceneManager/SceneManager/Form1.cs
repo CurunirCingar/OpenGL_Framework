@@ -67,6 +67,7 @@ namespace SceneManager
             foreach (var gameObject in gameObjects)
             {
                 writer.Write(gameObject.name);
+                int len = gameObject.name.Length;
                 writer.Write(gameObject.modelPath);
                 writer.Write(gameObject.shaderType);
                 writer.Write(gameObject.lightShaderType);

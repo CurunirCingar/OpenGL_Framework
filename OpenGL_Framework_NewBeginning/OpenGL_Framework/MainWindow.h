@@ -9,6 +9,7 @@ using namespace std;
 #include "GameObject.h"
 #include "Skybox.h"
 #include "Terrain.h"
+#include "Framebuffer.h"
 
 class MainWindow
 {
@@ -39,6 +40,8 @@ private:
 
 	Skybox* skybox;
 	Terrain* terrain;
+
+	Framebuffer* framebuffer;
 
 	GLboolean isClosed;
 	GLboolean isPaused;

@@ -133,6 +133,7 @@
             this.nameText.BackColor = System.Drawing.Color.LightGray;
             this.nameText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.nameText.Location = new System.Drawing.Point(75, 16);
+            this.nameText.MaxLength = 127;
             this.nameText.Name = "nameText";
             this.nameText.Size = new System.Drawing.Size(228, 20);
             this.nameText.TabIndex = 2;
@@ -269,6 +270,7 @@
             this.modelPathText.BackColor = System.Drawing.Color.LightGray;
             this.modelPathText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.modelPathText.Location = new System.Drawing.Point(75, 43);
+            this.modelPathText.MaxLength = 127;
             this.modelPathText.Name = "modelPathText";
             this.modelPathText.Size = new System.Drawing.Size(195, 20);
             this.modelPathText.TabIndex = 26;

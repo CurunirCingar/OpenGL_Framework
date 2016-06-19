@@ -42,7 +42,6 @@ public:
 	
 protected:
 	
-	
 	GLuint CreateShader(const std::string& filename, GLenum shaderType);
 	void LoadShader(GLuint shaderID, const std::string& filename);
 	void CheckShaderError(GLuint shader, bool isProgram, GLuint flag, const std::string& errorMessage);

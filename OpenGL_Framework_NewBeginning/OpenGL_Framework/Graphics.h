@@ -13,15 +13,8 @@ using namespace std;
 
 #include "Structures.h"
 
-#define W 1000
-#define H 600
-
 #ifndef _Graphics_
 #define  _Graphics_
-inline void SetVec3Unif(GLint local, glm::vec3& vec)
-{
-	glUniform3f(local, vec.x, vec.y, vec.z);
-};
 
 class Graphics
 {
@@ -45,10 +38,17 @@ public:
 	void* Sun;
 	void* MainCamera;
 
+	GLint width, height;
+
 private:
 	Graphics();
 	static Graphics* m_this;
 	GLint objectsAmount = 0;
+};
+
+inline void SetVec3Unif(GLint local, glm::vec3& vec)
+{
+	glUniform3f(local, vec.x, vec.y, vec.z);
 };
 
 namespace Structs

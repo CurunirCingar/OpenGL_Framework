@@ -47,7 +47,8 @@ void Transform::Update()
 	model = glm::rotate(model, transform.rot.z, zRot);
 	
 	glm::mat4 projection;
-	projection = glm::perspective(45.0f, 1000.0f / 600.0f, 0.5f, 500.0f);
+	GLfloat aspect = ((float)Graphics::instance()->width) / ((float)Graphics::instance()->height);
+	projection = glm::perspective(45.0f, aspect, 0.5f, 500.0f);
 
 	GLint viewLoc = glGetUniformLocation(m_program, "view");
 	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));

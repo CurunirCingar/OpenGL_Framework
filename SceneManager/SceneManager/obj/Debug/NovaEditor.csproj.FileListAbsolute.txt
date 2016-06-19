@@ -6,3 +6,4 @@ C:\Users\Curunir\Desktop\Computer graphics\SceneManager\SceneManager\bin\Debug\N
 C:\Users\Curunir\Desktop\Computer graphics\SceneManager\SceneManager\obj\Debug\NovaEditor.Properties.Resources.resources
 C:\Users\Curunir\Desktop\Computer graphics\SceneManager\SceneManager\obj\Debug\NovaEditor.exe
 C:\Users\Curunir\Desktop\Computer graphics\SceneManager\SceneManager\obj\Debug\NovaEditor.pdb
+C:\Users\Curunir\Desktop\Computer graphics\SceneManager\SceneManager\obj\Debug\NovaEditor.csprojResolveAssemblyReference.cache

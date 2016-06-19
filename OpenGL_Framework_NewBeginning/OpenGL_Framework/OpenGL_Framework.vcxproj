@@ -85,6 +85,7 @@
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="Framebuffer.h" />
     <ClInclude Include="GeneratedMesh.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="LightShader.h" />
@@ -94,6 +95,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="ScreenShader.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="SkyBox.h" />
     <ClInclude Include="SkyboxMesh.h" />
@@ -109,6 +111,7 @@
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Component.cpp" />
+    <ClCompile Include="Framebuffer.cpp" />
     <ClCompile Include="GeneratedMesh.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="LightShader.cpp" />
@@ -119,6 +122,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="NovaGL.cpp" />
+    <ClCompile Include="ScreenShader.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="SkyBox.cpp" />
     <ClCompile Include="SkyboxMesh.cpp" />
