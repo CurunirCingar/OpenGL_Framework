@@ -100,22 +100,22 @@ namespace SceneManager
                 imagePath = imagePath.Replace('\\', '/');
                 writer.Write("Res/" + imagePath);
 
-                splitArr = Regex.Split(backPicture.ImageLocation, "\\\\Res\\\\");
-                imagePath = splitArr[splitArr.Length - 1];
-                imagePath = imagePath.Replace('\\', '/');
-                writer.Write("Res/" + imagePath);
-
-                splitArr = Regex.Split(frontPicture.ImageLocation, "\\\\Res\\\\");
-                imagePath = splitArr[splitArr.Length - 1];
-                imagePath = imagePath.Replace('\\', '/');
-                writer.Write("Res/" + imagePath);
-
                 splitArr = Regex.Split(upPicture.ImageLocation, "\\\\Res\\\\");
                 imagePath = splitArr[splitArr.Length - 1];
                 imagePath = imagePath.Replace('\\', '/');
                 writer.Write("Res/" + imagePath);
 
                 splitArr = Regex.Split(downPicture.ImageLocation, "\\\\Res\\\\");
+                imagePath = splitArr[splitArr.Length - 1];
+                imagePath = imagePath.Replace('\\', '/');
+                writer.Write("Res/" + imagePath);
+
+                splitArr = Regex.Split(backPicture.ImageLocation, "\\\\Res\\\\");
+                imagePath = splitArr[splitArr.Length - 1];
+                imagePath = imagePath.Replace('\\', '/');
+                writer.Write("Res/" + imagePath);
+
+                splitArr = Regex.Split(frontPicture.ImageLocation, "\\\\Res\\\\");
                 imagePath = splitArr[splitArr.Length - 1];
                 imagePath = imagePath.Replace('\\', '/');
                 writer.Write("Res/" + imagePath);
@@ -179,16 +179,16 @@ namespace SceneManager
                 {
                     strBuf = reader.ReadString();
                     rightPicture.ImageLocation = Application.StartupPath + "\\" + strBuf.Replace('/', '\\'); ;
-                    strBuf = reader.ReadString();                         
+                    strBuf = reader.ReadString();
                     leftPicture.ImageLocation = Application.StartupPath + "\\" + strBuf.Replace('/', '\\');
-                    strBuf = reader.ReadString();                         
-                    backPicture.ImageLocation = Application.StartupPath + "\\" + strBuf.Replace('/', '\\');
-                    strBuf = reader.ReadString();                         
-                    frontPicture.ImageLocation = Application.StartupPath + "\\" + strBuf.Replace('/', '\\');
                     strBuf = reader.ReadString();                         
                     upPicture.ImageLocation = Application.StartupPath + "\\" + strBuf.Replace('/', '\\');
                     strBuf = reader.ReadString();                         
                     downPicture.ImageLocation = Application.StartupPath + "\\" + strBuf.Replace('/', '\\');
+                    strBuf = reader.ReadString();
+                    backPicture.ImageLocation = Application.StartupPath + "\\" + strBuf.Replace('/', '\\');
+                    strBuf = reader.ReadString();
+                    frontPicture.ImageLocation = Application.StartupPath + "\\" + strBuf.Replace('/', '\\');
                 }
 
                 if (reader.PeekChar() != -1)
@@ -339,7 +339,7 @@ namespace SceneManager
 
         private void button5_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("OpenGL_Framework.exe");
+            System.Diagnostics.Process.Start("NovaGL.exe");
             Application.Exit();
         }
 

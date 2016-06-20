@@ -11,18 +11,18 @@ using namespace std;
 #include <assimp\Importer.hpp>
 #include <assimp\scene.h>
 #include <assimp\postprocess.h>
-//#include "stb_image.h"
 
+#include "GeneratedGameObject.h"
 #include "SkyboxMesh.h"
-#include "GeneratedMesh.h"
 
-class Skybox : public GeneratedMesh
+class Skybox : public GeneratedGameObject
 {
 public:
 	Skybox(vector<string>& texFilenames, sdr::Enum shaderType);
 	~Skybox();
 
 	void SetupMesh(vector<string>& textures);
+	GLuint LoadCubemapTexture(GLuint textureID, string filename, GLuint i);
 	void Update();
 };
 

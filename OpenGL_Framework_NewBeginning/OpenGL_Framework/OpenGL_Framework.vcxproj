@@ -85,8 +85,9 @@
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="SkyboxMesh.h" />
     <ClInclude Include="Framebuffer.h" />
-    <ClInclude Include="GeneratedMesh.h" />
+    <ClInclude Include="GeneratedGameObject.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="LightShader.h" />
     <ClInclude Include="LightSources.h" />
@@ -98,21 +99,21 @@
     <ClInclude Include="ScreenShader.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="SkyBox.h" />
-    <ClInclude Include="SkyboxMesh.h" />
+    <ClInclude Include="SkyboxShader.h" />
+    <ClInclude Include="SkyboxTransform.h" />
     <ClInclude Include="StandardBlendedShader.h" />
     <ClInclude Include="StandardShader.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="Terrain.h" />
-    <ClInclude Include="Texture.h" />
     <ClInclude Include="Transform.h" />
-    <ClInclude Include="VerticesBlockT.h" />
     <ClInclude Include="NovaGL.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Component.cpp" />
+    <ClCompile Include="SkyboxMesh.cpp" />
     <ClCompile Include="Framebuffer.cpp" />
-    <ClCompile Include="GeneratedMesh.cpp" />
+    <ClCompile Include="GeneratedGameObject.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="LightShader.cpp" />
     <ClCompile Include="LightSources.cpp" />
@@ -125,14 +126,13 @@
     <ClCompile Include="ScreenShader.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="SkyBox.cpp" />
-    <ClCompile Include="SkyboxMesh.cpp" />
+    <ClCompile Include="SkyboxShader.cpp" />
+    <ClCompile Include="SkyboxTransform.cpp" />
     <ClCompile Include="StandardBlendedShader.cpp" />
     <ClCompile Include="StandardShader.cpp" />
     <ClCompile Include="stb_image.c" />
     <ClCompile Include="Terrain.cpp" />
-    <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Transform.cpp" />
-    <ClCompile Include="VerticesBlockT.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

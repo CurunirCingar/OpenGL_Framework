@@ -7,11 +7,11 @@ struct Material {
 uniform Material material;
 
 in vec2 TexCoords;
-uniform vec3 ambient;
+uniform vec4 ambient;
 
 out vec4 color;
 
 void main()
 {
-	color = vec4(vec3(texture(material.texture_diffuse1, TexCoords)) * ambient, 0);
+	color = texture(material.texture_diffuse1, TexCoords) * ambient;
 }

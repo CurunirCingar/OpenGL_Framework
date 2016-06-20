@@ -14,13 +14,15 @@ using namespace std;
 
 #include "Transform.h"
 #include "Mesh.h"
+#include "SkyboxTransform.h"
+#include "SkyboxMesh.h"
 
-class GeneratedMesh
+class GeneratedGameObject
 {
 public:
-	GeneratedMesh(vector<string>& textures, sdr::Enum shaderType);
-	GeneratedMesh(sdr::Enum shaderType);
-	~GeneratedMesh();
+	GeneratedGameObject(vector<string>& textures, sdr::Enum shaderType);
+	GeneratedGameObject(sdr::Enum shaderType);
+	~GeneratedGameObject();
 
 	void Start();
 	GLuint LoadTexture(string filename);

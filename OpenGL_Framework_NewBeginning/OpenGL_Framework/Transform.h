@@ -21,7 +21,7 @@ public:
 	~Transform();
 
 	void Start();
-	void Update();
+	virtual void Update();
 	inline void SetProgramID(GLuint program) { m_program = program; }
 
 	void SetPosition(glm::vec3& position);
@@ -33,7 +33,7 @@ public:
 	Structs::Transform transform;
 	glm::vec3 front;
 
-private:
+protected:
 	GLuint m_program;
 	
 	glm::vec3 m_scale;

@@ -33,7 +33,6 @@ private:
 
 	list<GameObject*> GameObjects;
 	list<GameObject*> BlendedGameObjects;
-	
 
 	GameObject* Sun;
 	GameObject* characterController;

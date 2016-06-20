@@ -50,16 +50,10 @@
     <ClInclude Include="Model.h">
       <Filter>Заголовочные файлы\GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>Заголовочные файлы\GameObject</Filter>
-    </ClInclude>
     <ClInclude Include="Shader.h">
       <Filter>Заголовочные файлы\Shaders</Filter>
     </ClInclude>
     <ClInclude Include="Transform.h">
-      <Filter>Заголовочные файлы\GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="VerticesBlockT.h">
       <Filter>Заголовочные файлы\GameObject</Filter>
     </ClInclude>
     <ClInclude Include="MainWindow.h">
@@ -83,13 +77,7 @@
     <ClInclude Include="SkyBox.h">
       <Filter>Заголовочные файлы\System</Filter>
     </ClInclude>
-    <ClInclude Include="SkyboxMesh.h">
-      <Filter>Заголовочные файлы\System</Filter>
-    </ClInclude>
     <ClInclude Include="Terrain.h">
-      <Filter>Заголовочные файлы\System</Filter>
-    </ClInclude>
-    <ClInclude Include="GeneratedMesh.h">
       <Filter>Заголовочные файлы\System</Filter>
     </ClInclude>
     <ClInclude Include="NovaGL.h">
@@ -103,6 +91,18 @@
     </ClInclude>
     <ClInclude Include="Framebuffer.h">
       <Filter>Заголовочные файлы\System</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedGameObject.h">
+      <Filter>Заголовочные файлы\System</Filter>
+    </ClInclude>
+    <ClInclude Include="SkyboxShader.h">
+      <Filter>Заголовочные файлы\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="SkyboxMesh.h">
+      <Filter>Заголовочные файлы\System</Filter>
+    </ClInclude>
+    <ClInclude Include="SkyboxTransform.h">
+      <Filter>Заголовочные файлы</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -127,13 +127,7 @@
     <ClCompile Include="Model.cpp">
       <Filter>Файлы исходного кода\GameObject</Filter>
     </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Файлы исходного кода\GameObject</Filter>
-    </ClCompile>
     <ClCompile Include="Transform.cpp">
-      <Filter>Файлы исходного кода\GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="VerticesBlockT.cpp">
       <Filter>Файлы исходного кода\GameObject</Filter>
     </ClCompile>
     <ClCompile Include="Graphics.cpp">
@@ -157,13 +151,7 @@
     <ClCompile Include="SkyBox.cpp">
       <Filter>Файлы исходного кода\System</Filter>
     </ClCompile>
-    <ClCompile Include="SkyboxMesh.cpp">
-      <Filter>Файлы исходного кода\System</Filter>
-    </ClCompile>
     <ClCompile Include="Terrain.cpp">
-      <Filter>Файлы исходного кода\System</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedMesh.cpp">
       <Filter>Файлы исходного кода\System</Filter>
     </ClCompile>
     <ClCompile Include="NovaGL.cpp">
@@ -177,6 +165,18 @@
     </ClCompile>
     <ClCompile Include="Framebuffer.cpp">
       <Filter>Файлы исходного кода\System</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedGameObject.cpp">
+      <Filter>Файлы исходного кода\System</Filter>
+    </ClCompile>
+    <ClCompile Include="SkyboxShader.cpp">
+      <Filter>Файлы исходного кода\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="SkyboxMesh.cpp">
+      <Filter>Файлы исходного кода\System</Filter>
+    </ClCompile>
+    <ClCompile Include="SkyboxTransform.cpp">
+      <Filter>Файлы исходного кода</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,7 +1,7 @@
-#include "GeneratedMesh.h"
+#include "GeneratedGameObject.h"
 
 
-GeneratedMesh::GeneratedMesh(vector<string>& texFilenames, sdr::Enum shaderType)
+GeneratedGameObject::GeneratedGameObject(vector<string>& texFilenames, sdr::Enum shaderType)
 {
 	int len = texFilenames.size();
 
@@ -20,6 +20,10 @@ GeneratedMesh::GeneratedMesh(vector<string>& texFilenames, sdr::Enum shaderType)
 		for (int i = 0; i < len; i++)
 			shaders.push_back(new LightShader(&transform->transform));
 		break;
+	case sdr::Skybox:
+		for (int i = 0; i < len; i++)
+			shaders.push_back(new SkyboxShader());
+		break;
 	default:
 		break;
 	}
@@ -27,9 +31,12 @@ GeneratedMesh::GeneratedMesh(vector<string>& texFilenames, sdr::Enum shaderType)
 	transform->SetProgramID(shaders[0]->GetProgramID());
 }
 
-GeneratedMesh::GeneratedMesh(sdr::Enum shaderType)
+GeneratedGameObject::GeneratedGameObject(sdr::Enum shaderType)
 {
-	transform = new Transform();
+	if (shaderType != sdr::Skybox)
+		transform = new Transform();
+	else
+		transform = new SkyboxTransform();
 
 	switch (shaderType)
 	{
@@ -42,6 +49,9 @@ GeneratedMesh::GeneratedMesh(sdr::Enum shaderType)
 	case sdr::Light:
 		shaders.push_back(new LightShader(&transform->transform));
 		break;
+	case sdr::Skybox:
+		shaders.push_back(new SkyboxShader());
+		break;
 	default:
 		break;
 	}
@@ -49,12 +59,11 @@ GeneratedMesh::GeneratedMesh(sdr::Enum shaderType)
 	transform->SetProgramID(shaders[0]->GetProgramID());
 }
 
-
-GeneratedMesh::~GeneratedMesh()
+GeneratedGameObject::~GeneratedGameObject()
 {
 }
 
-GLuint GeneratedMesh::LoadTexture(string filename)
+GLuint GeneratedGameObject::LoadTexture(string filename)
 {
 	GLuint textureID;
 	glGenTextures(1, &textureID);
@@ -76,7 +85,7 @@ GLuint GeneratedMesh::LoadTexture(string filename)
 	return textureID;
 }
 
-void GeneratedMesh::Start()
+void GeneratedGameObject::Start()
 {
 	transform->Start();
 }

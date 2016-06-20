@@ -20,11 +20,13 @@ namespace sdr
 		Standard,
 		StandardBlended,
 		Light,
+		Skybox
 	};
 	static map<string, Enum> type = {
 		{ "StandardShader", Standard },
 		{ "StandardBlendedShader", StandardBlended },
-		{ "LightShader", Light }
+		{ "LightShader", Light },
+		{ "SkyboxShader", Skybox }
 	};
 };
 

@@ -17,6 +17,7 @@ using namespace std;
 #include "StandardShader.h"
 #include "LightShader.h"
 #include "StandardBlendedShader.h"
+#include "SkyboxShader.h"
 #include "Graphics.h"
 
 #ifndef _Mesh_
@@ -38,13 +39,13 @@ public:
 	vector<Structs::Texture> textures;
 
 	Mesh(vector<Structs::Vertex> vertices, vector<GLuint> indices, vector<Structs::Texture> textures, GLuint shaderProgram);
-	void Draw();
+	virtual void Draw();
 	virtual ~Mesh();
 
 	void ChangePolygonMode();
 
 protected:
-	void SetupMesh();
+	virtual void SetupMesh();
 
 	GLuint m_shaderProgram;
 	GLuint VAO;

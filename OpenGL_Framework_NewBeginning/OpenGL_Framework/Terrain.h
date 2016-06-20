@@ -12,10 +12,10 @@ using namespace std;
 #include <assimp\scene.h>
 #include <assimp\postprocess.h>
 
-#include "GeneratedMesh.h"
+#include "GeneratedGameObject.h"
 #include "Transform.h"
 
-class Terrain : public GeneratedMesh
+class Terrain : public GeneratedGameObject
 {
 public:
 	Terrain(vector<string>& texFilenames, int& tileSize, int& textureTiling, sdr::Enum shaderType);

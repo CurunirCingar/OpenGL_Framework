@@ -1,7 +1,7 @@
 #include "Skybox.h"
 
 
-Skybox::Skybox(vector<string>& texFilenames, sdr::Enum shaderType) : GeneratedMesh(texFilenames, shaderType)
+Skybox::Skybox(vector<string>& texFilenames, sdr::Enum shaderType) : GeneratedGameObject(shaderType)
 {
 	transform->SetScale(glm::vec3(2, 2, 2));
 	SetupMesh(texFilenames);
@@ -30,6 +30,22 @@ void Skybox::SetupMesh(vector<string>& texFilenames)
 		{ glm::vec3(-1, 1, 1), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(1, 1) },
 		{ glm::vec3(1, 1, 1), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(0, 1) },
 
+		// Up
+		{ glm::vec3(-1, 1, -1), glm::vec3(0.0f, 1.0f, 0.0), glm::vec2(1, 1) },
+		{ glm::vec3(1, 1, -1), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(1, 0) },
+		{ glm::vec3(1, 1, 1), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(0, 1) },
+		{ glm::vec3(1, 1, 1), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(0, 1) },
+		{ glm::vec3(-1, 1, 1), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(0, 1) },
+		{ glm::vec3(-1, 1, -1), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(1, 1) },
+
+		// Down
+		{ glm::vec3(1, -1, 1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(1, 1) },
+		{ glm::vec3(1, -1, -1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(1, 0) },
+		{ glm::vec3(-1, -1, -1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(0, 0) },
+		{ glm::vec3(-1, -1, -1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(0, 0) },
+		{ glm::vec3(-1, -1, 1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(0, 1) },
+		{ glm::vec3(1, -1, 1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(1, 1) },
+
 		// Back
 		{ glm::vec3(-1, -1, -1), glm::vec3(-1.0f, 0.0f, 0.0f), glm::vec2(1, 0) },
 		{ glm::vec3(-1, 1, -1), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(1, 1) },
@@ -46,21 +62,7 @@ void Skybox::SetupMesh(vector<string>& texFilenames)
 		{ glm::vec3(1, -1, 1), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(1, 0) },
 		{ glm::vec3(1, 1, 1), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec2(1, 1) },
 
-		// Up
-		{ glm::vec3(-1, 1, -1), glm::vec3(0.0f, 1.0f, 0.0), glm::vec2(0, 0) },
-		{ glm::vec3(1, 1, -1), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(1, 0) },
-		{ glm::vec3(1, 1, 1), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(1, 1) },
-		{ glm::vec3(1, 1, 1), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(1, 1) },
-		{ glm::vec3(-1, 1, 1), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(0, 1) },
-		{ glm::vec3(-1, 1, -1), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(0, 0) },
-
-		// Down
-		{ glm::vec3(1, -1, 1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(1, 1) },
-		{ glm::vec3(1, -1, -1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(1, 0) },
-		{ glm::vec3(-1, -1, -1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(0, 0) },
-		{ glm::vec3(-1, -1, -1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(0, 0) },
-		{ glm::vec3(-1, -1, 1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(0, 1) },
-		{ glm::vec3(1, -1, 1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(1, 1) },
+		
 	};
 
 	vector<GLuint> indices = {
@@ -84,38 +86,50 @@ void Skybox::SetupMesh(vector<string>& texFilenames)
 	};
 
 	vector<Structs::Texture> textures;
-	Structs::Texture bufTex;
+	Structs::Texture cubemapTex;
+
+	GLuint textureID;
+	glGenTextures(1, &textureID);
 
 	for (int i = 0; i < 6; i++)
 	{
-		bufTex.id = LoadTexture(texFilenames[i]);
-		bufTex.type = "texture_diffuse1";
-		textures.push_back(bufTex);
+		cubemapTex.id = LoadCubemapTexture(textureID, texFilenames[i], i);
+		cubemapTex.type = "texture_diffuse1";
 	}
 
-	vector<Structs::Vertex> meshVertices;
-	vector<GLuint> meshIndices;
-	vector<Structs::Texture> meshTextures;
-
-	for (int i = 0; i < 6; i++)
-	{
-		meshVertices.assign( vertices.begin() + 6*i, vertices.begin() + 6*(i+1) );
-		meshIndices.assign( indices.begin(), indices.begin() + 6 );
-		meshTextures.assign( 1, textures[i] );
-
-		meshes.push_back(new SkyboxMesh(meshVertices, meshIndices, meshTextures, shaders[i]->GetProgramID()));
-	}
+	textures.push_back(cubemapTex);
+	meshes.push_back(new SkyboxMesh(vertices, indices, textures, shaders[0]->GetProgramID()));
 }
 
 void Skybox::Update()
 {
-	transform->SetPosition(((Camera*)(Graphics::instance()->MainCamera))->transform->pos);
 	glDepthMask(GL_FALSE);
-	for (int i = 0; i < 6; i++)
-	{
-		shaders[i]->Update();
-		transform->Update();
-		((SkyboxMesh*)meshes[i])->Update();
-	}
+	
+	shaders[0]->Update();
+	transform->Update();
+	meshes[0]->Draw();
+
 	glDepthMask(GL_TRUE);
+}
+
+GLuint Skybox::LoadCubemapTexture(GLuint textureID, string filename, GLuint i)
+{
+	
+	int width, height, numComponents;
+	unsigned char* image = stbi_load(filename.c_str(), &width, &height, &numComponents, 3);
+
+	// Assign texture to ID
+	glBindTexture(GL_TEXTURE_CUBE_MAP, textureID);
+	glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+	glGenerateMipmap(GL_TEXTURE_2D);
+
+	// Parameters
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
+	stbi_image_free(image);
+	return textureID;
 }
