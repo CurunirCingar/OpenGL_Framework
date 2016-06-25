@@ -98,10 +98,10 @@
     <ClInclude Include="SkyboxShader.h">
       <Filter>Заголовочные файлы\Shaders</Filter>
     </ClInclude>
-    <ClInclude Include="SkyboxMesh.h">
-      <Filter>Заголовочные файлы\System</Filter>
-    </ClInclude>
     <ClInclude Include="SkyboxTransform.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="ReflectiveShader.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
   </ItemGroup>
@@ -172,10 +172,10 @@
     <ClCompile Include="SkyboxShader.cpp">
       <Filter>Файлы исходного кода\Shaders</Filter>
     </ClCompile>
-    <ClCompile Include="SkyboxMesh.cpp">
-      <Filter>Файлы исходного кода\System</Filter>
-    </ClCompile>
     <ClCompile Include="SkyboxTransform.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="ReflectiveShader.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
   </ItemGroup>

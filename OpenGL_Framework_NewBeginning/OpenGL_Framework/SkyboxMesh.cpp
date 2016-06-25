@@ -2,7 +2,7 @@
 
 
 SkyboxMesh::SkyboxMesh(vector<Structs::Vertex> vertices, vector<GLuint> indices, vector<Structs::Texture> textures, GLuint shaderProgram)
-	: Mesh( vertices, indices, textures, shaderProgram)
+: Mesh(vertices, indices, textures, shaderProgram, BIND_POS_NORMAL_TEX)
 {
 
 }

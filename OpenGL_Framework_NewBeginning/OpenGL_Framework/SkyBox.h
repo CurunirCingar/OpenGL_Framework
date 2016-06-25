@@ -13,7 +13,7 @@ using namespace std;
 #include <assimp\postprocess.h>
 
 #include "GeneratedGameObject.h"
-#include "SkyboxMesh.h"
+#include "Mesh.h"
 
 class Skybox : public GeneratedGameObject
 {

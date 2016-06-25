@@ -165,6 +165,7 @@ void MainWindow::ReadSceneInfo()
 	}
 
 	skybox = new Skybox(texFilenames, sdr::Skybox);
+	Graphics::instance()->Skybox = (void*)skybox;
 
 	int tileSize, textureTiling;
 	texFilenames.clear();
@@ -210,7 +211,6 @@ void MainWindow::Update()
 
 	Clear();
 
-	skybox->Update();
 	terrain->Update();
 
 	list<GameObject*>::iterator i;
@@ -227,6 +227,9 @@ void MainWindow::Update()
 	std::map<float, GameObject*>::reverse_iterator it;
 	for (it = blendDrawBuffer.rbegin(); it != blendDrawBuffer.rend(); ++it)
 		it->second->Update(); 
+
+	
+	skybox->Update();
 
 	framebuffer->Update();
 }

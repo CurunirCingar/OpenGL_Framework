@@ -3,7 +3,13 @@
 void Model::LoadModel(const std::string& path)
 {
 	Assimp::Importer import;
-	const aiScene* scene = import.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs);
+	const aiScene* scene = import.ReadFile(path, 
+		aiProcess_Triangulate | 
+		aiProcess_CalcTangentSpace |
+		aiProcess_SortByPType |
+		aiProcess_GenNormals
+
+		);
 
 	if (!scene || scene->mFlags == AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode)
 	{
@@ -104,7 +110,7 @@ Mesh Model::ProcessMesh(aiMesh* mesh, const aiScene* scene)
 	}
 
 	// Return a mesh object created from the extracted mesh data
-	return Mesh(vertices, indices, textures, m_shaderProgram);
+	return Mesh(vertices, indices, textures, m_shaderProgram, Mesh::BIND_POS_NORMAL_TEX);
 }
 
 vector<Structs::Texture> Model::LoadMaterialTextures(aiMaterial* mat, aiTextureType type, string typeName)
@@ -129,7 +135,8 @@ vector<Structs::Texture> Model::LoadMaterialTextures(aiMaterial* mat, aiTextureT
 		{   // If texture hasn't been loaded already, load it
 			Structs::Texture texture;
 			texture.id = TextureFromFile(str.C_Str(), this->directory);
-			texture.type = typeName;
+			texture.shaderName = typeName;
+			texture.type = GL_TEXTURE_2D;
 			texture.path = str;
 			textures.push_back(texture);
 			this->textures_loaded.push_back(texture);  // Store it as texture loaded for entire model, to ensure we won't unnecesery load duplicate textures.

@@ -85,7 +85,7 @@
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Component.h" />
-    <ClInclude Include="SkyboxMesh.h" />
+    <ClInclude Include="ReflectiveShader.h" />
     <ClInclude Include="Framebuffer.h" />
     <ClInclude Include="GeneratedGameObject.h" />
     <ClInclude Include="Graphics.h" />
@@ -111,7 +111,7 @@
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Component.cpp" />
-    <ClCompile Include="SkyboxMesh.cpp" />
+    <ClCompile Include="ReflectiveShader.cpp" />
     <ClCompile Include="Framebuffer.cpp" />
     <ClCompile Include="GeneratedGameObject.cpp" />
     <ClCompile Include="Graphics.cpp" />

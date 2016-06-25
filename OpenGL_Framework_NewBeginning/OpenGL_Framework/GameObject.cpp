@@ -38,6 +38,11 @@ void GameObject::CreateShader(std::string& shaderFilename, Structs::Transform* t
 		shader = new LightShader(transform);
 		Graphics::instance()->GameObjects.push_back((void*)this);
 		break;
+
+	case sdr::Reflective:
+		shader = new ReflectiveShader();
+		Graphics::instance()->GameObjects.push_back((void*)this);
+		break;
 	}
 }
 

@@ -3,9 +3,12 @@
 in vec3 TexCoords;
 out vec4 color;
 
-uniform samplerCube skybox;
+struct Material {
+    samplerCube texture_diffuse1;
+}; 
+uniform Material material;
 
 void main()
 {    
-    color = texture(skybox, TexCoords);
+    color = texture(material.texture_diffuse1, TexCoords);
 }

@@ -36,6 +36,8 @@ public:
 
 	list<void*> lightSources;
 	void* Sun;
+	void* Skybox;
+	void* Terrain;
 	void* MainCamera;
 
 	GLint width, height;
@@ -69,7 +71,8 @@ namespace Structs
 
 	struct Texture {
 		GLuint id;
-		string type;
+		string shaderName;
+		GLuint type;
 		aiString path;  // We store the path of the texture to compare with other textures
 	};
 };

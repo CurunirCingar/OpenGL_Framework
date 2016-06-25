@@ -31,12 +31,13 @@ void Skybox::SetupMesh(vector<string>& texFilenames)
 		{ glm::vec3(1, 1, 1), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(0, 1) },
 
 		// Up
-		{ glm::vec3(-1, 1, -1), glm::vec3(0.0f, 1.0f, 0.0), glm::vec2(1, 1) },
-		{ glm::vec3(1, 1, -1), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(1, 0) },
-		{ glm::vec3(1, 1, 1), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(0, 1) },
-		{ glm::vec3(1, 1, 1), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(0, 1) },
 		{ glm::vec3(-1, 1, 1), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(0, 1) },
-		{ glm::vec3(-1, 1, -1), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(1, 1) },
+		{ glm::vec3(1, 1, -1), glm::vec3(0.0f, 1.0f, 0.0), glm::vec2(1, 1) },
+		{ glm::vec3(1, 1, 1), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(1, 0) },
+		{ glm::vec3(1, 1, -1), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(1, 1) },
+		{ glm::vec3(-1, 1, 1), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(0, 1) },
+		{ glm::vec3(-1, 1, -1), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(0, 1) },
+		
 
 		// Down
 		{ glm::vec3(1, -1, 1), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(1, 1) },
@@ -92,24 +93,24 @@ void Skybox::SetupMesh(vector<string>& texFilenames)
 	glGenTextures(1, &textureID);
 
 	for (int i = 0; i < 6; i++)
-	{
 		cubemapTex.id = LoadCubemapTexture(textureID, texFilenames[i], i);
-		cubemapTex.type = "texture_diffuse1";
-	}
+	cubemapTex.shaderName = "texture_diffuse";
+	cubemapTex.type = GL_TEXTURE_CUBE_MAP;
+
+	Graphics::instance()->Terrain = (void*)(&cubemapTex.id);
 
 	textures.push_back(cubemapTex);
-	meshes.push_back(new SkyboxMesh(vertices, indices, textures, shaders[0]->GetProgramID()));
+
+	meshes.push_back(new Mesh(vertices, indices, textures, shaders[0]->GetProgramID(), Mesh::BIND_POS));
 }
 
 void Skybox::Update()
 {
-	glDepthMask(GL_FALSE);
-	
+	glDepthFunc(GL_LEQUAL);
 	shaders[0]->Update();
 	transform->Update();
 	meshes[0]->Draw();
-
-	glDepthMask(GL_TRUE);
+	glDepthFunc(GL_LESS);
 }
 
 GLuint Skybox::LoadCubemapTexture(GLuint textureID, string filename, GLuint i)

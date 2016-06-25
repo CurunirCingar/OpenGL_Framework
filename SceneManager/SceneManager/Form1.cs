@@ -490,6 +490,38 @@ namespace SceneManager
 
             tilesAmount.Text = (heightmapPicture.Image.Width / tileSize.Value).ToString();
         }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WriteSceneInfo();
+        }
+
+        private void addGameObjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GameObject newGameObject = new GameObject();
+            gameObjects.Add(newGameObject);
+            int newIndex = gameObjectsGrid.Rows.Add();
+            gameObjectsGrid.Rows[newIndex].Cells["GOName"].Value = "GameObject";
+        }
+
+        private void deleteGameObjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (gameObjects.Count == 0)
+                return;
+
+            gameObjects.RemoveAt(CurIndex);
+            gameObjectsGrid.Rows.RemoveAt(CurIndex);
+            if (CurIndex != 0)
+            {
+                SetFormFields(gameObjects[CurIndex]);
+            }
+            else
+            {
+                if (gameObjects.Count != 0)
+                    SetFormFields(gameObjects[CurIndex]);
+
+            }
+        }
     }
 
     public class Vec3
