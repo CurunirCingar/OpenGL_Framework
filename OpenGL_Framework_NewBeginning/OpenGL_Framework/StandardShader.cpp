@@ -3,6 +3,8 @@
 StandardShader::StandardShader() : Shader("StandardShader")
 {
 	type = sdr::Standard;
+	bindSettings = sdr::BIND_POS_NORMAL_TEX;
+
 	shininess = 32;
 }
 

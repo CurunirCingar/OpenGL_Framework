@@ -96,16 +96,6 @@
             this.label24 = new System.Windows.Forms.Label();
             this.tilingTexturePicture = new System.Windows.Forms.PictureBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addGameObjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteGameObjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.runSceneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.gameObjectsGrid)).BeginInit();
             this.gameObjectTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -121,7 +111,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tileSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.heightmapPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tilingTexturePicture)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -131,7 +120,7 @@
             // NewButton
             // 
             this.NewButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.NewButton.Location = new System.Drawing.Point(12, 292);
+            this.NewButton.Location = new System.Drawing.Point(12, 277);
             this.NewButton.Name = "NewButton";
             this.NewButton.Size = new System.Drawing.Size(141, 20);
             this.NewButton.TabIndex = 1;
@@ -305,7 +294,8 @@
             "StandardShader",
             "StandardBlendedShader",
             "LightShader",
-            "ReflectiveShader"});
+            "ReflectiveShader",
+            "RefractiveShader"});
             this.shaderTypeCombo.Location = new System.Drawing.Point(75, 182);
             this.shaderTypeCombo.Name = "shaderTypeCombo";
             this.shaderTypeCombo.Size = new System.Drawing.Size(139, 21);
@@ -319,7 +309,7 @@
             this.gameObjectsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gameObjectsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GOName});
-            this.gameObjectsGrid.Location = new System.Drawing.Point(12, 27);
+            this.gameObjectsGrid.Location = new System.Drawing.Point(12, 12);
             this.gameObjectsGrid.Name = "gameObjectsGrid";
             this.gameObjectsGrid.ReadOnly = true;
             this.gameObjectsGrid.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -339,7 +329,7 @@
             // DeleteButton
             // 
             this.DeleteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.DeleteButton.Location = new System.Drawing.Point(166, 291);
+            this.DeleteButton.Location = new System.Drawing.Point(166, 276);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(141, 21);
             this.DeleteButton.TabIndex = 33;
@@ -350,7 +340,7 @@
             // ExitButton
             // 
             this.ExitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ExitButton.Location = new System.Drawing.Point(500, 292);
+            this.ExitButton.Location = new System.Drawing.Point(500, 277);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Size = new System.Drawing.Size(143, 20);
             this.ExitButton.TabIndex = 34;
@@ -361,7 +351,7 @@
             // RunButton
             // 
             this.RunButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.RunButton.Location = new System.Drawing.Point(324, 291);
+            this.RunButton.Location = new System.Drawing.Point(324, 276);
             this.RunButton.Name = "RunButton";
             this.RunButton.Size = new System.Drawing.Size(143, 21);
             this.RunButton.TabIndex = 35;
@@ -502,7 +492,7 @@
             this.gameObjectTab.Controls.Add(this.tabPage1);
             this.gameObjectTab.Controls.Add(this.tabPage2);
             this.gameObjectTab.Controls.Add(this.tabPage3);
-            this.gameObjectTab.Location = new System.Drawing.Point(324, 27);
+            this.gameObjectTab.Location = new System.Drawing.Point(324, 12);
             this.gameObjectTab.Name = "gameObjectTab";
             this.gameObjectTab.SelectedIndex = 0;
             this.gameObjectTab.Size = new System.Drawing.Size(319, 258);
@@ -878,91 +868,19 @@
             this.label23.TabIndex = 14;
             this.label23.Text = "Tiling texture";
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.editToolStripMenuItem,
-            this.runSceneToolStripMenuItem,
-            this.exitToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(652, 24);
-            this.menuStrip1.TabIndex = 40;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem,
-            this.openToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
-            // 
-            // newToolStripMenuItem
-            // 
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.newToolStripMenuItem.Text = "New";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
-            // 
-            // openToolStripMenuItem
-            // 
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.openToolStripMenuItem.Text = "Open";
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addGameObjectToolStripMenuItem,
-            this.deleteGameObjectToolStripMenuItem});
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.editToolStripMenuItem.Text = "Edit";
-            // 
-            // addGameObjectToolStripMenuItem
-            // 
-            this.addGameObjectToolStripMenuItem.Name = "addGameObjectToolStripMenuItem";
-            this.addGameObjectToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.addGameObjectToolStripMenuItem.Text = "Add game object";
-            this.addGameObjectToolStripMenuItem.Click += new System.EventHandler(this.addGameObjectToolStripMenuItem_Click);
-            // 
-            // deleteGameObjectToolStripMenuItem
-            // 
-            this.deleteGameObjectToolStripMenuItem.Name = "deleteGameObjectToolStripMenuItem";
-            this.deleteGameObjectToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.deleteGameObjectToolStripMenuItem.Text = "Delete game object";
-            this.deleteGameObjectToolStripMenuItem.Click += new System.EventHandler(this.deleteGameObjectToolStripMenuItem_Click);
-            // 
-            // runSceneToolStripMenuItem
-            // 
-            this.runSceneToolStripMenuItem.Name = "runSceneToolStripMenuItem";
-            this.runSceneToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
-            this.runSceneToolStripMenuItem.Text = "Run scene";
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.exitToolStripMenuItem.Text = "Exit";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(652, 320);
+            this.ClientSize = new System.Drawing.Size(652, 307);
             this.Controls.Add(this.gameObjectTab);
             this.Controls.Add(this.gameObjectsGrid);
             this.Controls.Add(this.NewButton);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.RunButton);
             this.Controls.Add(this.DeleteButton);
-            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "NovaEditor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -985,10 +903,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tileSize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.heightmapPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tilingTexturePicture)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -1061,16 +976,6 @@
         private System.Windows.Forms.NumericUpDown textureTiling;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox tilesAmount;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addGameObjectToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteGameObjectToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem runSceneToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 

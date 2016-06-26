@@ -12,38 +12,17 @@ GameObject::GameObject(string& objectName, string& shaderFilename, string& model
 	name = objectName;
 
 	transform = new Transform();
+	
+	shader = Mesh::CreateShader(shaderFilename, &transform->transform);
 
-	CreateShader(shaderFilename, &transform->transform);
+	if (shader->type == sdr::StandardBlended)
+		Graphics::instance()->BlendedGameObjects.push_back((void*)this);
+	else
+		Graphics::instance()->GameObjects.push_back((void*)this);
 
-	model = new Model("Res/" + modelFilename, shader->GetProgramID());
+	model = new Model("Res/" + modelFilename, shader);
 
 	transform->SetProgramID(shader->GetProgramID());
-}
-
-void GameObject::CreateShader(std::string& shaderFilename, Structs::Transform* transform)
-{
-	switch (sdr::type[shaderFilename])
-	{
-	case sdr::Standard:
-		shader = new StandardShader();
-		Graphics::instance()->GameObjects.push_back((void*)this);
-		break;
-
-	case sdr::StandardBlended:
-		shader = new StandardBlendedShader();
-		Graphics::instance()->BlendedGameObjects.push_back((void*)this);
-		break;
-
-	case sdr::Light:
-		shader = new LightShader(transform);
-		Graphics::instance()->GameObjects.push_back((void*)this);
-		break;
-
-	case sdr::Reflective:
-		shader = new ReflectiveShader();
-		Graphics::instance()->GameObjects.push_back((void*)this);
-		break;
-	}
 }
 
 GameObject::~GameObject()
@@ -53,13 +32,7 @@ GameObject::~GameObject()
 
 void GameObject::Start()
 {
-	CheckName();
 	transform->Start();
-}
-
-void GameObject::CheckName()
-{
-	
 }
 
 void GameObject::SetCamera()

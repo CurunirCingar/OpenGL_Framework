@@ -1,14 +1,14 @@
 #include "Mesh.h"
 
-Mesh::Mesh(vector<Structs::Vertex> vertices, vector<GLuint> indices, vector<Structs::Texture> textures, GLuint shaderProgram, int bindSetting)
+Mesh::Mesh(vector<Structs::Vertex> vertices, vector<GLuint> indices, vector<Structs::Texture> textures, Shader* shader)
 {
-	m_shaderProgram = shaderProgram;
+	this->shader = shader;
 
 	this->vertices = vertices;
 	this->indices = indices;
 	this->textures = textures;
 
-	SetupMesh(bindSetting);
+	SetupMesh();
 }
 
 Mesh::~Mesh()
@@ -16,9 +16,43 @@ Mesh::~Mesh()
 
 }
 
-void Mesh::SetupMesh(int bindSetting)
+Shader* Mesh::CreateShader(std::string& shaderFilename, Structs::Transform* transform)
 {
-	m_polygonMode = GL_FILL;
+	switch (sdr::type[shaderFilename])
+	{
+	case sdr::Standard:
+		return new StandardShader();
+		break;
+
+	case sdr::StandardBlended:
+		return new StandardBlendedShader();
+		break;
+
+	case sdr::Light:
+		return new LightShader(transform);
+		break;
+
+	case sdr::Reflective:
+		return new ReflectiveShader();
+		break;
+
+	case sdr::Refractive:
+		return new RefractiveShader();
+		break;
+
+	case sdr::Skybox:
+		return new SkyboxShader();
+		break;
+
+	case sdr::Screen:
+		return new ScreenShader();
+		break;
+	}
+}
+
+void Mesh::SetupMesh()
+{
+	polygonMode = GL_FILL;
 
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);
@@ -32,19 +66,24 @@ void Mesh::SetupMesh(int bindSetting)
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(GLuint), &indices[0], GL_STATIC_DRAW);
 
-	if (bindSetting == BIND_POS || bindSetting == BIND_POS_NORMAL || bindSetting == BIND_POS_TEX || bindSetting == BIND_POS_NORMAL_TEX)
+	if (shader->bindSettings == sdr::BIND_POS ||
+		shader->bindSettings == sdr::BIND_POS_NORMAL ||
+		shader->bindSettings == sdr::BIND_POS_TEX ||
+		shader->bindSettings == sdr::BIND_POS_NORMAL_TEX)
 	{
 		glVertexAttribPointer(POSITION_VB, 3, GL_FLOAT, GL_FALSE, sizeof(Structs::Vertex), (GLvoid*)0);
 		glEnableVertexAttribArray(POSITION_VB);
 	}
 
-	if (bindSetting == BIND_POS_NORMAL || bindSetting == BIND_POS_NORMAL_TEX)
+	if (shader->bindSettings == sdr::BIND_POS_NORMAL ||
+		shader->bindSettings == sdr::BIND_POS_NORMAL_TEX)
 	{
 		glVertexAttribPointer(NORMAL_VB, 3, GL_FLOAT, GL_FALSE, sizeof(Structs::Vertex), (GLvoid*)offsetof(Structs::Vertex, Normal));
 		glEnableVertexAttribArray(NORMAL_VB);
 	}
 
-	if (bindSetting == BIND_POS_TEX || bindSetting == BIND_POS_NORMAL_TEX)
+	if (shader->bindSettings == sdr::BIND_POS_TEX ||
+		shader->bindSettings == sdr::BIND_POS_NORMAL_TEX)
 	{
 		glVertexAttribPointer(TEXTURECOORD_VB, 2, GL_FLOAT, GL_FALSE, sizeof(Structs::Vertex), (GLvoid*)offsetof(Structs::Vertex, TexCoords));
 		glEnableVertexAttribArray(TEXTURECOORD_VB);
@@ -70,7 +109,7 @@ void Mesh::Draw()
 			if (name == "texture_specular")
 				ss << specularNr++; // Transfer GLuint to stream
 		number = ss.str();
-		GLint matShineLoc = glGetUniformLocation(m_shaderProgram, ("material." + name + number).c_str());
+		GLint matShineLoc = glGetUniformLocation(shader->GetProgramID(), ("material." + name + number).c_str());
 		glUniform1f(matShineLoc, i);
 		glBindTexture(textures[i].type, textures[i].id);
 	}
@@ -84,7 +123,7 @@ void Mesh::Draw()
 
 void Mesh::ChangePolygonMode()
 {
-	m_polygonMode = m_polygonMode == GL_LINE ? GL_FILL : GL_LINE;
+	polygonMode = polygonMode == GL_LINE ? GL_FILL : GL_LINE;
 }
 
 /*

@@ -2,6 +2,9 @@
 
 ScreenShader::ScreenShader() : Shader("ScreenShader")
 {
+	type = sdr::Screen;
+	bindSettings = sdr::BIND_POS_TEX;
+
 	offset = 300.0f;
 	SetPosteffect(scrnSdr::None);
 }

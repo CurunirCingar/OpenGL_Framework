@@ -19,11 +19,7 @@ using namespace std;
 class Model
 {
 public:
-	Model(const std::string& path, GLuint shaderProgram)
-	{
-		m_shaderProgram = shaderProgram;
-		LoadModel(path);
-	}
+	Model(const std::string& path, Shader* shader);
 	~Model();
 	void Draw();
 
@@ -34,7 +30,7 @@ private:
 	vector<Structs::Texture> LoadMaterialTextures(aiMaterial* mat, aiTextureType type, string typeName);
 	GLint TextureFromFile(const char* path, string directory);
 
-	GLuint m_shaderProgram;
+	Shader* shader;
 	vector<Mesh> meshes;
 	string directory;
 	vector<Structs::Texture> textures_loaded;

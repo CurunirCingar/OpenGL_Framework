@@ -1,5 +1,11 @@
 #include "Model.h"
 
+Model::Model(const std::string& path, Shader* shader)
+{
+	this->shader = shader;
+	LoadModel(path);
+}
+
 void Model::LoadModel(const std::string& path)
 {
 	Assimp::Importer import;
@@ -110,7 +116,7 @@ Mesh Model::ProcessMesh(aiMesh* mesh, const aiScene* scene)
 	}
 
 	// Return a mesh object created from the extracted mesh data
-	return Mesh(vertices, indices, textures, m_shaderProgram, Mesh::BIND_POS_NORMAL_TEX);
+	return Mesh(vertices, indices, textures, shader);
 }
 
 vector<Structs::Texture> Model::LoadMaterialTextures(aiMaterial* mat, aiTextureType type, string typeName)

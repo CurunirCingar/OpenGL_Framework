@@ -97,11 +97,11 @@ void Skybox::SetupMesh(vector<string>& texFilenames)
 	cubemapTex.shaderName = "texture_diffuse";
 	cubemapTex.type = GL_TEXTURE_CUBE_MAP;
 
-	Graphics::instance()->Terrain = (void*)(&cubemapTex.id);
+	Graphics::instance()->skyboxTex = cubemapTex.id;
 
 	textures.push_back(cubemapTex);
 
-	meshes.push_back(new Mesh(vertices, indices, textures, shaders[0]->GetProgramID(), Mesh::BIND_POS));
+	meshes.push_back(new Mesh(vertices, indices, textures, shaders[0]));
 }
 
 void Skybox::Update()

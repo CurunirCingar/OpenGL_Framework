@@ -16,43 +16,6 @@ using namespace std;
 #ifndef _Graphics_
 #define  _Graphics_
 
-class Graphics
-{
-public:
-	static Graphics* instance()
-	{
-		if (!m_this)
-		{
-			m_this = new Graphics();
-		}
-		return m_this;
-	}
-	virtual ~Graphics();
-
-	inline GLint GetNewId() { return objectsAmount++; }
-
-	list<void*> GameObjects;
-	list<void*> BlendedGameObjects;
-
-	list<void*> lightSources;
-	void* Sun;
-	void* Skybox;
-	void* Terrain;
-	void* MainCamera;
-
-	GLint width, height;
-
-private:
-	Graphics();
-	static Graphics* m_this;
-	GLint objectsAmount = 0;
-};
-
-inline void SetVec3Unif(GLint local, glm::vec3& vec)
-{
-	glUniform3f(local, vec.x, vec.y, vec.z);
-};
-
 namespace Structs
 {
 	struct Transform
@@ -75,6 +38,43 @@ namespace Structs
 		GLuint type;
 		aiString path;  // We store the path of the texture to compare with other textures
 	};
+};
+
+class Graphics
+{
+public:
+	static Graphics* instance()
+	{
+		if (!m_this)
+		{
+			m_this = new Graphics();
+		}
+		return m_this;
+	}
+	virtual ~Graphics();
+
+	inline GLint GetNewId() { return objectsAmount++; }
+
+	list<void*> GameObjects;
+	list<void*> BlendedGameObjects;
+
+	list<void*> lightSources;
+	void* Sun;
+	GLuint skyboxTex;
+	void* Terrain;
+	void* MainCamera;
+
+	GLint width, height;
+
+private:
+	Graphics();
+	static Graphics* m_this;
+	GLint objectsAmount = 0;
+};
+
+inline void SetVec3Unif(GLint local, glm::vec3& vec)
+{
+	glUniform3f(local, vec.x, vec.y, vec.z);
 };
 
 #endif

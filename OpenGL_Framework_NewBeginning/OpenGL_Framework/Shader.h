@@ -21,7 +21,9 @@ namespace sdr
 		StandardBlended,
 		Light,
 		Skybox,
-		Reflective
+		Reflective,
+		Refractive,
+		Screen
 	};
 	static map<string, Enum> type = {
 		{ "StandardShader", Standard },
@@ -29,6 +31,13 @@ namespace sdr
 		{ "LightShader", Light },
 		{ "SkyboxShader", Skybox },
 		{ "ReflectiveShader", Reflective },
+		{ "RefractiveShader", Refractive },
+	};
+	enum BindSettings{
+		BIND_POS,
+		BIND_POS_NORMAL,
+		BIND_POS_TEX,
+		BIND_POS_NORMAL_TEX,
 	};
 };
 
@@ -40,6 +49,7 @@ public:
 	virtual ~Shader();
 
 	sdr::Enum type;
+	sdr::BindSettings bindSettings;
 
 	void Update();
 	inline GLuint GetProgramID() { return m_program; }

@@ -4,6 +4,7 @@
 SkyboxShader::SkyboxShader() : Shader("SkyboxShader")
 {
 	type = sdr::Light;
+	bindSettings = sdr::BIND_POS;
 }
 
 

@@ -4,6 +4,7 @@
 LightShader::LightShader(Structs::Transform* transform) : Shader("LightShader")
 {
 	type = sdr::Light;
+	bindSettings = sdr::BIND_POS_NORMAL_TEX;
 
 	this->transform = transform;
 	light = new PointLightSource(transform);

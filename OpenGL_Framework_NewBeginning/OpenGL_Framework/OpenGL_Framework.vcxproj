@@ -95,6 +95,7 @@
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Model.h" />
+    <ClInclude Include="RefractiveShader.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="ScreenShader.h" />
     <ClInclude Include="Shader.h" />
@@ -123,6 +124,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="NovaGL.cpp" />
+    <ClCompile Include="RefractiveShader.cpp" />
     <ClCompile Include="ScreenShader.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="SkyBox.cpp" />

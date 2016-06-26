@@ -14,11 +14,15 @@ using namespace std;
 #include "stb_image.h"
 
 #include "Shader.h"
+
 #include "StandardShader.h"
 #include "LightShader.h"
 #include "StandardBlendedShader.h"
 #include "SkyboxShader.h"
 #include "ReflectiveShader.h"
+#include "RefractiveShader.h"
+#include "ScreenShader.h"
+
 #include "Graphics.h"
 
 #ifndef _Mesh_
@@ -27,12 +31,6 @@ using namespace std;
 class Mesh
 {
 public:
-	enum BindSettings{
-		BIND_POS,
-		BIND_POS_NORMAL,
-		BIND_POS_TEX,
-		BIND_POS_NORMAL_TEX,
-	};
 
 	enum{
 		POSITION_VB,
@@ -46,20 +44,21 @@ public:
 	vector<GLuint> indices;
 	vector<Structs::Texture> textures;
 
-	Mesh(vector<Structs::Vertex> vertices, vector<GLuint> indices, vector<Structs::Texture> textures, GLuint shaderProgram, int bindSetting);
+	Mesh(vector<Structs::Vertex> vertices, vector<GLuint> indices, vector<Structs::Texture> textures, Shader* shader);
 	virtual void Draw();
 	virtual ~Mesh();
 
 	void ChangePolygonMode();
+	static Shader* CreateShader(std::string& shaderFilename, Structs::Transform* transform);
 
 protected:
-	virtual void SetupMesh(int bindSetting);
+	virtual void SetupMesh();
 
-	GLuint m_shaderProgram;
 	GLuint VAO;
 	GLuint VBO;
 	GLuint EBO;
 
-	GLuint m_polygonMode;
+	Shader* shader;
+	GLuint polygonMode;
 };
 #endif

@@ -26,10 +26,7 @@ public:
 	void Start();
 	void Update();
 	void ChangeDrawingMode();
-	void CheckName();
 	void SetCamera();
-
-	void CreateShader(std::string& shaderFilename, Structs::Transform* transform);
 
 	GLint id;
 	string name;

@@ -163,9 +163,8 @@ void MainWindow::ReadSceneInfo()
 		ReadStringFromFile(in, texFilenameBuf);
 		texFilenames.push_back(texFilenameBuf);
 	}
-
+	
 	skybox = new Skybox(texFilenames, sdr::Skybox);
-	Graphics::instance()->Skybox = (void*)skybox;
 
 	int tileSize, textureTiling;
 	texFilenames.clear();

@@ -112,7 +112,7 @@ void Terrain::SetupMesh(vector<string>& texFilenames)
 
 	meshTextures.assign(1, textures[0]);
 
-	meshes.push_back(new Mesh(vertices, indices, meshTextures, shaders[0]->GetProgramID(), Mesh::BIND_POS_NORMAL_TEX));
+	meshes.push_back(new Mesh(vertices, indices, meshTextures, shaders[0]));
 }
 
 void Terrain::Update()
