@@ -1,0 +1,39 @@
+﻿Сборка начата 26.06.2016 14:46:53.
+     1>Проект "C:\Users\Curunir\Desktop\Computer graphics\OpenGL_Framework_NewBeginning\OpenGL_Framework\OpenGL_Framework.vcxproj" в узле 2 (целевые объекты Build).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(381,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (OpenGL_Framework.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I.\Include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt RefractiveShader.cpp
+         RefractiveShader.cpp
+     1>c:\users\curunir\desktop\computer graphics\opengl_framework_newbeginning\opengl_framework\refractiveshader.cpp(7): warning C4305: =: усечение из "double" к "GLfloat"
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Curunir\Desktop\Computer graphics\OpenGL_Framework_NewBeginning\Debug\NovaGL.exe" /INCREMENTAL /NOLOGO /LIBPATH:.\Lib glew32.lib glew32s.lib SDL2.lib SDL2main.lib SDL2test.lib opengl32.lib assimp.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Curunir\Desktop\Computer graphics\OpenGL_Framework_NewBeginning\Debug\NovaGL.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Curunir\Desktop\Computer graphics\OpenGL_Framework_NewBeginning\Debug\NovaGL.lib" /MACHINE:X86 Debug\Camera.obj
+         Debug\Component.obj
+         Debug\ReflectiveShader.obj
+         Debug\Framebuffer.obj
+         Debug\GeneratedGameObject.obj
+         Debug\Graphics.obj
+         Debug\LightShader.obj
+         Debug\LightSources.obj
+         Debug\main.obj
+         Debug\MainWindow.obj
+         Debug\Mesh.obj
+         Debug\GameObject.obj
+         Debug\Model.obj
+         Debug\NovaGL.obj
+         Debug\RefractiveShader.obj
+         Debug\ScreenShader.obj
+         Debug\Shader.obj
+         Debug\SkyBox.obj
+         Debug\SkyboxShader.obj
+         Debug\SkyboxTransform.obj
+         Debug\StandardBlendedShader.obj
+         Debug\StandardShader.obj
+         Debug\stb_image.obj
+         Debug\Terrain.obj
+         Debug\Transform.obj
+         OpenGL_Framework.vcxproj -> C:\Users\Curunir\Desktop\Computer graphics\OpenGL_Framework_NewBeginning\Debug\NovaGL.exe
+     1>Сборка проекта "C:\Users\Curunir\Desktop\Computer graphics\OpenGL_Framework_NewBeginning\OpenGL_Framework\OpenGL_Framework.vcxproj" завершена (целевые объекты Build).
+
+Сборка успешно завершена.
+
+Затраченное время: 00:00:02.09
